@@ -15,6 +15,7 @@
 //= require underscore
 //= require backbone
 //= require hackstarter
+//= require bootstrap
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

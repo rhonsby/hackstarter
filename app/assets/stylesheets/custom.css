@@ -1,0 +1,24 @@
+#brand-hack {
+  color: #23719F;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.navbar-main {
+  background-color: #fff;
+}
+
+.navbar-nav > li:last-child > a:last-child {
+  border-right: 1px solid #e7e7e7;
+  padding-right: 30px;
+}
+
+.navbar-nav > .dropdown > a {
+  border-left: 1px solid #e7e7e7;
+}
+
+.container-fluid {
+  padding-right: 0;
+}

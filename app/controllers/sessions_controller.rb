@@ -7,9 +7,9 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by_credentials(user_params)
 
-    if @user 
+    if @user
       login!(@user)
-      render json: @user
+      redirect_to root_url
     else
       render json: ["Invalid username/password"]
     end
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
     current_user.reset_session_token!
     session[:session_token] = nil
 
-    render json: ["You have successfully logged out"]
+    redirect_to root_url
   end
 
   private
