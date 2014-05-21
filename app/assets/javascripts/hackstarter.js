@@ -4,7 +4,9 @@ window.Hackstarter = {
   Views: {},
   Routers: {},
   initialize: function() {
-   // alert('Hello from Backbone!');
+    new Hackstarter.Routers.Router({
+      $rootEl: $('#main')
+    });
   }
 };
 
