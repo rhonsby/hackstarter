@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
 
   before_validation :ensure_session_token
 
+  has_many :projects, foreign_key: :owner_id
+
   def self.find_by_credentials(params)
     user = User.find_by_username(params[:username])
     user.try(:is_password?, params[:password]) ? user : nil
