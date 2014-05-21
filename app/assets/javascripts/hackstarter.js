@@ -10,7 +10,3 @@ window.Hackstarter = {
     Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  Hackstarter.initialize();
-});
