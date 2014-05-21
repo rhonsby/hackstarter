@@ -4,12 +4,18 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    '': 'index'
+    '': 'index',
+    'companies/new': 'newCompany',
   },
 
   index: function () {
     var indexView = new Hackstarter.Views.RootIndex();
     this._swapView(indexView);
+  },
+
+  newCompany: function () {
+    var newView = new Hackstarter.Views.CompanyNew();
+    this._swapView(newView);
   },
 
   _swapView: function (view) {

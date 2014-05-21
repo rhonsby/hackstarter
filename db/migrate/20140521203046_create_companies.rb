@@ -3,10 +3,12 @@ class CreateCompanies < ActiveRecord::Migration
     create_table :companies do |t|
       t.string :name, null: false
       t.string :location, null: false
-      t.integer :funding_duration, null: false
-      t.integer :funding_goal, null: false
+      t.text :blurb, null: false
+      t.integer :duration, null: false
+      t.integer :investment_goal, null: false
       t.integer :equity, null: false
       t.integer :owner_id, null: false
+      t.string :growth_stage, null: false
 
       t.timestamps
     end

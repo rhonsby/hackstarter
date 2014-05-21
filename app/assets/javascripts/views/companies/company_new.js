@@ -1,5 +1,5 @@
-Hackstarter.Views.RootIndex = Backbone.View.extend({
-  template: JST["root/index"],
+Hackstarter.Views.CompanyNew = Backbone.View.extend({
+  template: JST["companies/new"],
 
   render: function () {
     var renderedContent = this.template();

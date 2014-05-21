@@ -2,21 +2,24 @@
 #
 # Table name: companies
 #
-#  id               :integer          not null, primary key
-#  name             :string(255)      not null
-#  location         :string(255)      not null
-#  funding_duration :integer          not null
-#  funding_goal     :integer          not null
-#  equity           :integer          not null
-#  owner_id         :integer          not null
-#  created_at       :datetime
-#  updated_at       :datetime
+#  id              :integer          not null, primary key
+#  name            :string(255)      not null
+#  location        :string(255)      not null
+#  blurb           :text             not null
+#  duration        :integer          not null
+#  investment_goal :integer          not null
+#  equity          :integer          not null
+#  owner_id        :integer          not null
+#  growth_stage    :string(255)      not null
+#  created_at      :datetime
+#  updated_at      :datetime
 #
 
 class Company < ActiveRecord::Base
-  validate :owner, :name,
-           :location, :funding_duration,
-           :funding_goal, :equity, presence: true
+  validates :owner, :name,
+           :location, :duration,
+           :investment_goal, :equity, :growth_stage, presence: true
+  validates :growth_stage, inclusion: ['Start-Up', 'Early Stage', 'Growth']
 
   belongs_to :owner, class_name: 'User'
 end

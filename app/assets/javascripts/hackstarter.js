@@ -7,6 +7,7 @@ window.Hackstarter = {
     new Hackstarter.Routers.Router({
       $rootEl: $('#main')
     });
+    Backbone.history.start();
   }
 };
 
