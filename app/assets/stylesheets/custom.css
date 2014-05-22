@@ -148,3 +148,13 @@ textarea#company_blurb {
 .progress {
   height: 34px;
 }
+
+#company_pitch {
+  width: 400px;
+  height: 200px;
+}
+
+#company_market {
+  width: 400px;
+  height: 200px;
+}

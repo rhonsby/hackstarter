@@ -26,11 +26,7 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
     event.preventDefault();
     var formData = $(event.currentTarget).serializeJSON().company;
     this.model.set(formData);
-    this.model.save({
-      success: function (resp) {
-        debugger
-      }
-    });
+    this.model.save();
   },
 
   processPhoto: function (event) {

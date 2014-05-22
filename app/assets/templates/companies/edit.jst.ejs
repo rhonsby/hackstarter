@@ -4,6 +4,7 @@
   <ul class='nav nav-tabs nav-justified edit-tabs'>
     <li class='active'><a href='#basics' data-toggle='tab'>Basics</a></li>
     <li><a href='#story' data-toggle='tab'>Story</a></li>
+    <li><a href='#about-you' data-toggle='tab'>About You</a></li>
   </ul>
 </div>
 
@@ -88,8 +89,29 @@
     </form>
   </div><!-- Basics Tab End -->
   <div class='tab-pane col-md-6' id='story'><!-- Story Tab Start -->
+    <form id="new-company-form">
+      <div class="form-group">
+        <label for='company_pitch'>Company Pitch
+          <textarea name="company[pitch]"
+            class='form-control' id='company_pitch'
+            placeholder="Use your company pitch to share more about who you are and what your company does. It's up to you to make the case for your company."><%= company.escape('pitch') %></textarea>
+        </label>
+      </div>
 
+      <div class="form-group">
+        <label for='company_market'>The Market
+          <textarea name="company[market]"
+            class='form-control' id='company_market'
+            placeholder="Specify your company's target market and how you plan on catering to the market."><%= company.escape('market') %></textarea>
+        </label>
+      </div>
+
+      <button type='submit' class='btn btn-primary'>Update</button>
+    </form>
   </div><!-- Story Tab End -->
+  <div class='tab-pane col-md-6' id='about-you'><!-- About You Tab Start -->
+    <!-- Have ability to connect to amazon payments, verify identity, and add contact details -->
+  </div><!-- About You Tab End -->
 
   <div id='company-preview' class='col-md-6 edit-card'>
     <div class='company-card pull-right'>
