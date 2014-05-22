@@ -5,6 +5,6 @@ Hackstarter::Application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   namespace :api, defaults: { format: 'json' } do
-    resources :companies, only: [:create, :update, :destroy]
+    resources :companies, only: [:show, :create, :update, :destroy]
   end
 end

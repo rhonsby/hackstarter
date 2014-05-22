@@ -2,7 +2,24 @@ Hackstarter.Views.CompanyNew = Backbone.View.extend({
   template: JST["companies/new"],
 
   events: {
-    'submit #new-company-form': 'submit'
+    'submit #new-company-form': 'submit',
+    'keyup input': 'updatePreview',
+    'keyup textarea': 'updatePreview'
+  },
+
+  updatePreview: function (event) {
+    var field = $(event.currentTarget);
+    switch (field.attr('name')) {
+      case 'company[name]':
+        $('#preview-title').html(field.val());
+        break;
+      case 'company[blurb]':
+        $('#preview-blurb').html(field.val());
+        break;
+      case 'company[location]':
+        $('#preview-location').html(field.val());
+        break;
+    }
   },
 
   submit: function (event) {
@@ -12,7 +29,7 @@ Hackstarter.Views.CompanyNew = Backbone.View.extend({
 
     company.save({}, {
       success: function () {
-        Backbone.history.navigate(company.bbUrl(), { trigger: true });
+        Backbone.history.navigate(company.bbUrl() + '/edit', { trigger: true });
       }
     });
   },

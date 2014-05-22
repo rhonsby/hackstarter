@@ -1,9 +1,12 @@
+/* Navigation */
+
 #brand-hack {
-  color: #23719F;
+  color: #3499d3;
 }
 
 .navbar-brand {
   font-weight: bold;
+  font-size: 1.5em;
 }
 
 .navbar-main {
@@ -19,6 +22,68 @@
   border-left: 1px solid #e7e7e7;
 }
 
+/* Misc */
+
 .container-fluid {
   padding-right: 0;
+}
+
+body {
+  background-color: #F7FAFA;
+}
+
+/* Company Card */
+
+.company-card {
+  margin-top: 100px;
+  height: 418px;
+  width: 280px;
+  border: 2px solid #D9D9DE;
+  border-radius: 10px;
+}
+
+#preview-picture {
+  width: 250px;
+  height: 200px;
+  border: 2px solid #D9D9DE;
+  margin: 10px auto;
+}
+
+.card-info {
+  width: 255px;
+  margin: 0 auto;
+}
+
+#preview-title {
+  font-weight: bold;
+}
+
+#preview-blurb {
+  margin-top: 5px;
+}
+
+.glyphicon-map-marker, #preview-location {
+  color: #00A0FF;
+}
+
+/* New Company Form */
+
+.company-form h1 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.company-form {
+  background-color: #fff;
+  border: 2px solid #D9D9DE;
+  margin-top: 40px;
+  margin: auto auto;
+  padding: 30px;
+  border-radius: 5px;
+  margin-bottom: 40px;
+}
+
+textarea#company_blurb {
+  width: 400px;
+  height: 100px;
 }

@@ -1,60 +1,76 @@
-<div class="row">
-  <div id="new-company" class="col-md-6 col-md-offset-2">
+<div class='company-form'>
+  <div class="row">
     <h1>Register your company.</h1>
+    <div id="new-company" class="col-md-6">
+      <form id="new-company-form" role='form'>
+        <div class="form-group">
+          <label for='company_name'>Name</label>
+          <input type='text' name='company[name]' class='form-control'
+                   id='company_name'>
+        </div>
 
-    <form id="new-company-form" role='form'>
-      <div class="form-group">
-        <label for='company_name'>Name</label>
-        <input type='text' name='company[name]' class='form-control'
-                 id='company_name'>
+        <div class="form-group">
+          <label for='company_blurb'>Short blurb
+            <textarea name="company[blurb]"
+              class='form-control' id='company_blurb'
+              placeholder='How would you describe your company in a single tweet?'></textarea>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for'company_location'>Company Location
+            <input type='text' name='company[location]' class='form-control'>
+           </label>
+        </div>
+
+        <div class="form-group">
+          <label>Business Growth Stage
+            <select name="company[growth_stage]" class='form-control'>
+              <option value='Start-Up'>Start-Up</option>
+              <option value='Early Growth'>Early Growth</option>
+              <option value='Growth'>Growth</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label>Duration
+            <input type='text' name='company[duration]' class='form-control'
+                   placeholder="days">
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label>Investment Goal
+            <input type='text' name='company[investment_goal]'
+                   class='form-control' placeholder="$">
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label>Equity
+            <input type='text' name='company[equity]'
+                   class='form-control' placeholder="%">
+          </label>
+        </div>
+
+        <button type='submit' class='btn btn-primary'>Submit</button>
+      </form>
+    </div>
+
+    <div id='company-preview' class='col-md-4 col-md-offset-1'>
+      <div class='company-card'>
+        <div id='preview-picture'>
+        </div>
+        <div class='card-info'>
+          <p id='preview-title'></p>
+          <p id='preview-blurb'></p>
+          <p>
+            <span class="glyphicon glyphicon-map-marker"></span>
+            <span id='preview-location'></span>
+          </p>
+        </div>
       </div>
-
-      <div class="form-group">
-        <label for'company_location'>Company Location
-          <input type='text' name='company[location]' class='form-control'>
-         </label>
-      </div>
-
-      <div class="form-group">
-        <label for='company_blurb'>Short blurb
-          <textarea name="company[blurb]"
-            class='form-control' id='company_blurb'
-            placeholder='How would you describe your company in a single tweet?'></textarea>
-        </label>
-      </div>
-
-      <div class="form-group">
-        <label>Business Growth Stage
-          <select name="company[growth_stage]" class='form-control'>
-            <option value='Start-Up'>Start-Up</option>
-            <option value='Early Growth'>Early Growth</option>
-            <option value='Growth'>Growth</option>
-          </select>
-        </label>
-      </div>
-
-      <div class="form-group">
-        <label>Duration
-          <input type='text' name='company[duration]' class='form-control'
-                 placeholder="days">
-        </label>
-      </div>
-
-      <div class="form-group">
-        <label>Investment Goal
-          <input type='text' name='company[investment_goal]'
-                 class='form-control' placeholder="$">
-        </label>
-      </div>
-
-      <div class="form-group">
-        <label>Equity
-          <input type='text' name='company[equity]'
-                 class='form-control' placeholder="%">
-        </label>
-      </div>
-
-      <button type='submit' class='btn btn-primary'>Submit</button>
-    </form>
+    </div>
   </div>
 </div>

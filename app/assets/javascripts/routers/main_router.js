@@ -5,7 +5,9 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '': 'index',
-    'companies/new': 'newCompany',
+    'companies/new': 'companyNew',
+    'companies/:id/edit': 'companyEdit',
+    'companies/:id': 'companyShow'
   },
 
   index: function () {
@@ -13,9 +15,29 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
     this._swapView(indexView);
   },
 
-  newCompany: function () {
+  companyNew: function () {
     var newView = new Hackstarter.Views.CompanyNew();
     this._swapView(newView);
+  },
+
+  companyEdit: function (id) {
+    var company = new Hackstarter.Models.Company({ id: id });
+    company.fetch();
+
+    var editView = new Hackstarter.Views.CompanyEdit({
+      model: company
+    });
+    this._swapView(editView);
+  },
+
+  companyShow: function (id) {
+    var company = new Hackstarter.Models.Company({ id: id });
+    company.fetch();
+
+    var showView = new Hackstarter.Views.CompanyShow({
+      model: company
+    });
+    this._swapView(showView);
   },
 
   _swapView: function (view) {

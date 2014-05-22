@@ -4,6 +4,12 @@
     <li><a href="#">Messages</a></li>
     <li><a href="#">Activity</a></li>
     <li><a href="#">Starred Projects</a></li>
+    <% if current_user.companies.any? %>
+      <li class="divider"></li>
+      <% current_user.companies.each do |company| %>
+        <li><%= link_to company.name, "#/companies/#{company.id}" %></li>
+      <% end %>
+    <% end %>
     <li class="divider"></li>
     <li><a href="#">Account</a></li>
     <li><%= link_to 'Sign Out', session_url, method: :delete %></li>

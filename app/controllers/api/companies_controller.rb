@@ -2,6 +2,11 @@ class Api::CompaniesController < ApplicationController
   def index
   end
 
+  def show
+    company = Company.find(params[:id])
+    render json: company
+  end
+
   def create
     company = current_user.companies.build(company_params)
 
