@@ -13,6 +13,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'paperclip', '~> 4.1'
+gem 'figaro'
+gem 'aws-sdk'
 
 group :doc do
   gem 'sdoc', require: false

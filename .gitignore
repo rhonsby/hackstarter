@@ -19,3 +19,6 @@
 # Ignore temp files created by vim
 *.swp
 *.swo
+
+# Ignore application configuration
+/config/application.yml
