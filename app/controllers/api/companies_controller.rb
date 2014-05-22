@@ -1,4 +1,8 @@
 class Api::CompaniesController < ApplicationController
+  wrap_parameters :company, include: [:photo, :name, :location,
+                                      :blurb, :duration, :investment_goal,
+                                      :equity, :growth_stage]
+
   def index
   end
 
@@ -8,30 +12,30 @@ class Api::CompaniesController < ApplicationController
   end
 
   def create
-    company = current_user.companies.build(company_params)
+    @company = current_user.companies.build(company_params)
 
-    if company.save
-      render json: company
+    if @company.save
+      render 'companies/show'
     else
-      render json: company.errors.full_messages
+      render json: @company.errors.full_messages
     end
   end
 
   def update
-    company = Company.find(params[:id])
+    @company = Company.find(params[:id])
 
-    if company.update_attributes(company_params)
-      render json: company
+    if @company.update_attributes(company_params)
+      render 'companies/show'
     else
-      render json: company.errors.full_messages
+      render json: @company.errors.full_messages
     end
   end
 
   def destroy
-    company = Company.find(params[:id])
-    company.destroy
+    @company = Company.find(params[:id])
+    @company.destroy
 
-    render json: company
+    render json: 'companies/show'
   end
 
   private

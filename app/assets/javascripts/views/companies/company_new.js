@@ -31,6 +31,7 @@ Hackstarter.Views.CompanyNew = Backbone.View.extend({
 
     company.save({}, {
       success: function () {
+        debugger
         Backbone.history.navigate(company.bbUrl() + '/edit', { trigger: true });
       }
     });

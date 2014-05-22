@@ -5,23 +5,16 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
+    this.reader = new FileReader();
   },
 
   events: {
     "click a[data-toggle='tab']": 'handleTabSwitch',
     'keyup input': 'updatePreview',
     'keyup textarea': 'updatePreview',
-    // 'submit form': 'handleUpdate',
-    'change #company-photo': 'processPhoto'
+    'change #company-photo': 'processPhoto',
+    'submit form': 'handleUpdate',
   },
-
-  // updateCardData: function () {
-  //   debugger
-  //   $('#preview-title').html(this.model.escape('name'));
-  //   $('#preview-blurb').html(this.model.escape('blurb'));
-  //   $('#preview-location').html(this.model.escape('location'));
-  //   $('#preview-company-photo').attr('src', this.model.escape('photo_url'));
-  // },
 
   handleTabSwitch: function (event) {
     event.preventDefault();
@@ -29,19 +22,32 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
     $tab.tab('show');
   },
 
-  processPhoto: function (event) {
-    var that = this;
-    var uploadFrame = $('#add-photo-form');
-    uploadFrame.prop('target', 'upload_frame');
-    uploadFrame.submit();
-
-    // fetching before submitting is done. causes problem.
-    // this.model.fetch();
+  handleUpdate: function (event) {
+    event.preventDefault();
+    var formData = $(event.currentTarget).serializeJSON().company;
+    this.model.set(formData);
+    this.model.save({
+      success: function (resp) {
+        debugger
+      }
+    });
   },
 
-  // handleUpdate: function (event) {
-  //   event.preventDefault();
-  // },
+  processPhoto: function (event) {
+    var file = $(event.currentTarget)[0].files[0];
+
+    var that = this;
+    this.$('.progress').removeClass('hidden');
+    this.$('#company-photo').addClass('hidden');
+
+    this.$('.progress-bar').css('width', '100%');
+    this.reader.onload = function (e) {
+      that.model.set({ photo: e.target.result });
+      that.model.save();
+    };
+
+    this.reader.readAsDataURL(file);
+  },
 
   updatePreview: function (event) {
     var field = $(event.currentTarget);
@@ -59,6 +65,7 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
   },
 
   render: function () {
+    debugger
     var renderedContent = this.template({ company: this.model });
     this.$el.html(renderedContent);
     return this;

@@ -17,7 +17,6 @@
 
 class Company < ActiveRecord::Base
   has_attached_file :photo, styles: { medium: '300x300>', thumb: '100x100>', card: '298x250#' },
-                    # default_url: "/images/:style/missing.png"
                     default_url: "missing_small.png"
 
   validates :owner, :name,
