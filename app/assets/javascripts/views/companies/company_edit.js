@@ -61,7 +61,6 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
   },
 
   render: function () {
-    debugger
     var renderedContent = this.template({ company: this.model });
     this.$el.html(renderedContent);
     return this;

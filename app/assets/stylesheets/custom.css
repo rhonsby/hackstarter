@@ -104,7 +104,7 @@ body {
 
 /* New Company Form */
 
-.company-form h1 {
+.company-form > h1 {
   text-align: center;
   margin-bottom: 50px;
 }
@@ -157,4 +157,52 @@ textarea#company_blurb {
 #company_market {
   width: 400px;
   height: 200px;
+}
+
+/* Company Show */
+
+#company-show-title {
+  font-size: 32px;
+}
+
+.show-nav {
+  width: 80%;
+  margin-top: 20px;
+  margin-bottom: -83px;
+  padding: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.show-nav li {
+  margin-right: 30px;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.show-nav > li > a {
+  color: #828587;
+}
+
+.show-nav li > a:hover {
+  background-color: inherit;
+}
+
+.show-nav li.selected > a {
+  border-bottom: 5px solid #428bca;
+  padding-bottom: 5px;
+  border-radius: 0;
+  color: inherit;
+}
+
+.company-show {
+  width: 980px;
+}
+
+.left-show {
+  padding: 0;
+}
+
+.company-stats > h1 {
 }

@@ -22,14 +22,16 @@
 #
 
 class Company < ActiveRecord::Base
-  has_attached_file :photo, styles: { medium: '300x300>', thumb: '100x100>', card: '298x250#' },
+  has_attached_file :photo, styles: { show: '600x440#', card: '298x250#' },
                     default_url: "missing_small.png"
 
+  validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
   validates :owner, :name,
            :location, :duration,
            :investment_goal, :equity, :growth_stage, presence: true
   validates :growth_stage, inclusion: ['Start-Up', 'Early Stage', 'Growth']
-  validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
 
   belongs_to :owner, class_name: 'User'
+  has_many :investments
+  has_many :investors, through: :investors
 end
