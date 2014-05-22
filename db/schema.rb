@@ -11,22 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521203046) do
+ActiveRecord::Schema.define(version: 20140522001751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "companies", force: true do |t|
-    t.string   "name",            null: false
-    t.string   "location",        null: false
-    t.text     "blurb",           null: false
-    t.integer  "duration",        null: false
-    t.integer  "investment_goal", null: false
-    t.integer  "equity",          null: false
-    t.integer  "owner_id",        null: false
-    t.string   "growth_stage",    null: false
+    t.string   "name",               null: false
+    t.string   "location",           null: false
+    t.text     "blurb",              null: false
+    t.integer  "duration",           null: false
+    t.integer  "investment_goal",    null: false
+    t.integer  "equity",             null: false
+    t.integer  "owner_id",           null: false
+    t.string   "growth_stage",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "companies", ["name"], name: "index_companies_on_name", using: :btree

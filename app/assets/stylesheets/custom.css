@@ -32,26 +32,56 @@ body {
   background-color: #F7FAFA;
 }
 
+.gray {
+  color: #8D9092;
+}
+
 /* Company Card */
 
 .company-card {
   margin-top: 100px;
-  height: 418px;
-  width: 280px;
-  border: 2px solid #D9D9DE;
+  height: 518px;
+  width: 318px;
+  border: 3px solid #D9D9DE;
   border-radius: 10px;
+  float: right;
 }
 
 #preview-picture {
-  width: 250px;
-  height: 200px;
+  width: 298px;
+  height: 250px;
   border: 2px solid #D9D9DE;
   margin: 10px auto;
 }
 
-.card-info {
+.card-description {
+  margin-top: 20px;
   width: 255px;
-  margin: 0 auto;
+  margin-left: 10px;
+}
+
+.card-info {
+}
+
+.card-divider {
+  height: 1px;
+  border: 3px solid #E7E7E7;
+  position: relative;
+  width: 293px;
+  border-radius: 10px;
+}
+
+.card-footer {
+  position: absolute;
+  bottom: 2%;
+}
+
+.card-footer .row {
+  padding-top: 10px;
+}
+
+.card-footer .row div {
+  margin-right: 8px;
 }
 
 #preview-title {
@@ -60,6 +90,7 @@ body {
 
 #preview-blurb {
   margin-top: 5px;
+  color: #8D9092;
 }
 
 .glyphicon-map-marker, #preview-location {
@@ -74,16 +105,33 @@ body {
 }
 
 .company-form {
+  width: 80%;
   background-color: #fff;
   border: 2px solid #D9D9DE;
-  margin-top: 40px;
-  margin: auto auto;
+  margin-top: 50px;
   padding: 30px;
   border-radius: 5px;
   margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 textarea#company_blurb {
   width: 400px;
   height: 100px;
+}
+
+#company-photo {
+  width: 400px;
+  height: 100px;
+  border: 2px dashed #D9D9DE;
+  cursor: pointer;
+}
+
+.addon-input-group {
+  width: 30%;
+}
+
+#company-name {
+  width: 80%;
 }
