@@ -3,8 +3,8 @@ class Api::CompaniesController < ApplicationController
   end
 
   def show
-    company = Company.find(params[:id])
-    render json: company
+    @company = Company.find(params[:id])
+    render 'companies/show'
   end
 
   def create
@@ -38,6 +38,6 @@ class Api::CompaniesController < ApplicationController
 
   def company_params
     params.require(:company).permit(:name, :location, :blurb, :growth_stage,
-                                    :duration, :investment_goal, :equity)
+                                    :duration, :investment_goal, :equity, :photo)
   end
 end

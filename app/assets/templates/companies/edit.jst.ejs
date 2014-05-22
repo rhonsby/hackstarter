@@ -1,1 +1,121 @@
-<h1>Meet Your Company</h1>
+<div class='center'>
+  <h1><%= company.escape('name') %></h1>
+
+  <ul class='nav nav-tabs nav-justified edit-tabs'>
+    <li class='active'><a href='#basics' data-toggle='tab'>Basics</a></li>
+    <li><a href='#story' data-toggle='tab'>Story</a></li>
+  </ul>
+</div>
+
+<div class='tab-content clearfix'>
+  <div class='tab-pane active col-md-6' id='basics'><!-- Basics Tab Start -->
+    <form id='add-photo-form' method="POST" action="api/companies/<%= company.escape('id') %>" enctype='multipart/form-data'>
+      <input type="hidden" name="authenticity_token" value="<%= $("meta[name='csrf-token']").attr("content") %>">
+      <input type='hidden' name="_method" value="PATCH">
+      <div class="form-group">
+        <label for='company-photo'>Photo</label>
+        <input type='file' class='form-control'
+               name='company[photo]'  id='company-photo'>
+      </div>
+    </form>
+    <iframe src='' id='upload_frame' name='upload_frame' style='display: none'></iframe>
+
+    <form id="new-company-form">
+      <div class="form-group">
+        <label for='company_name'>Name</label>
+        <input type='text' name='company[name]' class='form-control'
+                 id='company_name'
+                 value='<%= company.escape('name') %>'>
+      </div>
+
+      <div class="form-group">
+        <label for='company_blurb'>Short blurb
+          <textarea name="company[blurb]"
+            class='form-control' id='company_blurb'
+            placeholder='How would you describe your company in a single tweet?'><%= company.escape('blurb') %></textarea>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label for'company_location'>Company Location
+          <input type='text' name='company[location]' class='form-control'
+          placeholder='San Francisco, CA' value="<%= company.escape('location') %>">
+         </label>
+      </div>
+
+      <div class="form-group">
+        <label>Business Growth Stage
+          <select name="company[growth_stage]" class='form-control'>
+            <% ['Start-Up', 'Early Growth', 'Growth'].forEach(function (option) { %>
+              <option value=<%= option %>
+                <% if (company.get('growth_stage') === option) { %>
+                  <%= 'selected' %>
+                <% }; %>>
+                <%= option %>
+              </option>
+            <% }); %>
+          </select>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label>Duration
+          <input type='text' name='company[duration]' class='form-control'
+                 placeholder="days" value='<%= company.escape('duration') %>'>
+        </label>
+      </div>
+
+      <div class='form-group'>
+        <label for="company_goal">Investment Goal</label>
+        <div class="input-group addon-input-group">
+            <span class="input-group-addon">$</span>
+            <input type='text' name='company[investment_goal]'
+                   class='form-control' id='company_goal'
+                   value='<%= company.escape('investment_goal') %>'>
+        </div>
+      </div>
+
+      <div class='form-group'>
+        <label for="company_equity">Equity</label>
+        <div class="input-group addon-input-group">
+            <input type='text' name='company[equity]'
+                   class='form-control' id='company_equity'
+                   value='<%= company.escape('equity') %>'>
+            <span class="input-group-addon">%</span>
+        </div>
+      </div>
+
+      <button type='submit' class='btn btn-primary'>Update</button>
+    </form>
+  </div><!-- Basics Tab End -->
+  <div class='tab-pane col-md-6' id='story'><!-- Story Tab Start -->
+
+  </div><!-- Story Tab End -->
+
+  <div id='company-preview' class='col-md-6'>
+    <div class='company-card pull-right'>
+      <div id='preview-picture'>
+        <img src="<%= this.model.escape('photo_url') %>" id='preview-company-photo'>
+      </div>
+      <div class='card-description'>
+        <div class='card-info'>
+          <p id='preview-title'><%= this.model.escape('name') %></p>
+          <p id='preview-blurb'><%= this.model.escape('blurb') %></p>
+        </div>
+        <div class='card-footer'>
+          <p>
+            <span class="glyphicon glyphicon-map-marker"></span>
+            <span id='preview-location'><%= this.model.escape('location') %></span>
+          </p>
+          <div class='card-divider'></div>
+          <div class='row'>
+            <!-- replace these numbers with current data -->
+            <div class='col-md-4'>0% <p class='gray'>funded</p></div>
+            <div class='col-md-4'>$0.00 <p class='gray'>invested</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

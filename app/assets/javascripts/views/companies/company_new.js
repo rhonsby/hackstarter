@@ -1,6 +1,8 @@
 Hackstarter.Views.CompanyNew = Backbone.View.extend({
   template: JST["companies/new"],
 
+  className: 'company-form',
+
   events: {
     'submit #new-company-form': 'submit',
     'keyup input': 'updatePreview',
@@ -35,7 +37,9 @@ Hackstarter.Views.CompanyNew = Backbone.View.extend({
   },
 
   render: function () {
-    var renderedContent = this.template();
+    var renderedContent = this.template({
+      company: this.model
+    });
     this.$el.html(renderedContent);
     return this;
   }
