@@ -1,0 +1,78 @@
+<!-- Modal -->
+<div class="modal fade" id="pledge-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-pledge modal-dialog-center">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title" id="myModalLabel"><%= company.escape('name') %></h3>
+      </div>
+      <div class="modal-body row">
+        <div class='col-md-6'>
+          <form class='pledge-form'>
+            <input type='hidden' name='investment[company_id]' value='<%= company.id %>'>
+            <label for='pledge-amount'><h4>Enter your pledge amount</h4></label>
+            <div class='form-group pledge-wrapper'>
+              <span class="currency">$</span>
+              <input type='text' name='investment[amount]' id='pledge-amount'
+                class='form-control input-lg'>
+            </div>
+            <img src='amazon_payments.png'></img>
+          </form>
+        </div>
+        <div class='col-md-6'>
+          <div id='pledge-faq'>
+            <h5>FREQUENTLY ASKED QUESTIONS</h5>
+            <div class="panel-group" id="accordion">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <p class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                      How do I pledge?
+                    </a>
+                  </p>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <p>Realistically, I would have an API set up so that actual investments could be done through Amazon Payments; however, for the sake of this demo, by simply inputting a pledge amount in the input field on the left and hitting pledge, you can `pledge` money to the company of your choice.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <p class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                      When is my card charged?
+                    </a>
+                  </p>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <p>If the company is successfully funded, your card will be charged on <span class='charge-date'><%= company.escape('end_date') %></span>, along with all the other investors of this company.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <p class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                      So I'm only charged if funding succeeds?
+                    </a>
+                  </p>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <p>Yes! That's part of what makes Hackstarter special. If a company isn't successfully funded, no one pays anything.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id='pledge-submit'>Pledge</button>
+      </div>
+    </div>
+  </div>
+</div>
