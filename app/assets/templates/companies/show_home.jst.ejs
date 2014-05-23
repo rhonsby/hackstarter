@@ -1,0 +1,44 @@
+<div class='tab-pane active fade in' id='home'>
+  <div class='row'>
+    <div class='col-md-8 left-show'>
+      <img src='missing.png' id='company-show-photo'>
+
+      <div class='company-story'>
+        <h3 class='story-details company-pitch'>The Pitch</h3>
+        <div class='company-pitch'>
+        </div>
+
+        <h3 class='story-details company-market'>The Market</h3>
+        <div class='company-market'></div>
+      </div>
+    </div>
+
+    <div class='col-md-4 right-show'>
+      <div class='company-stats'>
+        <h1 class='stats-title investor'>
+          <span class='investor-count'></span>
+        </h1>
+        <span class='stats-span investor'>investors</span>
+
+        <h1 class='stats-title amount-raised'></h1>
+        <span class='stats-span'>raised of
+          $<span class='investment-goal'>0
+          </span> goal
+        </span>
+
+        <h1 class='stats-title days-left'>0</h1>
+        <span class='stats-span days'>days to go</span>
+      </div>
+
+      <button class='btn btn-lg btn-primary pledge-btn' data-toggle='modal'
+        data-target='#pledge-modal'>
+        <p>Back This Company</p>
+        <p>$1 Minimum Pledge</p>
+      </button>
+
+      <p class='pledge-msg'>This company is only funded if at least
+        $<span class='investment-goal'>0</span>
+        is pledged by <%= company.escape('end_date') %>.</p>
+    </div>
+  </div>
+</div>

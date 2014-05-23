@@ -164,6 +164,10 @@ textarea#company_blurb {
   height: 200px;
 }
 
+#story h5 {
+  margin-bottom: 15px;
+}
+
 /* Company Show */
 
 #company-show-title {
@@ -342,4 +346,26 @@ p.panel-title {
 .pledge-msg {
   margin-top: 18px;
   font-size: 13px;
+}
+
+div.company-pitch {
+  font-size: 1.2em;
+}
+
+.company-story {
+  width: 95%;
+  font-size: 1.2em;
+}
+
+h3.story-details {
+  margin-top: 50px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #D9D9DE;
+  width: 40%;
+  color: rgba(80, 80, 80, 0.77);
+  margin-bottom: 20px;
+}
+
+.company-market img {
+  max-width: 100%;
 }

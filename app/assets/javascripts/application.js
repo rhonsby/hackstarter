@@ -15,6 +15,7 @@
 //= require jquery.serializejson
 //= require underscore
 //= require backbone
+//= require marked
 //= require hackstarter
 //= require bootstrap
 //= require_tree ../templates

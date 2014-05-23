@@ -41,8 +41,7 @@ Hackstarter.Views.CompanyShow = Backbone.View.extend({
 
   handleTabSwitch: function (event) {
     event.preventDefault();
-    var $tab = $(event.currentTarget);
-    $tab.tab('show');
+    $(event.currentTarget).tab('show');
   },
 
   updateStats: function () {
@@ -54,6 +53,9 @@ Hackstarter.Views.CompanyShow = Backbone.View.extend({
       numberWithCommas(this.model.escape('amount_raised') || 0)
     );
     this.$('.days-left').html(this.model.escape('days_left') || 0);
+    this.$('div.company-pitch').html(marked(this.model.escape('pitch')));
+    this.$('div.company-market').html(marked(this.model.escape('market')));
+
 
     // crappy fix, but works for now.
     if (this.model.get('main_photo_url') !== 'missing_small.png') {

@@ -18,8 +18,7 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
 
   handleTabSwitch: function (event) {
     event.preventDefault();
-    var $tab = $(event.currentTarget);
-    $tab.tab('show');
+    $(event.currentTarget).tab('show');
   },
 
   handleUpdate: function (event) {
