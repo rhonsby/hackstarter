@@ -254,3 +254,86 @@ textarea#company_blurb {
 .nav-pills > li.active > a {
   background-color: inherit;
 }
+
+.modal-dialog-center {
+  margin-top: 10%;
+}
+
+.modal-pledge {
+  width: 800px;
+}
+
+#pledge-faq {
+  width: 90%;
+  font-size: 13px;
+  margin-left: 20px;
+}
+
+#pledge-faq > h5 {
+  color: #BFC1C2;
+}
+
+p.panel-title {
+  font-size: 13px;
+  font-weight: bold;
+  color: #00A0FF;
+}
+
+#pledge-faq .panel {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border: none;
+}
+
+#pledge-faq .panel-heading {
+  padding-bottom: 0;
+}
+
+#pledge-faq .panel-heading {
+  background-color: #fff;
+  border-color: #fff;
+}
+
+#pledge-faq .panel-body {
+  border-top: none;
+}
+
+#pledge-amount {
+  width: 80%;
+  height: 100%;
+  border: none;
+  box-shadow: none;
+  display: inline;
+  padding: 0;
+  margin: auto auto;
+  font-size: 24px;
+  color: #3499D3;
+}
+
+.pledge-wrapper {
+  width: 267px;
+  height: 50px;
+  font-size: 27px;
+  color: #3499D3;
+  border: 1px solid #3499D3;
+  border-radius: 5px;
+  padding-left: 10px;
+  margin-bottom: 25px;
+}
+
+.pledge-wrapper < label {
+  margin-bottom: 0;
+}
+
+.faqs {
+  list-style: none;
+  padding-left: 0;
+}
+
+.paq {
+  padding: 0;
+}
+
+.panel-default {
+  border-color: #fff;
+}

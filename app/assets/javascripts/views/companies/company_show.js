@@ -2,12 +2,33 @@ Hackstarter.Views.CompanyShow = Backbone.View.extend({
   template: JST['companies/show'],
 
   initialize: function () {
-    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model, 'sync change', this.render);
     this.listenTo(this.model, 'sync', this.updateStats);
   },
 
   events: {
     "click a[data-toggle='pill']": 'handleTabSwitch',
+    'submit .pledge-form': 'handlePledge',
+    'click #pledge-submit': 'handleSubmit'
+  },
+
+  handleSubmit: function (event) {
+    this.$('.pledge-form').submit();
+  },
+
+  handlePledge: function (event) {
+    event.preventDefault();
+
+    var formData = $(event.currentTarget).serializeJSON().investment
+    var investment = new Hackstarter.Models.Investment(formData);
+    var that = this;
+
+    investment.save({}, {
+      success: function (resp) {
+        $('#pledge-modal').modal('hide');
+        debugger
+      }
+    });
   },
 
   handleTabSwitch: function (event) {
