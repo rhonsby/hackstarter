@@ -2,14 +2,14 @@ Hackstarter.Views.CompanyShow = Backbone.View.extend({
   template: JST['companies/show'],
 
   initialize: function () {
-    this.listenTo(this.model, 'sync change', this.render);
+    this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model, 'sync', this.updateStats);
   },
 
   events: {
     "click a[data-toggle='pill']": 'handleTabSwitch',
     'submit .pledge-form': 'handlePledge',
-    'click #pledge-submit': 'handleSubmit'
+    'click #pledge-submit': 'handleSubmit',
   },
 
   handleSubmit: function (event) {
@@ -19,15 +19,23 @@ Hackstarter.Views.CompanyShow = Backbone.View.extend({
   handlePledge: function (event) {
     event.preventDefault();
 
-    var formData = $(event.currentTarget).serializeJSON().investment
+    var formData = $(event.currentTarget).serializeJSON().investment;
     var investment = new Hackstarter.Models.Investment(formData);
-    var that = this;
+    view = this;
 
     investment.save({}, {
-      success: function (resp) {
-        $('#pledge-modal').modal('hide');
-        debugger
+      success: function () {
+        $('#pledge-amount').val('');
+        view.model.fetch();
+        view.closeModal();
       }
+    });
+  },
+
+  closeModal: function () {
+    $('body').removeClass('modal-open');
+    $('.modal-backdrop').fadeOut('fast', function () {
+      this.remove();
     });
   },
 

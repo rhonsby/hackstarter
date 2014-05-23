@@ -50,4 +50,9 @@ class Company < ActiveRecord::Base
     days_since = (Date.today - created_at.to_date).to_i
     duration - days_since
   end
+
+  def end_date
+    date = Date.today + days_left
+    date.strftime("%a, %B %d %Y")
+  end
 end

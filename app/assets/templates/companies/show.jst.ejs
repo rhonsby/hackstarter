@@ -17,9 +17,9 @@
           <h1 class='stats-title investor'><span class='investor-count'>0</span></h1>
           <span class='stats-span investor'>investors</span>
 
-          <h1 class='stats-title raised'>$<%= company.escape('amount_raised') || 0 %></h1>
+          <h1 class='stats-title raised'>$<%= numberWithCommas(company.escape('amount_raised')) || 0 %></h1>
           <span class='stats-span raised'>
-            pledged of $<%= company.escape('investment_goal') %> goal
+            raised of $<%= numberWithCommas(company.escape('investment_goal')) %> goal
           </span>
 
           <h1 class='stats-title days'><%= company.escape('days_left') || 0 %></h1>
@@ -31,6 +31,8 @@
           <p>Back This Company</p>
           <p>$1 Minimum Pledge</p>
         </button>
+
+        <p class='pledge-msg'>This company is only funded if at least $<%= numberWithCommas(company.escape('investment_goal')) %> is pledged by <%= company.escape('end_date') %>.</p>
       </div><!-- Right Show End -->
     </div><!-- Home End -->
 
@@ -82,7 +84,7 @@
                   </div>
                   <div id="collapseOne" class="panel-collapse collapse">
                     <div class="panel-body">
-                      Realistically, I would have an API set up so that actual investments could be done through Amazon Payments; however, for the sake of this demo, by simply inputting a pledge amount in the input field on the left and hitting pledge, you can `pledge` money to the company of your choice.
+                      <p>Realistically, I would have an API set up so that actual investments could be done through Amazon Payments; however, for the sake of this demo, by simply inputting a pledge amount in the input field on the left and hitting pledge, you can `pledge` money to the company of your choice.</p>
                     </div>
                   </div>
                 </div>
@@ -96,7 +98,7 @@
                   </div>
                   <div id="collapseTwo" class="panel-collapse collapse">
                     <div class="panel-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      <p>If the company is successfully funded, your card will be charged on <span class='charge-date'><%= company.escape('end_date') %></span>, along with all the other investors of this company.</p>
                     </div>
                   </div>
                 </div>
@@ -110,7 +112,7 @@
                   </div>
                   <div id="collapseThree" class="panel-collapse collapse">
                     <div class="panel-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      <p>Yes! That's part of what makes Hackstarter special. If a company isn't successfully funded, no one pays anything.</p>
                     </div>
                   </div>
                 </div>
