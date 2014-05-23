@@ -16,8 +16,12 @@
         <div class='card-divider'></div>
         <div class='row'>
           <!-- replace these numbers with current data -->
-          <div class='col-md-4'><%= company.escape('percentage_raised') %>% <p class='gray'>funded</p></div>
-          <div class='col-md-4'>$<%= numberWithCommas(company.escape('amount_raised')) %> <p class='gray'>raised</p></div>
+          <div class='col-md-4'>
+            <%= company.escape('percentage_raised') %>%
+            <p class='gray'>funded</p></div>
+          <div class='col-md-4'>
+            $<%= numberWithCommas(company.escape('amount_raised')) %>
+            <p class='gray'>raised</p></div>
         </div>
       </div>
     </div>
