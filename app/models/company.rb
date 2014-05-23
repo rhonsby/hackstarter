@@ -55,4 +55,8 @@ class Company < ActiveRecord::Base
     date = Date.today + days_left
     date.strftime("%a, %B %d %Y")
   end
+
+  def unique_investors
+    self.investors.uniq
+  end
 end

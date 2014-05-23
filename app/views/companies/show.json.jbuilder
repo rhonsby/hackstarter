@@ -8,4 +8,4 @@ json.percentage_raised @company.percentage_raised.to_s
 json.days_left @company.days_left.to_s
 json.end_date @company.end_date
 
-json.investors @company.investors, partial: 'users/investor', as: :investor
+json.investors @company.unique_investors, partial: 'users/investor', as: :investor

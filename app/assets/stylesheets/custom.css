@@ -36,6 +36,10 @@ body {
   background-color: #F7FAFA;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 .gray {
   color: #8D9092;
 }
@@ -368,4 +372,16 @@ h3.story-details {
 
 .company-market img {
   max-width: 100%;
+}
+
+.investors-panel {
+  list-style: none;
+}
+
+.investor-panel {
+  width: 100px;
+  height: 50px;
+  border: 1px solid black;
+  padding: 5px;
+  margin: 5px;
 }
