@@ -1,32 +1,48 @@
 <h1 class='center' id='company-show-title'><%= company.escape('name') %></h1>
 <div class='company-show-info'>
   <ul class='nav nav-pills show-nav'>
-    <li class='selected'><a href='#'>Home</a></li>
-    <li><a href='#'>Updates <span class='update-count nav-num'>0</span></a></li>
-    <li><a href='#'>Investors <span class='investor-count nav-num'>0</span></a></li>
-    <li><a href='#'>Comments <span class='comment-count nav-num'>0</span></a></li>
+    <li class='active'><a href='#home' data-toggle='pill'>Home</a></li>
+    <li><a href='#updates' data-toggle='pill'>Updates <span class='update-count nav-num'>0</span></a></li>
+    <li><a href='#investors' data-toggle='pill'>Investors <span class='investor-count nav-num'>0</span></a></li>
+    <li><a href='#comments' data-toggle='pill'>Comments <span class='comment-count nav-num'>0</span></a></li>
   </ul>
 
-  <div class='company-form company-show row'>
-    <div class='col-md-8 left-show'><!-- Left Show Start -->
-      <img src='missing.png' id='company-show-photo'>
-    </div><!-- Left Show End -->
-    <div class='col-md-4 right-show'><!-- Right Show Start -->
-      <div class='company-stats'>
-        <h1 class='stats-title investor'><span class='investor-count'>0</span></h1>
-        <span class='stats-span investor'>investors</span>
+  <div class='company-form company-show row tab-content'>
+    <div class='tab-pane active fade in' id='home'><!-- Home Start -->
+      <div class='col-md-8 left-show'><!-- Left Show Start -->
+        <img src='missing.png' id='company-show-photo'>
+      </div><!-- Left Show End -->
+      <div class='col-md-4 right-show'><!-- Right Show Start -->
+        <div class='company-stats'>
+          <h1 class='stats-title investor'><span class='investor-count'>0</span></h1>
+          <span class='stats-span investor'>investors</span>
 
-        <h1 class='stats-title raised'>$3021</h1>
-        <span class='stats-span raised'>pledged</span>
+          <h1 class='stats-title raised'>$<%= company.escape('amount_raised') || 0 %></h1>
+          <span class='stats-span raised'>
+            pledged of $<%= company.escape('investment_goal') %> goal
+          </span>
 
-        <h1 class='stats-title days'>10</h1>
-        <span class='stats-span days'>days to go</span>
-      </div>
+          <h1 class='stats-title days'><%= company.escape('days_left') || 0 %></h1>
+          <span class='stats-span days'>days to go</span>
+        </div>
 
-      <button class='btn btn-lg btn-primary pledge-btn' href='#'>
-        <p>Back This Company</p>
-        <p>Minimum $1 Pledge</p>
-      </button>
-    </div><!-- Right Show End -->
+        <button class='btn btn-lg btn-primary pledge-btn' href='#'>
+          <p>Back This Company</p>
+          <p>$1 Minimum Pledge</p>
+        </button>
+      </div><!-- Right Show End -->
+    </div><!-- Home End -->
+
+    <div class='tab-pane fade in' id='updates'><!-- Update Start -->
+      <h1>Updates</h1>
+    </div><!-- Update End -->
+
+    <div class='tab-pane fade in' id='investors'><!-- Investor Start -->
+      <h1>Investors</h1>
+    </div><!-- Investor End -->
+
+    <div class='tab-pane fade in' id='comments'><!-- Comment Start -->
+      <h1>Comments</h1>
+    </div><!-- Comment End -->
   </div>
 </div>

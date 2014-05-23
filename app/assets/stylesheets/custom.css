@@ -189,7 +189,7 @@ textarea#company_blurb {
   background-color: inherit;
 }
 
-.show-nav li.selected > a {
+.show-nav li.active > a, .show-nav.active > a:hover {
   border-bottom: 5px solid #428bca;
   padding-bottom: 5px;
   border-radius: 0;
@@ -244,4 +244,8 @@ textarea#company_blurb {
   margin-top: -5px;
   font-size: 12px;
   color: #000;
+}
+
+.nav-pills > li.active > a {
+  background-color: inherit;
 }
