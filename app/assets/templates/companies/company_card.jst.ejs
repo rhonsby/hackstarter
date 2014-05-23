@@ -1,0 +1,25 @@
+<div id='company-preview' class='col-md-6 edit-card'>
+  <div class='company-card pull-right'>
+    <div id='preview-picture'>
+      <img src="<%= company.escape('photo_url') %>" id='preview-company-photo'>
+    </div>
+    <div class='card-description'>
+      <div class='card-info'>
+        <p id='preview-title'><%= company.escape('name') %></p>
+        <p id='preview-blurb'><%= company.escape('blurb') %></p>
+      </div>
+      <div class='card-footer'>
+        <p>
+          <span class="glyphicon glyphicon-map-marker"></span>
+          <span id='preview-location'><%= company.escape('location') %></span>
+        </p>
+        <div class='card-divider'></div>
+        <div class='row'>
+          <!-- replace these numbers with current data -->
+          <div class='col-md-4'><%= company.escape('percentage_raised') %>% <p class='gray'>funded</p></div>
+          <div class='col-md-4'>$<%= numberWithCommas(company.escape('amount_raised')) %> <p class='gray'>raised</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

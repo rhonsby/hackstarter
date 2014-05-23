@@ -1,0 +1,79 @@
+<div class='tab-pane fade in active col-md-6' id='basics'><!-- Basics Tab Start -->
+    <div class="form-group">
+      <label for='company-photo'>Photo</label>
+      <input type='file' class='form-control'
+             name='company[photo]'  id='company-photo'>
+      <div class="progress progress-striped active hidden">
+        <div class="progress-bar"  role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+        </div>
+      </div>
+    </div>
+
+  <form id="new-company-form">
+    <div class="form-group">
+      <label for='company_name'>Name</label>
+      <input type='text' name='company[name]' class='form-control'
+               id='company_name'
+               value='<%= company.escape('name') %>'>
+    </div>
+
+    <div class="form-group">
+      <label for='company_blurb'>Short blurb
+        <textarea name="company[blurb]"
+          class='form-control' id='company_blurb'
+          placeholder='How would you describe your company in a single tweet?'><%= company.escape('blurb') %></textarea>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for'company_location'>Company Location
+        <input type='text' name='company[location]' class='form-control'
+        placeholder='San Francisco, CA' value="<%= company.escape('location') %>">
+       </label>
+    </div>
+
+    <div class="form-group">
+      <label>Business Growth Stage
+        <select name="company[growth_stage]" class='form-control'>
+          <% _(['Start-Up', 'Early Stage', 'Growth']).each(function (option) { %>
+            <option value='<%= option %>'
+              <% if (company.get('growth_stage') === option) { %>
+                <%= 'selected' %>
+              <% }; %>>
+              <%= option %>
+            </option>
+          <% }); %>
+        </select>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label>Duration
+        <input type='text' name='company[duration]' class='form-control'
+               placeholder="days" value='<%= company.escape('duration') %>'>
+      </label>
+    </div>
+
+    <div class='form-group'>
+      <label for="company_goal">Investment Goal</label>
+      <div class="input-group addon-input-group">
+          <span class="input-group-addon">$</span>
+          <input type='text' name='company[investment_goal]'
+                 class='form-control' id='company_goal'
+                 value='<%= company.escape('investment_goal') %>'>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label for="company_equity">Equity</label>
+      <div class="input-group addon-input-group">
+          <input type='text' name='company[equity]'
+                 class='form-control' id='company_equity'
+                 value='<%= company.escape('equity') %>'>
+          <span class="input-group-addon">%</span>
+      </div>
+    </div>
+
+    <button type='submit' class='btn btn-primary'>Update</button>
+  </form>
+</div><!-- Basics Tab End -->

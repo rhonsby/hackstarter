@@ -1,0 +1,24 @@
+<div class='tab-pane col-md-6 fade in' id='story'>
+  <form id="new-company-form">
+    <div class="form-group">
+      <label for='company_pitch'>Company Pitch
+        <textarea name="company[pitch]"
+          class='form-control' id='company_pitch'
+          placeholder="Use your company pitch to share more about who you are and what your company does. It's up to you to make the case for your company."><%= company.escape('pitch') %></textarea>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for='company_market'>The Market
+        <textarea name="company[market]"
+          class='form-control' id='company_market'
+          placeholder="Specify your company's target market and how you plan on catering to the market."><%= company.escape('market') %></textarea>
+      </label>
+    </div>
+
+    <h5><a href='http://daringfireball.net/projects/markdown/' target='_blank'>
+      Markdown</a> is available to help you tell your story.</h5>
+
+    <button type='submit' class='btn btn-primary'>Update</button>
+  </form>
+</div>

@@ -1,15 +1,15 @@
 <h1 class='center' id='company-show-title'><%= company.escape('name') %></h1>
 <div class='company-show-info'>
-  <%= JST['companies/show_nav']({ company: company }) %>
+  <%= JST['companies/show/nav']({ company: company }) %>
 
   <div class='row company-form company-show'>
 
     <div class='col-md-8 left-show'>
-      <%= JST['companies/show_main']({ company: company }) %>
+      <%= JST['companies/show/main']({ company: company }) %>
     </div>
 
     <div class='col-md-4 right-show'>
-      <%= JST['companies/pledge_sidebar']({ company: company }) %>
+      <%= JST['companies/show/pledge_sidebar']({ company: company }) %>
     </div>
   </div>
 </div>
