@@ -1,0 +1,1 @@
+json.(investor, :id, :username)

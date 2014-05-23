@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
   before_validation :ensure_session_token
 
   has_many :companies, foreign_key: :owner_id
+  has_many :investments, foreign_key: :investor_id
+  has_many :company_investments, through: :investments, source: :company
 
   def self.find_by_credentials(params)
     user = User.find_by_username(params[:username])

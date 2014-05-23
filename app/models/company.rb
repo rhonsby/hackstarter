@@ -29,9 +29,25 @@ class Company < ActiveRecord::Base
   validates :owner, :name,
            :location, :duration,
            :investment_goal, :equity, :growth_stage, presence: true
+
+  validates :duration, :investment_goal, :equity,
+            numericality: { only_integer: true }
   validates :growth_stage, inclusion: ['Start-Up', 'Early Stage', 'Growth']
 
   belongs_to :owner, class_name: 'User'
   has_many :investments
-  has_many :investors, through: :investors
+  has_many :investors, through: :investments, source: :investor
+
+  def amount_raised
+    self.investments.pluck(:amount).inject(&:+)
+  end
+
+  def percentage_raised
+    sprintf('%0.02f', amount_raised.to_f / investment_goal.to_f * 100)
+  end
+
+  def days_left
+    days_since = (Date.today - created_at.to_date).to_i
+    duration - days_since
+  end
 end

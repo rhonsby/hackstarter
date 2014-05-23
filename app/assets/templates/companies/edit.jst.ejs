@@ -9,7 +9,7 @@
 </div>
 
 <div class='tab-content clearfix'>
-  <div class='tab-pane active col-md-6' id='basics'><!-- Basics Tab Start -->
+  <div class='tab-pane fade in active col-md-6' id='basics'><!-- Basics Tab Start -->
       <div class="form-group">
         <label for='company-photo'>Photo</label>
         <input type='file' class='form-control'
@@ -46,8 +46,8 @@
       <div class="form-group">
         <label>Business Growth Stage
           <select name="company[growth_stage]" class='form-control'>
-            <% ['Start-Up', 'Early Growth', 'Growth'].forEach(function (option) { %>
-              <option value=<%= option %>
+            <% _(['Start-Up', 'Early Stage', 'Growth']).each(function (option) { %>
+              <option value='<%= option %>'
                 <% if (company.get('growth_stage') === option) { %>
                   <%= 'selected' %>
                 <% }; %>>
@@ -88,7 +88,7 @@
       <button type='submit' class='btn btn-primary'>Update</button>
     </form>
   </div><!-- Basics Tab End -->
-  <div class='tab-pane col-md-6' id='story'><!-- Story Tab Start -->
+  <div class='tab-pane col-md-6 fade in' id='story'><!-- Story Tab Start -->
     <form id="new-company-form">
       <div class="form-group">
         <label for='company_pitch'>Company Pitch
@@ -109,7 +109,7 @@
       <button type='submit' class='btn btn-primary'>Update</button>
     </form>
   </div><!-- Story Tab End -->
-  <div class='tab-pane col-md-6' id='about-you'><!-- About You Tab Start -->
+  <div class='tab-pane col-md-6 fade in' id='about-you'><!-- About You Tab Start -->
     <!-- Have ability to connect to amazon payments, verify identity, and add contact details -->
   </div><!-- About You Tab End -->
 

@@ -2,20 +2,31 @@
 <div class='company-show-info'>
   <ul class='nav nav-pills show-nav'>
     <li class='selected'><a href='#'>Home</a></li>
-    <li><a href='#'>Updates</a></li>
-    <li><a href='#'>Investors</a></li>
-    <li><a href='#'>Comments</a></li>
+    <li><a href='#'>Updates <span class='update-count nav-num'>0</span></a></li>
+    <li><a href='#'>Investors <span class='investor-count nav-num'>0</span></a></li>
+    <li><a href='#'>Comments <span class='comment-count nav-num'>0</span></a></li>
   </ul>
 
   <div class='company-form company-show row'>
-    <div class='col-md-8 left-show'>
-      <img src='<%= company.escape('main_photo_url') %>'>
-    </div>
-    <div class='col-md-4 right-show'>
+    <div class='col-md-8 left-show'><!-- Left Show Start -->
+      <img src='missing.png' id='company-show-photo'>
+    </div><!-- Left Show End -->
+    <div class='col-md-4 right-show'><!-- Right Show Start -->
       <div class='company-stats'>
-        <h1>100000</h1>
-        <span>investors</span>
+        <h1 class='stats-title investor'><span class='investor-count'>0</span></h1>
+        <span class='stats-span investor'>investors</span>
+
+        <h1 class='stats-title raised'>$3021</h1>
+        <span class='stats-span raised'>pledged</span>
+
+        <h1 class='stats-title days'>10</h1>
+        <span class='stats-span days'>days to go</span>
       </div>
-    </div>
+
+      <button class='btn btn-lg btn-primary pledge-btn' href='#'>
+        <p>Back This Company</p>
+        <p>Minimum $1 Pledge</p>
+      </button>
+    </div><!-- Right Show End -->
   </div>
 </div>

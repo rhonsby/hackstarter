@@ -18,7 +18,7 @@ class Api::CompaniesController < ApplicationController
     if @company.save
       render 'companies/show'
     else
-      render json: @company.errors.full_messages
+      render json: { errors: @company.errors.full_messages }, status: 422
     end
   end
 
@@ -28,7 +28,7 @@ class Api::CompaniesController < ApplicationController
     if @company.update_attributes(company_params)
       render 'companies/show'
     else
-      render json: @company.errors.full_messages
+      render json: { errors: @company.errors.full_messages }, status: 422
     end
   end
 
@@ -36,7 +36,7 @@ class Api::CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     @company.destroy
 
-    render json: 'companies/show'
+    render json: {}
   end
 
   private
