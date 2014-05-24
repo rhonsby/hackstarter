@@ -12,11 +12,12 @@
           <li><a href="#/companies/new">Start</a></li>
         <% end %>
       </ul>
-      <form class="navbar-form navbar-left" role="search">
+      <form class="navbar-form navbar-left nav-search" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <span class='glyphicon glyphicon-search'></span>
+          <input type="text" class="form-control nav-search"
+            placeholder="Search companies">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
         <%= render partial: (logged_in? ? 'shared/logged_in' : 'shared/logged_out') %>

@@ -11,8 +11,9 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
   },
 
   index: function () {
+    var $altEl = $('#index-main');
     var indexView = new Hackstarter.Views.RootIndex();
-    this._swapView(indexView);
+    this._swapView(indexView, $altEl);
   },
 
   companyNew: function () {
@@ -40,12 +41,14 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
     this._swapView(showView);
   },
 
-  _swapView: function (view) {
+  _swapView: function (view, $altEl) {
     if (this._currentView) {
       this._currentView.remove();
     }
 
+    var $renderEl = $altEl || this.$rootEl;
+
     this._currentView = view;
-    this.$rootEl.html(view.render().$el);
+    $renderEl.html(view.render().$el);
   }
 });
