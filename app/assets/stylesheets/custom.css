@@ -465,7 +465,7 @@ h3.story-details {
 
 .index-panel {
   width: 100%;
-  padding: 40px 0;
+  padding: 20px 0;
   border-top: 1px solid #d9d9de;
 }
 
@@ -530,6 +530,12 @@ h3.story-details {
   margin-right: 8px;
 }
 
+.fa-facebook-square {
+  font-size: 1.1em;
+  margin-right: 8px;
+}
+
+
 .glyphicon-fire{
   color: #F25555;
 }
@@ -550,6 +556,26 @@ h3.story-details {
   margin: 0;
   padding: 0;
   width: inherit;
+}
+
+.btn-facebook {
+  background-color: #3B5998;
+  color: #fff;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.btn-facebook:hover {
+  background-color: #30487B;
+  color: #fff;
+}
+
+.facebook-panel {
+  text-align: center;
+}
+
+.facebook-panel h2 {
+  font-weight: 300;
 }
 
 /* Footer */
@@ -607,4 +633,12 @@ h3.story-details {
   text-decoration: none;
   font-weight: bold;
   font-size: 1.2em;
+}
+
+.fa-scissors {
+  color: #2A90CA;
+  font-size: 22px;
+  position: absolute;
+  margin-top: -51px;
+  margin-left: 368px;
 }
