@@ -22,7 +22,8 @@
 #
 
 class Company < ActiveRecord::Base
-  has_attached_file :photo, styles: { show: '600x440#', card: '298x250#' },
+  has_attached_file :photo, styles: { show: '600x440#',
+                    card: '298x250#', card_large: '320x240#' },
                     default_url: "missing_small.png"
 
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
@@ -43,7 +44,7 @@ class Company < ActiveRecord::Base
   end
 
   def percentage_raised
-    sprintf('%0.02f', amount_raised.to_f / investment_goal.to_f * 100)
+    (amount_raised.to_f / investment_goal.to_f * 100).round
   end
 
   def days_left

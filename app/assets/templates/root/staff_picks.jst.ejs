@@ -1,0 +1,100 @@
+<div class='index-panel'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-md-8'>
+        <div class='tab-content staff-picks-content'>
+          <div class='tab-pane fade in active' id='art-design'>
+            <h3>Staff Picks: Art &amp; Design</h3>
+          </div>
+
+          <div class='tab-pane fade in' id='education'>
+            <h3>Staff Picks: Education</h3>
+          </div>
+
+          <div class='tab-pane fade in' id='environmental'>
+            <h3>Staff Picks: Environmental &amp; Ethical</h3>
+          </div>
+
+          <div class='tab-pane fade in' id='film'>
+            <h3>Staff Picks: Film, TV, &amp; Theatre</h3>
+          </div>
+
+          <div class='tab-pane fade in' id='food'>
+            <h3>Staff Picks: Food</h3>
+          </div>
+
+          <div class='tab-pane fade in' id='games'>
+            <h3>Staff Picks: Games</h3>
+            <div class='large-card'>
+              <% var airdnd = companies.findWhere({ name: 'AirDnD' })
+              || new Hackstarter.Models.Company() %>
+              <%= JST['root/company_card']({ company: airdnd }) %>
+            </div>
+          </div>
+
+          <div class='tab-pane fade in' id='health'>
+            <h3>Staff Picks: Health &amp; Fitness</h3>
+          </div>
+
+          <div class='tab-pane fade in' id='media'>
+            <h3>Staff Picks: Media &amp; Creative Services</h3>
+          </div>
+
+          <div class='tab-pane fade in' id='professional'>
+            <h3>Staff Picks: Professional &amp; Business Services</h3>
+          </div>
+
+          <div class='tab-pane fade in' id='sport'>
+            <h3>Staff Picks: Sport &amp; Leisure</h3>
+            <div class='large-card'>
+              <% var cycletree = companies.findWhere({ name: 'Cycletree' })
+              || new Hackstarter.Models.Company() %>
+              <%= JST['root/company_card']({ company: cycletree }) %>
+            </div>
+          </div>
+
+          <div class='tab-pane fade in' id='technology'>
+            <h3>Staff Picks: Technology</h3>
+          </div>
+        </div>
+      </div>
+      <div class='col-md-4'>
+        <ul class='staff-picks-nav'>
+          <li class='active'>
+            <a href='#art-design' data-toggle='tab'>Art &amp; Design</a>
+          </li>
+          <li>
+            <a href='#education' data-toggle='tab'>Education</a>
+          </li>
+          <li><a href='#environmental' data-toggle='tab'>
+            Environmental &amp; Ethical
+          </a></li>
+          <li><a href='#film' data-toggle='tab'>
+            Film, TV, &amp; Theatre
+          </a></li>
+          <li><a href='#food' data-toggle='tab'>
+            Food
+          </a></li>
+          <li><a href='#games' data-toggle='tab'>
+            Games
+          </a></li>
+          <li><a href='#health' data-toggle='tab'>
+            Health &amp; Fitness
+          </a></li>
+          <li><a href='#media' data-toggle='tab'>
+            Media &amp; Creative Services
+          </a></li>
+          <li><a href='#professional' data-toggle='tab'>
+            Professional &amp; Business Services
+          </a></li>
+          <li><a href='#sport' data-toggle='tab'>
+            Sport &amp; Leisure
+          </a></li>
+          <li><a href='#technology' data-toggle='tab'>
+            Technology
+          </a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

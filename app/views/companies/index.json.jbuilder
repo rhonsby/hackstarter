@@ -1,0 +1,1 @@
+json.array! @companies, partial: 'companies/index_company', as: :company

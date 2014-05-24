@@ -1,0 +1,35 @@
+<div class='row'>
+  <div class='col-md-6 photo'>
+    <img src='<%= company.escape('large_photo_url') %>'></img>
+  </div>
+  <div class='col-md-6 body'>
+    <h4><a href='<%= company.bbUrl() %>'><%= company.escape('name') %></a></h4>
+    <p><%= company.escape('blurb') %></p>
+    <p>
+      <span class="glyphicon glyphicon-map-marker"></span>
+      <span id='preview-location'><%= company.escape('location') %></span>
+    </p>
+    <div class='card-divider'>
+      <div class='card-progress-bar' style='width: <%= company.escape('percentage_raised') %>%'>
+      </div>
+    </div>
+    <div class='footer row'>
+      <div class='col-md-3'>
+        <%= company.escape('percentage_raised') %>%
+        <p class='gray'>funded</p>
+      </div>
+      <div class='col-md-3'>
+        $<%= numberWithCommas(company.escape('amount_raised')) || 0 %>
+        <p class='gray'>raised</p>
+      </div>
+      <div class='col-md-3'>
+        <%= numberWithCommas(company.escape('investor_count')) %>
+        <p>investors</p>
+      </div>
+      <div class='col-md-3'>
+        <%= numberWithCommas(company.escape('days_left')) %>
+        <p>days to go</p>
+      </div>
+    </div>
+  </div>
+</div>

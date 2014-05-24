@@ -5,6 +5,8 @@ class Api::CompaniesController < ApplicationController
                                       :pitch, :market]
 
   def index
+    @companies = Company.all
+    render 'companies/index'
   end
 
   def show
