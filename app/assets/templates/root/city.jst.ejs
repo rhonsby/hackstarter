@@ -1,0 +1,26 @@
+<div class='index-panel index-panel-alt'>
+  <div class='container'>
+    <h3>
+      <span class="glyphicon glyphicon-map-marker index-marker fire"></span>
+      San Francisco, CA
+    </h3>
+
+    <div class='index-card'>
+      <% var cycletree = companies.findWhere({ name: 'Cycletree' })
+      || new Hackstarter.Models.Company() %>
+      <%= JST['companies/company_card']({ company: cycletree }) %>
+    </div>
+
+    <div class='index-card'>
+      <% var hackstarter = companies.findWhere({ name: 'Hackstarter' })
+      || new Hackstarter.Models.Company() %>
+      <%= JST['companies/company_card']({ company: hackstarter }) %>
+    </div>
+
+    <div class='index-card'>
+      <% var airdnd = companies.findWhere({ name: 'AirDnD' })
+      || new Hackstarter.Models.Company() %>
+      <%= JST['companies/company_card']({ company: airdnd }) %>
+    </div>
+  </div>
+</div>

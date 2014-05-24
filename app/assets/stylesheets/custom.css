@@ -105,6 +105,10 @@ html {
   word-wrap: break-word;
 }
 
+.card-footer .row div:last-child {
+  margin-right: 0;
+}
+
 .card-divider {
   height: 6px;
   border: 1px solid #E7E7E7;
@@ -162,7 +166,7 @@ html {
   margin-top: 50px;
   padding: 30px;
   border-radius: 5px;
-  margin-bottom: 40px;
+  margin-bottom: 100px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -466,7 +470,7 @@ h3.story-details {
 }
 
 .index-panel-alt {
-  background: #f7fafa;
+  background: #F7F7F7;
 }
 
 .staff-picks-nav {
@@ -521,12 +525,41 @@ h3.story-details {
   margin-top: 0;
 }
 
+.index-marker {
+  font-size: 0.9em;
+  margin-right: 8px;
+}
+
+.glyphicon-fire{
+  color: #F25555;
+}
+
+.index-card .company-card {
+  -webkit-transform: scale(0.85);
+  -moz-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  -o-transform: scale(0.85);
+  transform: scale(0.85);
+  margin-top: -20px;
+  margin-left: -30px;
+  background-color: #fff;
+  border: 2px solid #D9D9DE;
+}
+
+.index-card #company-preview {
+  margin: 0;
+  padding: 0;
+  width: inherit;
+}
+
 /* Footer */
 
 #footer {
   background-color: #0D2E41;
   border-top: 1px dashed #d9d9de;
-  padding: 40px 0;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  margin-top: 20px;
 }
 
 #footer .col-md-3 > p {
@@ -563,4 +596,15 @@ h3.story-details {
 
 .fa {
   margin-right: 5px;
+}
+
+.bottom-copyright {
+  margin-top: 10px;
+  color: #6B706D;
+}
+
+.bottom-copyright a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2em;
 }

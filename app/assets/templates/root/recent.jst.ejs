@@ -1,0 +1,24 @@
+<div class='index-panel'>
+  <div class='container'>
+    <h3><span class="glyphicon glyphicon-fire index-marker city">
+    </span>Popular</h3>
+
+    <div class='index-card'>
+      <% var appacademy = companies.findWhere({ name: 'App Academy' })
+      || new Hackstarter.Models.Company() %>
+      <%= JST['companies/company_card']({ company: appacademy }) %>
+    </div>
+
+    <div class='index-card'>
+      <% var groovy = companies.findWhere({ name: "What's Groovy?" })
+      || new Hackstarter.Models.Company() %>
+      <%= JST['companies/company_card']({ company: groovy }) %>
+    </div>
+
+    <div class='index-card'>
+      <% var uniqlo = companies.findWhere({ name: 'Uniqlo' })
+      || new Hackstarter.Models.Company() %>
+      <%= JST['companies/company_card']({ company: uniqlo }) %>
+    </div>
+  </div>
+</div>

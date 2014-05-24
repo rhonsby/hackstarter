@@ -11,6 +11,8 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
   },
 
   index: function () {
+    Hackstarter.companies.fetch();
+
     var $altEl = $('#index-main');
     var indexView = new Hackstarter.Views.RootIndex();
     this._swapView(indexView, $altEl);

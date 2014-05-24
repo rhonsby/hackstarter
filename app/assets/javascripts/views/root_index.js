@@ -5,7 +5,7 @@ Hackstarter.Views.RootIndex = Backbone.View.extend({
     "click a[data-toggle='tab']": 'handleTabSwitch',
   },
 
-  initialize: function () {
+  initialize: function (options) {
     this.listenTo(Hackstarter.companies, 'sync', this.render);
   },
 
@@ -35,6 +35,8 @@ Hackstarter.Views.RootIndex = Backbone.View.extend({
       staffPicks: this.staffPicks
     });
     this.$el.html(renderedContent);
+    this.$el.append(JST['root/footer']());
+
     this.showMainImage();
     return this;
   },
