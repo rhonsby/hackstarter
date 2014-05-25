@@ -8,12 +8,12 @@
       Hackstarter.currentUser.fetch({
         success: function () {
           Hackstarter.loginUser(Hackstarter.currentUser);
+          Hackstarter.initialize();
         }
       });
     <% else %>
       $('#user-main-nav').html(JST['users/signed_out_nav']());
+      Hackstarter.initialize();
     <% end %>
-
-    Hackstarter.initialize();
   });
 </script>

@@ -45,14 +45,13 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
   },
 
   companyEdit: function (id) {
-    var company = new Hackstarter.Models.Company({ id: id });
-    company.fetch();
-
-    var editView = new Hackstarter.Views.CompanyEdit({
-      model: company,
-      sectors: Hackstarter.sectors
+    this.requireAuth(id, function (company) {
+      var editView = new Hackstarter.Views.CompanyEdit({
+        model: company,
+        sectors: Hackstarter.sectors
+      });
+      router._swapView(editView);
     });
-    this._swapView(editView);
   },
 
   companyShow: function (id) {
@@ -85,8 +84,9 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
   },
 
   requireAuth: function (id, callback) {
-    if (id === Hackstarter.currentUser) {
-      callback();
+    var company = Hackstarter.currentUser.companies().get(id);
+    if (company) {
+      callback(company);
     } else {
       Backbone.history.navigate('', { trigger: true });
     }
