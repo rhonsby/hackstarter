@@ -599,6 +599,11 @@ h3.story-details {
   font-weight: 300;
 }
 
+.blurb {
+  min-height: 75px;
+  max-height: 75px;
+}
+
 /* Footer */
 
 #footer {
@@ -666,4 +671,20 @@ h3.story-details {
 
 .footer > div.col-md-2 {
   margin-right: 10px;
+}
+
+/* Auth */
+
+.auth-form {
+  margin-top: 100px;
+  border: 1px solid #d9d9de;
+  border-radius: 5px;
+  background: #fff;
+  padding: 30px;
+}
+
+.auth-form h1 {
+  font-weight: 100;
+  margin-top: 0;
+  margin-bottom: 30px;
 }

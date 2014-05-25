@@ -7,7 +7,7 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
     '': 'index',
     'companies/new': 'companyNew',
     'companies/:id/edit': 'companyEdit',
-    'companies/:id': 'companyShow'
+    'companies/:id': 'companyShow',
   },
 
   index: function () {

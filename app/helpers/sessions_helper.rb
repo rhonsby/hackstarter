@@ -11,11 +11,11 @@ module SessionsHelper
     session[:session_token] = user.reset_session_token!
   end
 
-  def redirect_if_logged_in!
-    redirect_to root_url if logged_in?
+  def require_login!
+    redirect_to new_session_url unless logged_in?
   end
 
-  def redirect_unless_logged_in!
-    redirect_to new_session_url unless logged_in?
+  def redirect_logged_in_user!
+    redirect_to root_url if logged_in?
   end
 end

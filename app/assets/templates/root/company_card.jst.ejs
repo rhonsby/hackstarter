@@ -4,7 +4,7 @@
   </div>
   <div class='col-md-6 body'>
     <h4><a href='<%= company.bbUrl() %>'><%= company.escape('name') %></a></h4>
-    <p><%= company.escape('blurb') %></p>
+    <p class='blurb'><%= company.escape('blurb') %></p>
     <p>
       <span class="glyphicon glyphicon-map-marker"></span>
       <span id='preview-location'><%= company.escape('location') %></span>
@@ -14,20 +14,19 @@
       </div>
     </div>
     <div class='footer row'>
-      <div class='col-md-2'>
+      <div class='col-md-3'>
         <%= company.escape('percentage_raised') %>%
         <p class='gray'>funded</p>
       </div>
-      <div class='col-md-2'>
+      <div class='col-md-3'>
         $<%= numberWithCommas(company.escape('amount_raised')) || 0 %>
         <p class='gray'>raised</p>
       </div>
-      <div class='col-md-2'>
-        <% debugger %>
+      <div class='col-md-3'>
         <%= company.escape('equity') || 0 %>%
         <p>equity</p>
       </div>
-      <div class='col-md-2'>
+      <div class='col-md-3'>
         <%= numberWithCommas(company.escape('days_left')) %>
         <p>days to go</p>
       </div>
