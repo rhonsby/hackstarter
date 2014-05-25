@@ -14,19 +14,20 @@
       </div>
     </div>
     <div class='footer row'>
-      <div class='col-md-3'>
+      <div class='col-md-2'>
         <%= company.escape('percentage_raised') %>%
         <p class='gray'>funded</p>
       </div>
-      <div class='col-md-3'>
+      <div class='col-md-2'>
         $<%= numberWithCommas(company.escape('amount_raised')) || 0 %>
         <p class='gray'>raised</p>
       </div>
-      <div class='col-md-3'>
-        <%= numberWithCommas(company.escape('investor_count')) %>
-        <p>investors</p>
+      <div class='col-md-2'>
+        <% debugger %>
+        <%= company.escape('equity') || 0 %>%
+        <p>equity</p>
       </div>
-      <div class='col-md-3'>
+      <div class='col-md-2'>
         <%= numberWithCommas(company.escape('days_left')) %>
         <p>days to go</p>
       </div>

@@ -87,6 +87,10 @@ html {
   border-radius: 10px;
 }
 
+.card-details > div.col-md-4 {
+  margin-right: -33px !important;
+}
+
 .edit-card {
   margin-top: 15px;
 }
@@ -102,10 +106,6 @@ html {
   width: 255px;
   margin-left: 10px;
   word-wrap: break-word;
-}
-
-.card-footer .row div:last-child {
-  margin-right: 0;
 }
 
 .card-divider {
@@ -131,10 +131,6 @@ html {
 
 .card-footer .row {
   padding-top: 10px;
-}
-
-.card-footer .row div {
-  margin-right: -30px;
 }
 
 #preview-title {
@@ -666,4 +662,8 @@ h3.story-details {
   position: absolute;
   margin-top: -51px;
   margin-left: 368px;
+}
+
+.footer > div.col-md-2 {
+  margin-right: 10px;
 }

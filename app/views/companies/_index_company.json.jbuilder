@@ -1,5 +1,5 @@
 json.extract! company, :name, :location, :blurb, :investment_goal,
-                       :id
+                       :id, :equity
 
 json.photo_url company.photo(:card)
 json.large_photo_url company.photo(:card_large)
