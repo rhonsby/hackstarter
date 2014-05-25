@@ -5,6 +5,8 @@ window.Hackstarter = {
   Routers: {},
   initialize: function() {
     Hackstarter.companies = new Hackstarter.Collections.Companies();
+    Hackstarter.sectors = new Hackstarter.Collections.Sectors();
+    Hackstarter.sectors.fetch();
 
     new Hackstarter.Routers.Router({
       $rootEl: $('#main')

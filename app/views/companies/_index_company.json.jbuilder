@@ -7,3 +7,4 @@ json.amount_raised company.amount_raised.to_s
 json.percentage_raised company.percentage_raised.to_s
 json.days_left company.days_left.to_s
 json.investor_count company.unique_investors.length
+json.sector company.sector_name

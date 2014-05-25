@@ -3,9 +3,12 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
 
   className: 'company-form',
 
-  initialize: function () {
-    this.listenTo(this.model, 'sync', this.render);
+  initialize: function (options) {
+    this.sectors = options.sectors;
     this.reader = new FileReader();
+
+    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.sectors, 'sync', this.render);
   },
 
   events: {
@@ -60,7 +63,11 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
   },
 
   render: function () {
-    var renderedContent = this.template({ company: this.model });
+    debugger
+    var renderedContent = this.template({
+      company: this.model,
+      sectors: this.sectors
+    });
     this.$el.html(renderedContent);
     return this;
   }

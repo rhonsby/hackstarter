@@ -19,7 +19,9 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
   },
 
   companyNew: function () {
-    var newView = new Hackstarter.Views.CompanyNew();
+    var newView = new Hackstarter.Views.CompanyNew({
+      sectors: Hackstarter.sectors
+    });
     this._swapView(newView);
   },
 
@@ -28,7 +30,8 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
     company.fetch();
 
     var editView = new Hackstarter.Views.CompanyEdit({
-      model: company
+      model: company,
+      sectors: Hackstarter.sectors
     });
     this._swapView(editView);
   },
@@ -38,7 +41,7 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
     company.fetch();
 
     var showView = new Hackstarter.Views.CompanyShow({
-      model: company
+      model: company,
     });
     this._swapView(showView);
   },

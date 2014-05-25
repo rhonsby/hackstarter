@@ -19,6 +19,8 @@
 #  photo_updated_at   :datetime
 #  pitch              :text
 #  market             :text
+#  website            :string(255)
+#  sector_id          :integer          not null
 #
 
 require 'spec_helper'

@@ -19,6 +19,8 @@
 #  photo_updated_at   :datetime
 #  pitch              :text
 #  market             :text
+#  website            :string(255)
+#  sector_id          :integer          not null
 #
 
 class Company < ActiveRecord::Base
@@ -27,7 +29,7 @@ class Company < ActiveRecord::Base
                     default_url: "missing_small.png"
 
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
-  validates :owner, :name,
+  validates :owner, :name, :sector,
            :location, :duration,
            :investment_goal, :equity, :growth_stage, presence: true
 
@@ -36,6 +38,7 @@ class Company < ActiveRecord::Base
   validates :growth_stage, inclusion: ['Start-Up', 'Early Stage', 'Growth']
 
   belongs_to :owner, class_name: 'User'
+  belongs_to :sector
   has_many :investments
   has_many :investors, through: :investments, source: :investor
 
@@ -59,5 +62,9 @@ class Company < ActiveRecord::Base
 
   def unique_investors
     self.investors.uniq
+  end
+
+  def sector_name
+    self.sector.name
   end
 end

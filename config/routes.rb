@@ -8,5 +8,6 @@ Hackstarter::Application.routes.draw do
     resources :companies, only: [:index, :show, :create, :update, :destroy]
     resources :investments, only: [:create]
     resources :users, only: [:show, :update, :destroy]
+    resources :sectors, only: [:index, :show]
   end
 end

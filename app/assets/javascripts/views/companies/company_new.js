@@ -9,6 +9,11 @@ Hackstarter.Views.CompanyNew = Backbone.View.extend({
     'keyup textarea': 'updatePreview'
   },
 
+  initialize: function (options) {
+    this.sectors = options.sectors;
+    this.listenTo(this.sectors, 'sync', this.render);
+  },
+
   updatePreview: function (event) {
     var field = $(event.currentTarget);
     switch (field.attr('name')) {
@@ -38,7 +43,8 @@ Hackstarter.Views.CompanyNew = Backbone.View.extend({
 
   render: function () {
     var renderedContent = this.template({
-      company: this.model
+      company: this.model,
+      sectors: this.sectors
     });
     this.$el.html(renderedContent);
     return this;

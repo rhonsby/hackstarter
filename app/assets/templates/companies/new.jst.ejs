@@ -18,6 +18,18 @@
       </div>
 
       <div class="form-group">
+        <label>Sector
+          <select name="company[sector_id]" class='form-control'>
+            <% sectors.each(function (sector) { %>
+              <option value='<%= sector.id %>'>
+                <%= sector.escape('name') %>
+              </option>
+            <% }); %>
+          </select>
+        </label>
+      </div>
+
+      <div class="form-group">
         <label for'company_location'>Location
           <input type='text' name='company[location]' class='form-control'
           placeholder='San Francisco, CA'>
@@ -31,19 +43,19 @@
       </div>
 
       <div class="form-group">
+        <label>Duration
+          <input type='text' name='company[duration]' class='form-control'
+                 placeholder="days">
+        </label>
+      </div>
+
+      <div class="form-group">
         <label>Business Growth Stage
           <select name="company[growth_stage]" class='form-control'>
             <option value='Start-Up'>Start-Up</option>
             <option value='Early Stage'>Early Stage</option>
             <option value='Growth'>Growth</option>
           </select>
-        </label>
-      </div>
-
-      <div class="form-group">
-        <label>Duration
-          <input type='text' name='company[duration]' class='form-control'
-                 placeholder="days">
         </label>
       </div>
 
