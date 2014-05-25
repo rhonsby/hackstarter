@@ -11,6 +11,7 @@
 
 .navbar-main {
   background-color: #fff;
+  border-radius: 0;
 }
 
 .navbar-nav > li:last-child > a:last-child {
@@ -54,6 +55,39 @@
 
 .nav-search:focus {
   box-shadow: none;
+}
+
+.signed-out > li {
+  float: left;
+  position: relative;
+  display: block;
+}
+
+.signed-out > li > a {
+  color: #777;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  line-height: 20px;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  margin-top: 5px;
+}
+
+.nav-title {
+  padding: 2px 12px;
+  margin-bottom: 2px;
+  font-weight: bold;
+}
+
+.nav-main {
+  min-width: 180px;
+}
+
+.nav-main > li > a {
+  padding: 3px 25px;
+  color: #3499D3;
 }
 
 /* Misc */

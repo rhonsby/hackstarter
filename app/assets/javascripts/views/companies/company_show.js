@@ -65,16 +65,6 @@ Hackstarter.Views.CompanyShow = Backbone.View.extend({
         'src', this.model.escape('main_photo_url')
       );
     }
-
-    // var li;
-    // var $investorsPanel = $('.investors-panel');
-    // // subview for users?
-    // _(this.model.get('investors')).each(function (investor) {
-    //   li = $('<li>');
-    //   li.addClass('investor-panel')
-    //   li.html(investor.username);
-    //   $investorsPanel.append(li);
-    // });
   },
 
   render: function () {

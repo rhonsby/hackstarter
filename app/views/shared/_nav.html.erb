@@ -8,9 +8,9 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="#">Discover</a></li>
-        <% if logged_in? %>
+        <%# if logged_in? %>
           <li><a href="#/companies/new">Start</a></li>
-        <% end %>
+        <%# end %>
       </ul>
       <form class="navbar-form navbar-left nav-search" role="search">
         <div class="form-group">
@@ -20,7 +20,12 @@
         </div>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <%= render partial: (logged_in? ? 'shared/logged_in' : 'shared/logged_out') %>
+        <div class='signed-out'>
+          <li><%= link_to 'Sign Up', '#/signup' %></li>
+          <li><%= link_to 'Log In', '#/login' %></li>
+        </div>
+        <li class='drop-drop signed-in'>
+        </li>
       </ul>
     </div>
   </div>

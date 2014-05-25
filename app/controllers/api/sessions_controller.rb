@@ -1,6 +1,5 @@
-class SessionsController < ApplicationController
-  before_action :redirect_logged_in_user!, except: [:destroy]
-
+class Api::SessionsController < ApplicationController
+  wrap_parameters :user, include: [:username, :password]
   def new
   end
 
@@ -9,17 +8,15 @@ class SessionsController < ApplicationController
 
     if @user
       login!(@user)
-      redirect_to root_url
+      render 'users/show'
     else
-      render json: ["Invalid username/password"]
+      render json: { errors: ["Invalid username/password"] }, status: 422
     end
   end
 
   def destroy
     current_user.reset_session_token!
     session[:session_token] = nil
-
-    redirect_to root_url
   end
 
   private

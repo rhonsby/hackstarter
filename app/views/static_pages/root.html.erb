@@ -1,5 +1,18 @@
 <script type="text/javascript">
   $(document).ready(function(){
+    Hackstarter.current_user = <%= current_user.try(:id) || false %>;
+    <% if logged_in? %>
+      Hackstarter.current_user = new Hackstarter.Models.User({
+        id: Hackstarter.current_user
+      });
+
+      Hackstarter.current_user.fetch({
+        success: function () {
+          Hackstarter.loginUser(Hackstarter.current_user);
+        }
+      });
+    <% end %>
+
     Hackstarter.initialize();
   });
 </script>

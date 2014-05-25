@@ -1,10 +1,13 @@
 Hackstarter.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
+    router = this;
   },
 
   routes: {
     '': 'index',
+    'signup': 'userSignup',
+    'login': 'userLogin',
     'companies/new': 'companyNew',
     'companies/:id/edit': 'companyEdit',
     'companies/:id': 'companyShow',
@@ -18,11 +21,27 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
     this._swapView(indexView, $altEl);
   },
 
-  companyNew: function () {
-    var newView = new Hackstarter.Views.CompanyNew({
-      sectors: Hackstarter.sectors
+  userSignup: function () {
+    this.requireSignout(function () {
+      var signupView = new Hackstarter.Views.Signup();
+      router._swapView(signupView);
     });
-    this._swapView(newView);
+  },
+
+  userLogin: function () {
+    this.requireSignout(function () {
+      var loginView = new Hackstarter.Views.Login();
+      router._swapView(loginView);
+    });
+  },
+
+  companyNew: function () {
+    router.requireLogin(function () {
+      var newView = new Hackstarter.Views.CompanyNew({
+        sectors: Hackstarter.sectors
+      });
+      router._swapView(newView);
+    });
   },
 
   companyEdit: function (id) {
@@ -55,5 +74,29 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
 
     this._currentView = view;
     $renderEl.html(view.render().$el);
+  },
+
+  requireLogin: function (callback) {
+    if (Hackstarter.current_user) {
+      callback();
+    } else {
+      Backbone.history.navigate('#/login', { trigger: true });
+    }
+  },
+
+  requireAuth: function (id, callback) {
+    if (id === Hackstarter.current_user) {
+      callback();
+    } else {
+      Backbone.history.navigate('', { trigger: true });
+    }
+  },
+
+  requireSignout: function (callback) {
+    if (Hackstarter.current_user) {
+      Backbone.history.navigate('', { trigger: true });
+    } else {
+      callback();
+    }
   }
 });
