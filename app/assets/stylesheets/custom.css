@@ -81,7 +81,6 @@ html {
 /* Company Card */
 
 .company-card {
-  margin-top: 100px;
   height: 518px;
   width: 318px;
   border: 3px solid #D9D9DE;
@@ -89,7 +88,7 @@ html {
 }
 
 .edit-card {
-  margin-top: 65px;
+  margin-top: 15px;
 }
 
 #preview-picture {
@@ -188,7 +187,29 @@ textarea#company_blurb {
   width: 80%;
 }
 
+.new-company-container #company-preview {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: inherit;
+}
+
+.edit-card > #company-preview {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.new-company-container {
+  position: relative;
+}
+
 /* Edit Company Page */
+
+.tab-content .edit-tab-content {
+  position: relative;
+  min-height: 600px;
+}
 
 .edit-tabs {
   margin-top: 60px;
@@ -426,6 +447,10 @@ h3.story-details {
   border: 1px solid black;
   padding: 5px;
   margin: 5px;
+}
+
+.show-sidebar-details {
+  margin-top: 40px;
 }
 
 

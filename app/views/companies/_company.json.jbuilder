@@ -1,5 +1,5 @@
 json.extract! company, :name, :location, :blurb, :duration, :investment_goal,
-                        :equity, :growth_stage, :id, :pitch, :market
+                        :equity, :growth_stage, :id, :pitch, :market, :website
 
 json.photo_url company.photo(:card)
 json.main_photo_url company.photo(:show)

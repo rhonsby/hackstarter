@@ -23,3 +23,29 @@
 <p class='pledge-msg'>This company is only funded if at least
   $<span class='investment-goal'>0</span>
   is pledged by <%= company.escape('end_date') %>.</p>
+
+  <div class='show-sidebar-details'>
+    <h4>Company Details</h4>
+    <table class="table table-striped table-condensed">
+      <tr>
+        <td>Founder:</td>
+        <td><%= company.escape('founder') %></td>
+      </tr>
+      <tr>
+        <td>Location:</td>
+        <td><%= company.escape('location') %></td>
+      </tr>
+      <tr>
+        <td>Website:</td>
+        <td><a href='<%= company.escape('website') %>'><%= company.escape('website') %></a></td>
+      </tr>
+      <tr>
+        <td>Equity:</td>
+        <td><%= company.escape('equity') %>%</td>
+      </tr>
+      <tr>
+        <td>Sector:</td>
+        <td><%= company.escape('sector') %></td>
+      </tr>
+    </table>
+  </div>

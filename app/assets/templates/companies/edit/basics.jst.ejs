@@ -26,9 +26,16 @@
     </div>
 
     <div class="form-group">
-      <label for'company_location'>Company Location
+      <label for'company_location'>Location
         <input type='text' name='company[location]' class='form-control'
         placeholder='San Francisco, CA' value="<%= company.escape('location') %>">
+       </label>
+    </div>
+
+    <div class="form-group">
+      <label for'company_location'>Website
+        <input type='text' name='company[website]' class='form-control'
+        value='<%= company.escape('website') %>'>
        </label>
     </div>
 

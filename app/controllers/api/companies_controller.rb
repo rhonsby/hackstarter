@@ -2,7 +2,7 @@ class Api::CompaniesController < ApplicationController
   wrap_parameters :company, include: [:photo, :name, :location,
                                       :blurb, :duration, :investment_goal,
                                       :equity, :growth_stage,
-                                      :pitch, :market]
+                                      :pitch, :market, :website]
 
   def index
     @companies = Company.all
@@ -46,6 +46,6 @@ class Api::CompaniesController < ApplicationController
   def company_params
     params.require(:company).permit(:name, :location, :blurb, :growth_stage,
                                     :duration, :investment_goal, :equity,
-                                    :photo, :pitch, :market)
+                                    :photo, :pitch, :market, :website)
   end
 end
