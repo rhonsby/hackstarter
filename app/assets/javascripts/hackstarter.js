@@ -22,7 +22,19 @@ function numberWithCommas(x) {
 Hackstarter.loginUser = function (user) {
   Hackstarter.currentUser = user;
 
-  $('.signed-out').addClass('hidden');
-  // var navView = Hackstarter.Views.UserNav({ model: user });
-  $('.signed-in').html(JST['users/nav']({ user: user }));
+  var navView = new Hackstarter.Views.UserNav({
+    model: user
+  });
+
+  $('#user-main-nav').html(navView.render().$el);
 };
+
+// Hackstarter._swapNav = function (view) {
+//   if (this._currentNav) {
+//     this._currentNav.remove();
+//   }
+
+//   this._currentNav = view;
+//   $('#user-main-nav').html(view.render().$el);
+// };
+

@@ -7,7 +7,6 @@ Hackstarter.Models.User = Backbone.Model.extend({
       delete resp.companies;
     }
 
-    debugger
     return resp;
   },
 

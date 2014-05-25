@@ -1,16 +1,17 @@
 <script type="text/javascript">
   $(document).ready(function(){
-    Hackstarter.current_user = <%= current_user.try(:id) || false %>;
     <% if logged_in? %>
-      Hackstarter.current_user = new Hackstarter.Models.User({
-        id: Hackstarter.current_user
+      Hackstarter.currentUser = new Hackstarter.Models.User({
+        id: <%= current_user.id %>
       });
 
-      Hackstarter.current_user.fetch({
+      Hackstarter.currentUser.fetch({
         success: function () {
-          Hackstarter.loginUser(Hackstarter.current_user);
+          Hackstarter.loginUser(Hackstarter.currentUser);
         }
       });
+    <% else %>
+      $('#user-main-nav').html(JST['users/signed_out_nav']());
     <% end %>
 
     Hackstarter.initialize();
