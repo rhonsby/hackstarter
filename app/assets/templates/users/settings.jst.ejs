@@ -41,7 +41,8 @@
             id='user_website' value='<%= user.escape('website') %>'>
         </div>
 
-        <button type='submit' class='btn btn-primary'>Update!</button>
+        <button type='submit' class='btn btn-primary'>Save Settings</button>
+        <a href='#/profile/<%= user.escape('id') %>'>View profile</a>
       </form>
     </div>
   </div>

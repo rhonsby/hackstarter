@@ -760,6 +760,10 @@ h3.story-details {
   border-radius: 5px;
 }
 
+.user-settings button {
+  margin-right: 8px;
+}
+
 /* Profile Page */
 
 .profile-panel {
