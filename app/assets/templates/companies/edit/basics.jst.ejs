@@ -18,49 +18,45 @@
     </div>
 
     <div class="form-group">
-      <label for='company_blurb'>Short blurb
+      <label for='company_blurb'>Short blurb</label>
         <textarea name="company[blurb]"
           class='form-control' id='company_blurb'
           placeholder='How would you describe your company in a single tweet?'><%= company.escape('blurb') %></textarea>
-      </label>
     </div>
 
     <div class="form-group">
-      <label>Sector
-        <select name="company[sector_id]" class='form-control'>
+      <label for='company_sector'>Sector</label>
+        <select name="company[sector_id]" class='form-control' id='company_sector'>
           <% sectors.each(function (sector) { %>
             <option value='<%= sector.id %>'>
               <%= sector.escape('name') %>
             </option>
           <% }); %>
         </select>
-      </label>
     </div>
 
     <div class="form-group">
-      <label for'company_location'>Location
+      <label for'company_location'>Location</label>
         <input type='text' name='company[location]' class='form-control'
         placeholder='San Francisco, CA' value="<%= company.escape('location') %>">
-       </label>
     </div>
 
     <div class="form-group">
-      <label for'company_location'>Website
+      <label for'company_webiste'>Website</label>
         <input type='text' name='company[website]' class='form-control'
-        value='<%= company.escape('website') %>'>
-       </label>
+        id='company_website' value='<%= company.escape('website') %>'>
     </div>
 
     <div class="form-group">
-      <label>Duration
+      <label for='company_duration'>Duration</label>
         <input type='text' name='company[duration]' class='form-control'
-               placeholder="days" value='<%= company.escape('duration') %>'>
-      </label>
+          id='company_duration' placeholder="days"
+          value='<%= company.escape('duration') %>'>
     </div>
 
     <div class="form-group">
-      <label>Business Growth Stage
-        <select name="company[growth_stage]" class='form-control'>
+      <label for='company_growth'>Business Growth Stage</label>
+        <select name="company[growth_stage]" class='form-control' id='company_growth'>
           <% _(['Start-Up', 'Early Stage', 'Growth']).each(function (option) { %>
             <option value='<%= option %>'
               <% if (company.get('growth_stage') === option) { %>

@@ -88,6 +88,7 @@
 .nav-main > li > a {
   padding: 3px 25px;
   color: #3499D3;
+  font-size: 15px;
 }
 
 /* Misc */
@@ -112,12 +113,16 @@ html {
   text-align: center;
 }
 
+.index-panel {
+  min-height: 200px;
+}
+
 /* Company Card */
 
 .company-card {
   height: 518px;
   width: 318px;
-  border: 3px solid #D9D9DE;
+  border: 2px solid #D9D9DE;
   border-radius: 10px;
 }
 
@@ -191,7 +196,7 @@ html {
 .company-form {
   width: 80%;
   background-color: #fff;
-  border: 2px solid #D9D9DE;
+  border: 1px solid #D9D9DE;
   margin-top: 50px;
   padding: 30px;
   border-radius: 5px;
@@ -522,6 +527,7 @@ h3.story-details {
   width: 100%;
   padding: 20px 0;
   border-top: 1px solid #d9d9de;
+  background-color: #fff;
 }
 
 .index-panel-alt {
@@ -604,7 +610,7 @@ h3.story-details {
   margin-top: -20px;
   margin-left: -30px;
   background-color: #fff;
-  border: 2px solid #D9D9DE;
+  border: 1px solid #D9D9DE;
 }
 
 .index-card #company-preview {
@@ -645,7 +651,6 @@ h3.story-details {
   border-top: 1px dashed #d9d9de;
   padding-top: 40px;
   padding-bottom: 20px;
-  margin-top: 20px;
 }
 
 #footer .col-md-3 > p {
@@ -721,4 +726,69 @@ h3.story-details {
   font-weight: 100;
   margin-top: 0;
   margin-bottom: 30px;
+}
+
+/* User Settings */
+
+.user-settings {
+  min-height: 400px;
+  margin-top: 50px;
+  margin-bottom: 125px;
+}
+
+.user-settings > .container > h1 {
+  text-align: left;
+  margin-left: 13px;
+}
+
+.profile-photo-settings {
+  margin-top: 26px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.user-settings > .container {
+  width: 900px;
+}
+
+#user_biography {
+  width: 389px;
+  height: 180px;
+}
+
+.profile-photo {
+  border-radius: 5px;
+}
+
+/* Profile Page */
+
+.profile-panel {
+  margin-top: -20px;
+  border-top: none;
+  padding: 50px 0;
+}
+
+.profile-panel .container {
+  width: 900px;
+}
+
+.profile-page-details > h1 {
+  margin-top: 0;
+}
+
+.profile-page-details {
+  margin-left: -50px;
+  min-height: 230px;
+}
+
+.profile-page-content {
+}
+
+.profile-page-content p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.biography {
+  margin-top: 30px;
 }

@@ -1,6 +1,7 @@
 Hackstarter.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
+    this.$altEl = $('#index-main');
     router = this;
   },
 
@@ -8,6 +9,8 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
     '': 'index',
     'signup': 'userSignup',
     'login': 'userLogin',
+    'settings': 'userSettings',
+    'profile/:id': 'profilePage',
     'companies/new': 'companyNew',
     'companies/:id/edit': 'companyEdit',
     'companies/:id': 'companyShow',
@@ -16,9 +19,8 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
   index: function () {
     Hackstarter.companies.fetch();
 
-    var $altEl = $('#index-main');
     var indexView = new Hackstarter.Views.RootIndex();
-    this._swapView(indexView, $altEl);
+    this._swapView(indexView, this.$altEl);
   },
 
   userSignup: function () {
@@ -35,6 +37,24 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
     });
   },
 
+  userSettings: function () {
+    this.requireLogin(function () {
+      var settingsView = new Hackstarter.Views.Settings({
+        model: Hackstarter.currentUser
+      });
+
+      router._swapView(settingsView, router.$altEl);
+    });
+  },
+
+  profilePage: function (id) {
+    var user = new Hackstarter.Models.User({ id: id });
+    user.fetch();
+
+    var profileView = new Hackstarter.Views.ProfilePage({ model: user });
+    router._swapView(profileView, this.$altEl);
+  },
+
   companyNew: function () {
     router.requireLogin(function () {
       var newView = new Hackstarter.Views.CompanyNew({
@@ -46,6 +66,8 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
 
   companyEdit: function (id) {
     this.requireAuth(id, function (company) {
+      company.fetch();
+
       var editView = new Hackstarter.Views.CompanyEdit({
         model: company,
         sectors: Hackstarter.sectors

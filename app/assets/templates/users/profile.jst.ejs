@@ -1,0 +1,33 @@
+<div class='index-panel index-panel-alt profile-panel'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-md-4'>
+        <img src='<%= user.escape('medium_photo_url') %>' class='profile-photo'></img>
+      </div>
+      <div class='col-md-8 profile-page-details'>
+        <h1><%= user.escape('name') || 'Anonymous' %></h1>
+        <p>Backed <%= user.escape('backedCompaniesCount') %> companies
+          <% if (user.escape('website')) { %>
+            · <a href='<%= user.escape('website') %>'>Website</a>
+          <% }; %>
+        </p>
+        <div class='biography'>
+          <p><%= user.escape('biography') %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='index-panel profile-panel'>
+  <div class='container'>
+    <h3>Backed <span class='nav-num'><%= user.escape('backedCompaniesCount') %></span></h3>
+    <% if (user.backedCompanies().length) { %>
+      <% _(user.backedCompanies().first(3)).each(function (company) { %>
+        <div class='index-card'>
+          <%= JST['companies/company_card']({ company: company }) %>
+        </div>
+      <% }); %>
+    <% }; %>
+  </div>
+</div>

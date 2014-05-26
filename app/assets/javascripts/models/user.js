@@ -7,6 +7,11 @@ Hackstarter.Models.User = Backbone.Model.extend({
       delete resp.companies;
     }
 
+    if (resp.backedCompanies) {
+      this.backedCompanies().set(resp.backedCompanies);
+      delete resp.backedCompanies;
+    }
+
     return resp;
   },
 
@@ -18,5 +23,19 @@ Hackstarter.Models.User = Backbone.Model.extend({
     }
 
     return this._companies;
+  },
+
+  backedCompanies: function () {
+    if (!this._backedCompanies) {
+      this._backedCompanies = new Hackstarter.Collections.Companies([], {
+        found: this
+      });
+    }
+
+    return this._backedCompanies;
+  },
+
+  bbUrl: function () {
+    return '#/profile/' + this.escape('id');
   }
 });

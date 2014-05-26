@@ -1,5 +1,6 @@
 class Api::UsersController < ApplicationController
-  wrap_parameters :user, include: [:username, :password]
+  wrap_parameters :user, include: [:username, :password, :avatar,
+                                   :name, :biography, :location, :website]
 
   def new
     @user = User.new
@@ -21,9 +22,20 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update_attributes(user_params)
+      render 'users/show'
+    else
+      render json: { errors: @user.errors.full_messages }, status: 422
+    end
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :avatar, :name,
+                                 :biography, :location, :website)
   end
 end
