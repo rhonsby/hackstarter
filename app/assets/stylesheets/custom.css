@@ -785,9 +785,6 @@ h3.story-details {
   min-height: 230px;
 }
 
-.profile-page-content {
-}
-
 .profile-page-content p {
   font-size: 16px;
   margin-bottom: 5px;
@@ -795,4 +792,8 @@ h3.story-details {
 
 .biography {
   margin-top: 30px;
+}
+
+.recently-backed-panel {
+  border-top: 1px solid #d9d9de;
 }

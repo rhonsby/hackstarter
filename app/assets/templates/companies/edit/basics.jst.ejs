@@ -28,7 +28,10 @@
       <label for='company_sector'>Sector</label>
         <select name="company[sector_id]" class='form-control' id='company_sector'>
           <% sectors.each(function (sector) { %>
-            <option value='<%= sector.id %>'>
+            <option value='<%= sector.id %>'
+              <% if (company.escape('sector') === sector.escape('name')) { %>
+                selected
+              <% }; %>>
               <%= sector.escape('name') %>
             </option>
           <% }); %>

@@ -5,7 +5,7 @@
         <img src='<%= user.escape('medium_photo_url') %>' class='profile-photo'></img>
       </div>
       <div class='col-md-8 profile-page-details'>
-        <h1><%= user.escape('name') || 'Anonymous' %></h1>
+        <h1><%= user.escape('name') || user.escape('username') %></h1>
         <p>Backed <%= user.escape('backedCompaniesCount') %> companies
           <% if (user.escape('website')) { %>
             · <a href='<%= user.escape('website') %>'>Website</a>
@@ -19,11 +19,11 @@
   </div>
 </div>
 
-<div class='index-panel profile-panel index-panel'>
+<div class='index-panel profile-panel index-panel recently-backed-panel'>
   <div class='container'>
-    <h3>Backed <span class='nav-num'><%= user.escape('backedCompaniesCount') %></span></h3>
+    <h3>Recently Backed Companies</h3>
     <% if (user.backedCompanies().length) { %>
-      <% _(user.backedCompanies().first(3)).each(function (company) { %>
+      <% _(user.backedCompanies().last(3)).each(function (company) { %>
         <div class='index-card'>
           <%= JST['companies/company_card']({ company: company }) %>
         </div>
