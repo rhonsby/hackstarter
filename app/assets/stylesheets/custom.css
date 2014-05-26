@@ -306,6 +306,11 @@ input[type='file'] {
   margin-bottom: 15px;
 }
 
+.progress > .progress-bar > p {
+  font-size: 14px;
+  margin-top: 7px;
+}
+
 /* Company Show */
 
 #company-show-title {
