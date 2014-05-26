@@ -464,10 +464,6 @@ p.panel-title {
   margin-bottom: 25px;
 }
 
-.pledge-wrapper < label {
-  margin-bottom: 0;
-}
-
 .faqs {
   list-style: none;
   padding-left: 0;
