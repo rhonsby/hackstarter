@@ -48,6 +48,9 @@ Hackstarter.Views.CompanyShow = Backbone.View.extend({
     this.$('.investor-count').html(
       this.model.get('investors').length
     );
+    this.$('.update-count').html(
+      this.model.updates().length
+    );
     this.$('.investment-goal').html(
       numberWithCommas(this.model.escape('investment_goal'))
     );

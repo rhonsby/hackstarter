@@ -109,6 +109,10 @@ html {
   color: #8D9092;
 }
 
+.blue {
+  color: #428BCA;
+}
+
 .center {
   text-align: center;
 }
@@ -553,6 +557,41 @@ h3.story-details {
   margin-top: 40px;
 }
 
+/* Company Show Updates */
+
+.company-update {
+  margin-bottom: 50px;
+  padding-bottom: 20px;
+  width: 95%;
+}
+
+#updates > .company-update:last-child {
+  border-bottom: none;
+}
+
+.update-title {
+  border-top: 1px dotted #d9d9de;
+  border-bottom: 1px dotted #d9d9de;
+  padding: 8px 0;
+  width: 75%;
+}
+
+.company-update p {
+  font-size: 16px;
+}
+
+.update-content {
+  margin-top: 40px;
+  font-size: 1.2em;
+}
+
+.company-update img {
+  max-width: 480px;
+}
+
+.company-date {
+  margin-top: 2px;
+}
 
 /* Index Page */
 

@@ -75,7 +75,6 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
     var field = $(event.currentTarget);
     switch (field.attr('name')) {
       case 'update[title]':
-        debugger
         var target = 'a[data-target=' + field.attr('data-title-field') + "]";
         $(target).html($(event.currentTarget).val());
         break;
