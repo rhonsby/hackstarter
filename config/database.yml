@@ -12,4 +12,7 @@ test:
   pool: 5
   host: localhost
 
-
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
