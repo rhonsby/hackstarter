@@ -186,6 +186,10 @@ html {
   color: #00A0FF;
 }
 
+.bottom-copyright #contact-link {
+  font-size: 14px;
+}
+
 /* New Company Form */
 
 .company-form > h1 {
@@ -205,8 +209,12 @@ html {
   margin-right: auto;
 }
 
+.new-company-container #company_blurb {
+  width: 410px;
+}
+
 textarea#company_blurb {
-  width: 400px;
+  width: 395px;
   height: 100px;
 }
 
@@ -237,6 +245,30 @@ textarea#company_blurb {
 
 .new-company-container {
   position: relative;
+}
+
+.new-company-container #company_duration {
+  width: 124px;
+}
+
+#company_sector {
+  width: 270px;
+}
+
+#company_location {
+  width: 350px;
+}
+
+#company_website {
+  width: 350px;
+}
+
+#company_duration {
+  width: 119px;
+}
+
+#company_growth {
+  width: 270px;
 }
 
 /* Edit Company Page */

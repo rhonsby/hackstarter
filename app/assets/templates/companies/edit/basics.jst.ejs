@@ -25,6 +25,19 @@
     </div>
 
     <div class="form-group">
+      <label for'company_location'>Location</label>
+        <input type='text' name='company[location]' class='form-control'
+        placeholder='San Francisco, CA' value="<%= company.escape('location') %>"
+        id='company_location'>
+    </div>
+
+    <div class="form-group">
+      <label for'company_website'>Website</label>
+        <input type='text' name='company[website]' class='form-control'
+        id='company_website' value='<%= company.escape('website') %>'>
+    </div>
+
+    <div class="form-group">
       <label for='company_sector'>Sector</label>
         <select name="company[sector_id]" class='form-control' id='company_sector'>
           <% sectors.each(function (sector) { %>
@@ -36,25 +49,6 @@
             </option>
           <% }); %>
         </select>
-    </div>
-
-    <div class="form-group">
-      <label for'company_location'>Location</label>
-        <input type='text' name='company[location]' class='form-control'
-        placeholder='San Francisco, CA' value="<%= company.escape('location') %>">
-    </div>
-
-    <div class="form-group">
-      <label for'company_webiste'>Website</label>
-        <input type='text' name='company[website]' class='form-control'
-        id='company_website' value='<%= company.escape('website') %>'>
-    </div>
-
-    <div class="form-group">
-      <label for='company_duration'>Duration</label>
-        <input type='text' name='company[duration]' class='form-control'
-          id='company_duration' placeholder="days"
-          value='<%= company.escape('duration') %>'>
     </div>
 
     <div class="form-group">
@@ -70,6 +64,13 @@
           <% }); %>
         </select>
       </label>
+    </div>
+
+    <div class="form-group">
+      <label for='company_duration'>Duration</label>
+        <input type='text' name='company[duration]' class='form-control'
+          id='company_duration' placeholder="days"
+          value='<%= company.escape('duration') %>'>
     </div>
 
     <div class='form-group'>

@@ -10,6 +10,7 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
     'signup': 'userSignup',
     'login': 'userLogin',
     'settings': 'userSettings',
+    'contact': 'contact',
     'profile/:id': 'profilePage',
     'companies/new': 'companyNew',
     'companies/:id/edit': 'companyEdit',
@@ -20,25 +21,25 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
     Hackstarter.companies.fetch();
 
     var indexView = new Hackstarter.Views.RootIndex();
-    this._swapView(indexView, this.$altEl);
+    router._swapView(indexView, router.$altEl);
   },
 
   userSignup: function () {
-    this.requireSignout(function () {
+    router.requireSignout(function () {
       var signupView = new Hackstarter.Views.Signup();
       router._swapView(signupView);
     });
   },
 
   userLogin: function () {
-    this.requireSignout(function () {
+    router.requireSignout(function () {
       var loginView = new Hackstarter.Views.Login();
       router._swapView(loginView);
     });
   },
 
   userSettings: function () {
-    this.requireLogin(function () {
+    router.requireLogin(function () {
       var settingsView = new Hackstarter.Views.Settings({
         model: Hackstarter.currentUser
       });
@@ -47,12 +48,17 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
     });
   },
 
+  contact: function () {
+    var contactView = new Hackstarter.Views.Contact();
+    router._swapView(contactView);
+  },
+
   profilePage: function (id) {
     var user = new Hackstarter.Models.User({ id: id });
     user.fetch();
 
     var profileView = new Hackstarter.Views.ProfilePage({ model: user });
-    router._swapView(profileView, this.$altEl);
+    router._swapView(profileView, router.$altEl);
   },
 
   companyNew: function () {
@@ -65,7 +71,7 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
   },
 
   companyEdit: function (id) {
-    this.requireAuth(id, function (company) {
+    router.requireAuth(id, function (company) {
       company.fetch();
 
       var editView = new Hackstarter.Views.CompanyEdit({
@@ -83,17 +89,17 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
     var showView = new Hackstarter.Views.CompanyShow({
       model: company,
     });
-    this._swapView(showView);
+    router._swapView(showView);
   },
 
   _swapView: function (view, $altEl) {
-    if (this._currentView) {
-      this._currentView.remove();
+    if (router._currentView) {
+      router._currentView.remove();
     }
 
-    var $renderEl = $altEl || this.$rootEl;
+    var $renderEl = $altEl || router.$rootEl;
 
-    this._currentView = view;
+    router._currentView = view;
     $renderEl.html(view.render().$el);
   },
 
