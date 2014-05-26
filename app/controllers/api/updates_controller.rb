@@ -1,4 +1,14 @@
 class Api::UpdatesController < ApplicationController
+  def create
+    @update = Update.new(update_params)
+
+    if @update.save
+      render partial: 'companies/update', locals: { update: @update }
+    else
+      render json: { errors: @update.errors.full_messages }, status: 422
+    end
+  end
+
   def update
     @update = Update.find(params[:id])
 
@@ -12,6 +22,6 @@ class Api::UpdatesController < ApplicationController
   private
 
   def update_params
-    params.require(:update).permit(:title, :body)
+    params.require(:update).permit(:title, :body, :company_id)
   end
 end

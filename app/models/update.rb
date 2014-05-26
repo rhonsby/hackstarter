@@ -1,5 +1,5 @@
 class Update < ActiveRecord::Base
-  validates :company, :body, presence: true
+  validates :company, :body, :title, presence: true
 
   belongs_to :company
 

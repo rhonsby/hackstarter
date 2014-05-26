@@ -2,14 +2,54 @@
   <h3>Previous Updates</h3>
 
   <ul class='edit-update-listing'>
-    <% company.updates().each(function (update) { %>
-      <li><%= update.escape('date') %>:
+    <% company.updates().each(function (update, idx) { %>
+      <li>Update #<%= idx + 1 %>:
         <a data-toggle='modal' data-target='#<%= update.cid %>-modal'>
           <%= update.escape('title') %>
         </a>
       </li>
     <% }); %>
   </ul>
+
+  <button class='btn btn-primary' id='post-update-btn' data-toggle='modal'
+    data-target='#new-post-modal'>New Update</button>
+</div>
+
+<div class="modal fade update-modal new-update" id="new-post-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title center gray" id="myModalLabel">
+          New Update
+        </h4>
+      </div>
+      <div class="modal-body">
+        <form id='new-update-form'>
+          <input type='hidden' name='update[company_id]' value='<%= company.id %>'>
+
+          <div class='form-group'>
+            <label for='update_title'>Title</label>
+            <input id='update_title' name='update[title]'
+              class='form-control'>
+          </div>
+
+          <div class='form-group'>
+            <label for='update_body'>Body</label>
+            <textarea id='update_body' name='update[body]'
+              class='form-control'></textarea>
+          </div>
+        </form>
+
+        <h5><a href='http://daringfireball.net/projects/markdown/'>
+          Markdown</a> is available to help you write your updates.</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id='new-update-btn'>Create Post</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <% company.updates().each(function (update) { %>
@@ -36,7 +76,7 @@
             <h5><a href='http://daringfireball.net/projects/markdown/'>
               Markdown</a> is available to help you write your updates.</h5>
 
-            <button type='submit' class='btn btn-primary btn-large'>
+            <button type='submit' class='btn btn-primary'>
               Save Changes
             </button>
           </form>

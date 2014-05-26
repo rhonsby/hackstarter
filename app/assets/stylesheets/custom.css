@@ -325,6 +325,8 @@ input[type='file'] {
   list-style: none;
   padding-left: 0;
   font-size: 14px;
+  margin-top: 25px;
+  margin-left: 15px;
 }
 
 .edit-update-listing a {
@@ -341,6 +343,15 @@ textarea#update_body {
 
 .update-modal > .modal-dialog {
   margin-top: 100px;
+}
+
+.new-update .modal-footer {
+  margin-top: 0;
+}
+
+#post-update-btn {
+  margin-top: 10px;
+  margin-left: 15px;
 }
 
 /* Company Show */

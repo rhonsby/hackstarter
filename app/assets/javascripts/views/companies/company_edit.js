@@ -17,7 +17,30 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
     'keyup textarea': 'updatePreview',
     'change #company-photo': 'processPhoto',
     'submit #new-company-form': 'handleCompanyUpdate',
-    'submit #update-modal-form': 'handleUpdateChanges'
+    'submit #update-modal-form': 'handleUpdateChanges',
+    'click #new-update-btn': 'submitForm',
+    'submit #new-update-form': 'handleNewUpdate'
+  },
+
+  submitForm: function () {
+    this.$('#new-update-form').submit();
+  },
+
+  handleNewUpdate: function (event) {
+    event.preventDefault();
+    var formData = $(event.currentTarget).serializeJSON().update;
+    var update = new Hackstarter.Models.Update(formData);
+    var view = this;
+
+    // temp fix, partial out into subview for better rendering
+    update.save({}, {
+      success: function () {
+        $('.modal').modal('hide');
+        view.closeModal();
+        view.model.updates().add(update);
+        view.render();
+      }
+    });
   },
 
   handleTabSwitch: function (event) {
@@ -43,7 +66,7 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
     update.save(formData, {
       success: function () {
         $('.modal').modal('hide');
-        view.closeModal(event);
+        view.closeModal();
       }
     });
   },
