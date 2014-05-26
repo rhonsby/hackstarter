@@ -11,6 +11,11 @@ Hackstarter.Models.Company = Backbone.Model.extend({
       delete resp.founder;
     }
 
+    if (resp.updates) {
+      this.updates().set(resp.updates);
+      delete resp.updates;
+    }
+
     return resp;
   },
 
@@ -20,5 +25,13 @@ Hackstarter.Models.Company = Backbone.Model.extend({
     }
 
     return this._founder;
+  },
+
+  updates: function () {
+    if (!this._updates) {
+      this._updates = new Hackstarter.Collections.Updates();
+    }
+
+    return this._updates;
   }
 });

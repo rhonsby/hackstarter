@@ -7,5 +7,6 @@ Hackstarter::Application.routes.draw do
     resources :users, only: [:show, :create, :update, :destroy]
     resources :sectors, only: [:index, :show]
     resource :session, only: [:new, :create, :destroy]
+    resources :updates, only: [:update]
   end
 end

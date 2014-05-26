@@ -34,7 +34,7 @@ Hackstarter.Views.CompanyShow = Backbone.View.extend({
 
   closeModal: function () {
     $('body').removeClass('modal-open');
-    $('.modal-backdrop').fadeOut('fast', function () {
+    $('.modal-backdrop').fadeOut(function () {
       this.remove();
     });
   },

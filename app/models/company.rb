@@ -41,6 +41,7 @@ class Company < ActiveRecord::Base
   belongs_to :sector
   has_many :investments
   has_many :investors, through: :investments, source: :investor
+  has_many :updates
 
   def amount_raised
     self.investments.pluck(:amount).inject(&:+)

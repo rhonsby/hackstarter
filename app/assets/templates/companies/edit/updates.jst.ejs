@@ -1,3 +1,47 @@
 <div class='tab-pane col-md-6 fade in' id='updates'>
-  <h3>Post Update</h3>
+  <h3>Previous Updates</h3>
+
+  <ul class='edit-update-listing'>
+    <% company.updates().each(function (update) { %>
+      <li><%= update.escape('date') %>:
+        <a data-toggle='modal' data-target='#<%= update.cid %>-modal'>
+          <%= update.escape('title') %>
+        </a>
+      </li>
+    <% }); %>
+  </ul>
 </div>
+
+<% company.updates().each(function (update) { %>
+  <div class="modal fade update-modal" id="<%= update.cid %>-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content clearfix">
+
+        <div class="modal-body">
+          <form id='update-modal-form' data-update-id='<%= update.id %>'>
+
+            <div class='form-group'>
+              <label for='update_title'>Title</label>
+              <input id='update_title' name='update[title]'
+                class='form-control' value='<%= update.escape('title') %>'
+                data-title-field='#<%= update.cid %>-modal'>
+            </div>
+
+            <div class='form-group'>
+              <label for='update_body'>Body</label>
+              <textarea id='update_body' name='update[body]'
+                class='form-control'><%= update.escape('body') %></textarea>
+            </div>
+
+            <h5><a href='http://daringfireball.net/projects/markdown/'>
+              Markdown</a> is available to help you write your updates.</h5>
+
+            <button type='submit' class='btn btn-primary btn-large'>
+              Save Changes
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<% }); %>

@@ -13,3 +13,4 @@ json.sector company.sector_name
 json.founder company.owner, :id, :username, :name
 
 json.investors company.unique_investors, partial: 'users/investor', as: :investor
+json.updates company.updates.sort_by(&:created_at), partial: 'companies/update', as: :update

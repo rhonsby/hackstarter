@@ -71,14 +71,16 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
   },
 
   companyEdit: function (id) {
-    router.requireAuth(id, function (company) {
-      company.fetch();
+    router.requireLogin(function () {
+      router.requireAuth(id, function (company) {
+        company.fetch();
 
-      var editView = new Hackstarter.Views.CompanyEdit({
-        model: company,
-        sectors: Hackstarter.sectors
+        var editView = new Hackstarter.Views.CompanyEdit({
+          model: company,
+          sectors: Hackstarter.sectors
+        });
+        router._swapView(editView);
       });
-      router._swapView(editView);
     });
   },
 
