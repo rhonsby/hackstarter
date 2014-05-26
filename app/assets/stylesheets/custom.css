@@ -571,9 +571,11 @@ h3.story-details {
 /* Company Show Updates */
 
 .company-update {
-  margin-bottom: 50px;
-  padding-bottom: 20px;
+  margin: 25px 0;
+  margin-left: 15px;
+  padding-bottom: 25px;
   width: 95%;
+  border-bottom: 1px solid #d9d9de;
 }
 
 #updates > .company-update:last-child {
@@ -581,8 +583,6 @@ h3.story-details {
 }
 
 .update-title {
-  border-top: 1px dotted #d9d9de;
-  border-bottom: 1px dotted #d9d9de;
   padding: 8px 0;
   width: 75%;
 }

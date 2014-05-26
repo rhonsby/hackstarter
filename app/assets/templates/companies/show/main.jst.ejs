@@ -12,32 +12,7 @@
     </div>
   </div>
 
-  <div class='tab-pane fade in' id='updates'>
-    <% _(company.updates().reverse()).each(function (update, idx) { %>
-      <div class='company-update'>
-        <div class='panel-group' id='accordion'>
-          <div class='panel'>
-            <div class='panel-heading'>
-              <h5 class='gray pull-right company-date'><%= update.escape('date') %></h5>
-              <h4 class='blue'>
-                <a data-toggle='collapse' data-parent='#accordion'
-                  href='#<%= update.cid %>'>
-                  Update #<%= company.updates().length - idx %>
-                </a>
-              </h4>
-            </div>
-
-            <div id='<%= update.cid %>' class='panel-collapse collapse in'>
-              <h3 class='update-title'><%= update.escape('title') %></h3>
-              <p class='update-content'>
-                <%= marked(update.escape('body')) %>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% }); %>
-  </div>
+  <%= JST['companies/show/updates']({ company: company }) %>
 
   <div class='tab-pane fade in' id='investors'>
     <h1>Investors</h1>
