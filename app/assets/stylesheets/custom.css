@@ -222,6 +222,10 @@ textarea#company_blurb {
   cursor: pointer;
 }
 
+input[type='file'] {
+  line-height: 0.4;
+}
+
 .addon-input-group {
   width: 30%;
 }
