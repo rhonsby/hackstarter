@@ -19,13 +19,14 @@ Hackstarter.Views.CompanyShow = Backbone.View.extend({
   handlePledge: function (event) {
     event.preventDefault();
 
-    var formData = $(event.currentTarget).serializeJSON().investment;
+    $form = $(event.currentTarget);
+    var formData = $form.serializeJSON().investment;
     var investment = new Hackstarter.Models.Investment(formData);
     view = this;
 
     investment.save({}, {
       success: function () {
-        $('#pledge-amount').val('');
+        $form[0].reset();
         view.model.fetch();
         view.closeModal();
       }

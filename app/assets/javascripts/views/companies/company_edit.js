@@ -28,17 +28,18 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
 
   handleNewUpdate: function (event) {
     event.preventDefault();
-    var formData = $(event.currentTarget).serializeJSON().update;
+    $form = $(event.currentTarget);
+    var formData = $form.serializeJSON().update;
     var update = new Hackstarter.Models.Update(formData);
     var view = this;
 
     // temp fix, partial out into subview for better rendering
     update.save({}, {
       success: function () {
+        $form[0].reset();
         $('.modal').modal('hide');
         view.closeModal();
         view.model.updates().add(update);
-        view.render();
       }
     });
   },
@@ -119,6 +120,10 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
       sectors: this.sectors
     });
     this.$el.html(renderedContent);
+
+    var updateView = new Hackstarter.Views.Updates({ model: this.model });
+    this.$('#updates').append(updateView.render().$el);
+
     return this;
   }
 });

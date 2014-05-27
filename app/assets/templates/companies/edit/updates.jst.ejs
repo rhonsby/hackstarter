@@ -1,19 +1,5 @@
 <div class='tab-pane col-md-6 fade in' id='updates'>
   <h3>Previous Updates</h3>
-
-  <ul class='edit-update-listing'>
-    <% company.updates().each(function (update, idx) { %>
-      <li>Update #<%= idx + 1 %>:
-        <a data-toggle='modal' data-target='#<%= update.cid %>-modal'>
-          <%= update.escape('title') %>
-        </a>
-      </li>
-    <% }); %>
-  </ul>
-
-  <button class='btn btn-primary' id='post-update-btn' data-toggle='modal'
-    data-target='#new-post-modal'>New Update</button>
 </div>
 
 <%= JST['companies/new-update-modal']({ company: company }) %>
-<%= JST['companies/edit/updates-modals']({ company: company }) %>
