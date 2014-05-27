@@ -47,7 +47,7 @@ Hackstarter.Views.CompanyShow = Backbone.View.extend({
 
   updateStats: function () {
     this.$('.investor-count').html(
-      this.model.get('investors').length
+      this.model.investors().length
     );
     this.$('.update-count').html(
       this.model.updates().length

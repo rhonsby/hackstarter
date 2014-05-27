@@ -157,7 +157,7 @@ html {
 
 .card-divider {
   height: 6px;
-  border: 1px solid #E7E7E7;
+  /*border: 1px solid #E7E7E7;*/
   position: relative;
   width: 293px;
   border-radius: 10px;
@@ -350,7 +350,7 @@ textarea#update_body {
 }
 
 #post-update-btn {
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: 15px;
 }
 
@@ -552,18 +552,6 @@ h3.story-details {
   max-width: 100%;
 }
 
-.investors-panel {
-  list-style: none;
-}
-
-.investor-panel {
-  width: 100px;
-  height: 50px;
-  border: 1px solid black;
-  padding: 5px;
-  margin: 5px;
-}
-
 .show-sidebar-details {
   margin-top: 40px;
 }
@@ -603,6 +591,46 @@ h3.story-details {
 .company-date {
   margin-top: 2px;
 }
+
+/* Company Show Investors */
+
+
+.investors-panel {
+  list-style: none;
+  padding-left: 0;
+}
+
+.investor-card {
+  border-top: 1px solid #D9D9DE;
+  padding: 15px 0;
+}
+
+.investors-panel > .investor-card:last-child {
+  border-bottom: 1px solid #D9D9DE;
+}
+
+.investor-name {
+  font-weight: bold;
+}
+
+.investor-location {
+  margin-bottom: 0;
+  font-size: 12px;
+}
+
+.investor-location > .glyphicon {
+  color: #8D9092;
+}
+
+.investor-backed-count {
+  font-size: 12px;
+}
+
+.investor-card-details {
+  margin-top: 7px;
+  padding-left: 5px;
+}
+
 
 /* Index Page */
 

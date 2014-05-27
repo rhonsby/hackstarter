@@ -33,7 +33,6 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
     var update = new Hackstarter.Models.Update(formData);
     var view = this;
 
-    // temp fix, partial out into subview for better rendering
     update.save({}, {
       success: function () {
         $form[0].reset();

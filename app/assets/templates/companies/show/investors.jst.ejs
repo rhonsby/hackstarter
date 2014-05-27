@@ -1,0 +1,33 @@
+<div class='tab-pane fade in' id='investors'>
+  <h3>Latest Investors</h3>
+
+  <ul class='investors-panel'>
+    <% _(company.investors().last(10).reverse()).each(function (investor) { %>
+      <li class='investor-card'>
+        <div class='row'>
+          <div class='col-md-2'>
+            <a href='<%= investor.bbUrl() %>'>
+              <img class='profile-photo' src='<%= investor.escape('photo_url') %>'>
+            </a>
+          </div>
+          <div class='col-md-10 investor-card-details'>
+            <p class='investor-name'><a href='<%= investor.bbUrl() %>'>
+              <%= investor.escape('name') || investor.escape('username') %>
+            </a></p>
+            <% if (investor.escape('location')) { %>
+              <p class='investor-location gray'>
+                <span class='glyphicon glyphicon-map-marker'></span>
+                <%= investor.escape('location') %>
+              </p>
+            <% }; %>
+            <p class='investor-backed-count gray'>
+              <span class='glyphicon glyphicon-check'></span>
+              Backed <%= investor.escape('backedCount') - 1 || 0 %>
+              other companies
+            </p>
+          </div>
+        </div>
+      </li>
+    <% }); %>
+  </ul>
+</div>
