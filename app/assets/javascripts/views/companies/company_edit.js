@@ -105,7 +105,6 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
     this.hideErrors();
     var modelName = (modelName || 'company');
 
-    var $form = $('#new-company-form');
     _(errors).each(function (error) {
       var field = 'label[for=' + modelName + '_' + error + ']';
       var $label = $(field);

@@ -55,7 +55,6 @@ Hackstarter.Views.CompanyNew = Backbone.View.extend({
   showErrors: function (errors) {
     this.hideErrors();
 
-    var $form = $('#new-company-form');
     _(errors).each(function (error) {
       var field = 'label[for=company_' + error + ']';
       var $label = $(field);

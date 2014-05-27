@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
                              default_url: "/images/profile/:style/missing.jpg"
 
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  validates :username, length: { minimum: 3 }
   validates :username, presence: true, uniqueness: { case_sensitive: false }
   validates :session_token, presence: true
   validates :password_digest, presence: { message: "can't be blank" }

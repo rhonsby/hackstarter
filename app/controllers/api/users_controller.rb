@@ -18,7 +18,7 @@ class Api::UsersController < ApplicationController
       login!(@user)
       render 'users/show'
     else
-      render json: { errors: @user.errors.full_messages }, status: 422
+      render json: { errors: @user.errors.messages.keys }, status: 422
     end
   end
 
@@ -28,7 +28,7 @@ class Api::UsersController < ApplicationController
     if @user.update_attributes(user_params)
       render 'users/show'
     else
-      render json: { errors: @user.errors.full_messages }, status: 422
+      render json: { errors: @user.errors.messages.keys }, status: 422
     end
   end
 
