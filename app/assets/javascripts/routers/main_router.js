@@ -11,6 +11,7 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
     'login': 'userLogin',
     'settings': 'userSettings',
     'contact': 'contact',
+    'discover': 'discover',
     'profile/:id': 'profilePage',
     'companies/new': 'companyNew',
     'companies/:id/edit': 'companyEdit',
@@ -22,6 +23,15 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
 
     var indexView = new Hackstarter.Views.RootIndex();
     router._swapView(indexView, router.$altEl);
+  },
+
+  discover: function () {
+    Hackstarter.companies.fetch();
+
+    var discoverView = new Hackstarter.Views.Discover({
+      collection: Hackstarter.companies
+    });
+    router._swapView(discoverView, router.$altEl);
   },
 
   userSignup: function () {

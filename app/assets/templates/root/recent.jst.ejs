@@ -4,21 +4,21 @@
     </span>Popular</h3>
 
     <div class='index-card'>
-      <% var appacademy = companies.findWhere({ name: 'App Academy' })
+      <% var company = companies.findWhere({ name: 'App Academy' })
       || new Hackstarter.Models.Company() %>
-      <%= JST['companies/company_card']({ company: appacademy }) %>
+      <%= JST['companies/company_card']({ company: company }) %>
     </div>
 
     <div class='index-card'>
-      <% var groovy = companies.findWhere({ name: "What's Groovy?" })
+      <% company = companies.findWhere({ name: "Wreddit" })
       || new Hackstarter.Models.Company() %>
-      <%= JST['companies/company_card']({ company: groovy }) %>
+      <%= JST['companies/company_card']({ company: company }) %>
     </div>
 
     <div class='index-card'>
-      <% var uniqlo = companies.findWhere({ name: 'Uniqlo' })
+      <% company = companies.findWhere({ name: 'Hotdelio' })
       || new Hackstarter.Models.Company() %>
-      <%= JST['companies/company_card']({ company: uniqlo }) %>
+      <%= JST['companies/company_card']({ company: company }) %>
     </div>
   </div>
 </div>

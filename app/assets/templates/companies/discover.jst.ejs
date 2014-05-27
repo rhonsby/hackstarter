@@ -1,0 +1,40 @@
+<div class='container'>
+  <div class='discover-index'>
+    <div class='discover-heading'>
+      <h3>Discover <span class='lead'>Companies</span></h3>
+      <h3 class='gray lead'>Passion, ideas, and ambition abound. Start exploring!</h3>
+    </div>
+
+    <div class='discover-content'>
+      <div class='row'>
+        <div class='col-md-10'>
+          <div class='discover-panel clearfix'>
+            <h3>Staff Picks</h3>
+
+            <div class='index-card'>
+              <% var company = companies.findWhere({ name: 'App Academy' })
+              || new Hackstarter.Models.Company() %>
+              <%= JST['companies/company_card']({ company: company }) %>
+            </div>
+
+            <div class='index-card'>
+              <% company = companies.findWhere({ name: "Hackstarter" })
+              || new Hackstarter.Models.Company() %>
+              <%= JST['companies/company_card']({ company: company }) %>
+            </div>
+
+            <div class='index-card'>
+              <% company = companies.findWhere({ name: 'Cycletree' })
+              || new Hackstarter.Models.Company() %>
+              <%= JST['companies/company_card']({ company: company }) %>
+            </div>
+          </div>
+        </div>
+
+        <div class='col-md-2'>
+          <%= JST['companies/discover/sidebar']() %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

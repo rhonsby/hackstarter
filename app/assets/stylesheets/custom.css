@@ -98,7 +98,7 @@
 }
 
 body {
-  background-color: #F7FAFA;
+  background-color: rgba(222, 234, 248, 0.14);
 }
 
 html {
@@ -791,6 +791,7 @@ h3.story-details {
 .index-marker {
   font-size: 0.9em;
   margin-right: 8px;
+  color: #0f2105;
 }
 
 .fa-facebook-square {
@@ -998,4 +999,59 @@ h3.story-details {
 
 .recently-backed-panel {
   border-top: 1px solid #d9d9de;
+}
+
+/* Discover */
+
+.discover-index {
+  margin-top: 60px;
+}
+
+.discover-heading > h3 > .lead {
+  font-size: 24px;
+}
+
+.discover-heading > h3:last-child {
+  margin-top: 0;
+}
+
+.discover-content {
+  margin-top: 50px;
+  min-height: 500px;
+  margin-bottom: 70px;
+}
+
+.discover-content .sidebar > h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #0f2105;
+}
+
+.discover-content .sidebar {
+  float: right;
+}
+
+.sidebar > ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar > ul a {
+  color: #828587;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.sidebar > ul a:hover {
+  text-decoration: none;
+  color: #3499d3;
+}
+
+.discover-panel {
+  border-bottom: 1px solid #D9D9DE;
+  width: 92%;
+}
+
+.discover-panel > h3 {
+  margin-left: 8px;
 }
