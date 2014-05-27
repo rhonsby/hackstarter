@@ -5,7 +5,7 @@ class Api::UpdatesController < ApplicationController
     if @update.save
       render partial: 'companies/update', locals: { update: @update }
     else
-      render json: { errors: @update.errors.full_messages }, status: 422
+      render json: { errors: @update.errors.messages.keys }, status: 422
     end
   end
 
@@ -15,7 +15,7 @@ class Api::UpdatesController < ApplicationController
     if @update.update_attributes(update_params)
       render partial: 'companies/update', locals: { update: @update }
     else
-      render json: { errors: @udpate.errors.full_messages }, status: 422
+      render json: { errors: @update.errors.messages.keys }, status: 422
     end
   end
 

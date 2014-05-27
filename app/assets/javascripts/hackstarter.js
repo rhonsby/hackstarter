@@ -29,12 +29,14 @@ Hackstarter.loginUser = function (user) {
   $('#user-main-nav').html(navView.render().$el);
 };
 
-// Hackstarter._swapNav = function (view) {
-//   if (this._currentNav) {
-//     this._currentNav.remove();
-//   }
-
-//   this._currentNav = view;
-//   $('#user-main-nav').html(view.render().$el);
-// };
-
+Hackstarter.growl = function (message) {
+  $.bootstrapGrowl(message, {
+    ele: 'body',
+    type: 'success',
+    offset: {from: 'top', amount: 80},
+    align: 'right',
+    delay: 4000,
+    allow_dismiss: true,
+    stackup_spacing: 10
+  });
+};

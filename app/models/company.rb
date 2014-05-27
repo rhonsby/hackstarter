@@ -32,7 +32,7 @@ class Company < ActiveRecord::Base
   validates :owner, :name, :sector,
            :location, :duration,
            :investment_goal, :equity, :growth_stage, presence: true
-
+  validates :blurb, length: { maximum: 140 }
   validates :duration, :investment_goal, :equity,
             numericality: { only_integer: true }
   validates :growth_stage, inclusion: ['Start-Up', 'Early Stage', 'Growth']

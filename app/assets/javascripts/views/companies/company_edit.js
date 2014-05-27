@@ -35,10 +35,17 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
 
     update.save({}, {
       success: function () {
+        view.hideErrors();
         $form[0].reset();
         $('.modal').modal('hide');
         view.closeModal();
         view.model.updates().add(update);
+
+        Hackstarter.growl('Update successfully posted!');
+      },
+      error: function (model, resp) {
+        var errors = resp.responseJSON.errors;
+        view.showErrors(errors, 'update');
       }
     });
   },
@@ -51,8 +58,19 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
   handleCompanyUpdate: function (event) {
     event.preventDefault();
     var formData = $(event.currentTarget).serializeJSON().company;
+    var view = this;
+
     this.model.set(formData);
-    this.model.save();
+    this.model.save({}, {
+      success: function () {
+        view.hideErrors();
+        Hackstarter.growl('Settings updated!');
+      },
+      error: function (model, resp) {
+        var errors = resp.responseJSON.errors;
+        view.showErrors(errors, 'company');
+      }
+    });
   },
 
   handleUpdateChanges: function (event) {
@@ -65,9 +83,33 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
 
     update.save(formData, {
       success: function () {
+        view.hideErrors();
+
         $('.modal').modal('hide');
         view.closeModal();
+
+        Hackstarter.growl(update.escape('title') + ' updated!');
+      },
+      error: function (model, resp) {
+        var errors = resp.responseJSON.errors;
+        view.showErrors(errors, 'update');
       }
+    });
+  },
+
+  hideErrors: function () {
+    $('label').removeClass('label-error');
+  },
+
+  showErrors: function (errors, modelName) {
+    this.hideErrors();
+    var modelName = (modelName || 'company');
+
+    var $form = $('#new-company-form');
+    _(errors).each(function (error) {
+      var field = 'label[for=' + modelName + '_' + error + ']';
+      var $label = $(field);
+      $label.addClass('label-error');
     });
   },
 

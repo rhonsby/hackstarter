@@ -30,7 +30,7 @@ class Api::CompaniesController < ApplicationController
     if @company.update_attributes(company_params)
       render 'companies/show'
     else
-      render json: { errors: @company.errors.full_messages }, status: 422
+      render json: { errors: @company.errors.messages.keys }, status: 422
     end
   end
 
