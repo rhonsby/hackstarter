@@ -15,6 +15,7 @@ Hackstarter.Views.Signup = Backbone.View.extend({
       success: function (resp) {
         Hackstarter.loginUser(user);
         Backbone.history.navigate('', { trigger: true });
+        // user.trigger('new-user');
       }
     });
   },

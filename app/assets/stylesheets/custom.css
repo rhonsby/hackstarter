@@ -125,6 +125,10 @@ html {
   width: 1200px;
 }
 
+.label-error {
+  color: red;
+}
+
 /* Company Card */
 
 .company-card {

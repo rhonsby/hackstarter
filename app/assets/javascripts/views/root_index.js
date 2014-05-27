@@ -7,7 +7,14 @@ Hackstarter.Views.RootIndex = Backbone.View.extend({
 
   initialize: function (options) {
     this.listenTo(Hackstarter.companies, 'sync', this.render);
+    // this.listenTo(Hackstarter.currentUser, 'new-user', this.welcomeUser);
   },
+
+  // welcomeUser: function () {
+  //   $('#welcome-modal').modal({
+  //     keyboard: true
+  //   });
+  // },
 
   handleTabSwitch: function (event) {
     event.preventDefault();
