@@ -16,7 +16,7 @@ Hackstarter.Views.RootIndex = Backbone.View.extend({
 
   showMainImage: function () {
     this.$('.main-image').removeClass('hidden');
-    this.$('.main-image').css('max-height', $(window).height() / 1.4);
+    // this.$('.main-image').css('max-height', $(window).height() / 1.4);
   },
 
   hideMainImage: function () {

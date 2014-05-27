@@ -7,8 +7,15 @@
       <h4 class='blue'>
           Update #<%= company.updates().length - idx %>
       </h4>
-
       <h3 class='update-title'><%= update.escape('title') %></h3>
+      <div class='stat-line'>
+        <div class='comment'><a class='gray comment'>Comment</a></div>
+        <div><a class='like gray'>
+          <span class='glyphicon glyphicon-heart'></span>
+          Like
+        </a></div>
+      </div>
+
       <p class='update-content'>
         <%= marked(update.escape('body')) %>
       </p>

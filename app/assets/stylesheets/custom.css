@@ -561,18 +561,27 @@ h3.story-details {
 .company-update {
   margin: 25px 0;
   margin-left: 15px;
-  padding-bottom: 25px;
+  padding-bottom: 30px;
   width: 95%;
   border-bottom: 1px solid #d9d9de;
+}
+
+#updates > .company-update {
+  margin-top: 60px;
 }
 
 #updates > .company-update:last-child {
   border-bottom: none;
 }
 
+.company-update > .update-title {
+  margin-top: -10px;
+}
+
 .update-title {
   padding: 8px 0;
   width: 75%;
+  margin-bottom: 0;
 }
 
 .company-update p {
@@ -590,6 +599,41 @@ h3.story-details {
 
 .company-date {
   margin-top: 2px;
+}
+
+.stat-line > div {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.comment:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #6A6B6B;
+}
+
+.stat-line > div:last-child:hover .glyphicon-heart {
+  color: #FD003B;
+}
+
+.like {
+  margin-left: 5px;
+
+}
+
+.like:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+}
+
+.glyphicon-heart:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 /* Company Show Investors */
@@ -636,8 +680,9 @@ h3.story-details {
 
 .main-image {
   margin-top: -20px;
-  height: 100%;
-  overflow: hidden;
+  min-height: 600px;
+  background-image: url('hackstarter_large.jpg');
+  background-repeat: no-repeat;
 }
 
 .main-image img {
