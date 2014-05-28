@@ -1,0 +1,26 @@
+<div class='new-comment-container'>
+  <% if (Hackstarter.currentUser && company.isBacker(Hackstarter.currentUser)) { %>
+    <form id='new-comment-form'>
+      <input type='hidden' name='comment[commentable_id]' value='<%= company.id %>'>
+      <input type='hidden' name='comment[commentable_type]' value='Company'>
+
+      <div class='form-group'>
+        <label for='comment_body'>New Comment</label>
+        <textarea name='comment[body]' id='comment_body'
+          class='form-control'></textarea>
+      </div>
+
+      <button type='submit' class='btn btn-primary'>Submit</button>
+    </form>
+  <% } else { %>
+    <div class='backer-required'>
+      <h4 class='center lead'>Only investors can post comments.</h4>
+    </div>
+  <% }; %>
+</div>
+
+<ul class='investors-panel'>
+  <% company.comments().each(function (comment) { %>
+    <%= JST['companies/show/investor_comment']({ comment: comment }) %>
+  <% }); %>
+</ul>

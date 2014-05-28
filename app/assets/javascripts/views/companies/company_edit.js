@@ -6,6 +6,8 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
   initialize: function (options) {
     this.sectors = options.sectors;
     this.reader = new FileReader();
+    this.updateView = new Hackstarter.Views.Updates({ model: this.model });
+
 
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.sectors, 'sync', this.render);
@@ -169,10 +171,13 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
       sectors: this.sectors
     });
     this.$el.html(renderedContent);
-
-    var updateView = new Hackstarter.Views.Updates({ model: this.model });
-    this.$('#updates').append(updateView.render().$el);
+    this.$('#updates').append(this.updateView.render().$el);
 
     return this;
+  },
+
+  remove: function () {
+    Backbone.View.prototype.remove.call(this);
+    this.updateView.remove();
   }
 });

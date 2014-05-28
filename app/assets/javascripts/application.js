@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.serializejson
+//= require jquery.timeago
 //= require bootstrap-growl
 //= require underscore
 //= require backbone

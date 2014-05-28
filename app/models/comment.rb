@@ -14,4 +14,7 @@
 class Comment < ActiveRecord::Base
   belongs_to :commentable, polymorphic: true
   belongs_to :user
+
+  validates :commentable, :user, :body, presence: true
+  validates :body, length: { maximum: 255 }
 end

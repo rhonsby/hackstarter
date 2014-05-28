@@ -139,6 +139,12 @@ html {
   margin-bottom: 15px;
 }
 
+.timeago {
+  margin-left: 3px;
+  font-weight: normal;
+  font-size: 12px;
+}
+
 /* Company Card */
 
 .company-card {
@@ -373,6 +379,8 @@ textarea#update_body {
 #company-show-title {
   font-size: 40px;
 }
+
+
 
 .show-nav {
   width: 80%;
@@ -667,8 +675,17 @@ h3.story-details {
   border-bottom: 1px solid #D9D9DE;
 }
 
+.investor-card-details {
+  margin-top: 7px;
+  padding-left: 5px;
+}
+
 .investor-name {
   font-weight: bold;
+}
+
+.investor-name a:hover {
+  text-decoration: none;
 }
 
 .investor-location {
@@ -684,11 +701,32 @@ h3.story-details {
   font-size: 12px;
 }
 
-.investor-card-details {
-  margin-top: 7px;
-  padding-left: 5px;
+/* Company Show Comments */
+
+.commentor-card {
+  border-top: 1px dotted #D9D9DE;
 }
 
+.commentor-card .col-md-2 {
+  margin-right: -23px;
+}
+
+.commentor-card:last-child {
+  border-bottom: 1px dotted #D9D9DE;
+}
+
+.backer-required {
+  background-color: #FAFCFE;
+  padding: 5px 0;
+}
+
+.new-comment-container {
+  margin: 30px 0;
+}
+
+textarea#comment_body {
+  height: 100px;
+}
 
 /* Index Page */
 

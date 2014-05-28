@@ -13,12 +13,8 @@
   </div>
 
   <%= JST['companies/show/updates']({ company: company }) %>
-
   <%= JST['companies/show/investors']({ company: company }) %>
-
-  <div class='tab-pane fade in' id='comments'>
-    <h1>Comments</h1>
-  </div>
+  <%= JST['companies/show/comments']({ company: company }) %>
 </div>
 
 <%= JST['companies/show/payment_modal']({ company: company }) %>
