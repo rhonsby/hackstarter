@@ -1021,14 +1021,14 @@ h3.story-details {
   margin-bottom: 100px;
 }
 
-.discover-content .sidebar > h3 {
+.discover-content .sidebar h3 {
   font-size: 16px;
   margin-bottom: 10px;
   color: #0f2105;
 }
 
 .discover-content .sidebar {
-  float: right;
+  /*float: right;*/
 }
 
 .sidebar > ul {
@@ -1045,6 +1045,13 @@ h3.story-details {
 .sidebar > ul a:hover {
   text-decoration: none;
   color: #3499d3;
+}
+
+.sidebar li.active > a {
+  /*padding-left: 10px;*/
+  color: #3499D3;
+  font-weight: bold;
+  /*text-decoration: underline;*/
 }
 
 .discover-panel > h3 {
@@ -1066,7 +1073,7 @@ div.row.company-form {
 }
 
 .main-sidebar {
-  width: 20%;
+  width: 21%;
 }
 
 .discover-container {

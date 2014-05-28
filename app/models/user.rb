@@ -26,6 +26,8 @@ class User < ActiveRecord::Base
                              convert_options: { all: '-quality 75' }
 
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/]
+
   validates :username, length: { minimum: 3 }
   validates :username, presence: true, uniqueness: { case_sensitive: false }
   validates :session_token, presence: true

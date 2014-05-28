@@ -30,6 +30,8 @@ class Company < ActiveRecord::Base
                     convert_options: { all: '-quality 75' }
 
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
+  validates_attachment_file_name :photo, :matches => [/png\Z/, /jpe?g\Z/]
+
   validates :owner, :name, :sector,
            :location, :duration,
            :investment_goal, :equity, :growth_stage, presence: true

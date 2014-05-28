@@ -123,16 +123,25 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
     var file = $(event.currentTarget)[0].files[0];
 
     var that = this;
-    this.$('.progress').removeClass('hidden');
-    this.$('#company-photo').addClass('hidden');
+    this.toggleProgress();
+
 
     this.$('.progress-bar').css('width', '100%');
     this.reader.onload = function (e) {
       that.model.set({ photo: e.target.result });
-      that.model.save();
+      that.model.save({
+        error: function () {
+          that.toggleProgress();
+        }
+      });
     };
 
     this.reader.readAsDataURL(file);
+  },
+
+  toggleProgress: function () {
+    this.$('.progress').toggleClass('hidden');
+    this.$('#company-photo').toggleClass('hidden');
   },
 
   updatePreview: function (event) {

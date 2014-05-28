@@ -22,8 +22,7 @@ Hackstarter.Views.Settings = Backbone.View.extend({
     var file = $(event.currentTarget)[0].files[0];
 
     var that = this;
-    this.$('.progress').removeClass('hidden');
-    this.$('#user-avatar').addClass('hidden');
+    this.toggleProgress();
 
     this.$('.progress-bar').css('width', '100%');
     this.reader.onload = function (e) {
@@ -32,6 +31,11 @@ Hackstarter.Views.Settings = Backbone.View.extend({
     };
 
     this.reader.readAsDataURL(file);
+  },
+
+  toggleProgress: function () {
+    this.$('.progress').removeClass('hidden');
+    this.$('#user-avatar').addClass('hidden');
   },
 
   render: function () {
