@@ -8,27 +8,7 @@
     <div class='discover-content'>
       <div class='row'>
         <div class='col-md-10'>
-          <div class='discover-panel clearfix'>
-            <h3>Staff Picks</h3>
-
-            <div class='index-card'>
-              <% var company = companies.findWhere({ name: 'App Academy' })
-              || new Hackstarter.Models.Company() %>
-              <%= JST['companies/company_card']({ company: company }) %>
-            </div>
-
-            <div class='index-card'>
-              <% company = companies.findWhere({ name: "Hackstarter" })
-              || new Hackstarter.Models.Company() %>
-              <%= JST['companies/company_card']({ company: company }) %>
-            </div>
-
-            <div class='index-card'>
-              <% company = companies.findWhere({ name: 'Cycletree' })
-              || new Hackstarter.Models.Company() %>
-              <%= JST['companies/company_card']({ company: company }) %>
-            </div>
-          </div>
+          <%= JST['companies/discover/discover-panels']({ companies: companies }) %>
         </div>
 
         <div class='col-md-2'>

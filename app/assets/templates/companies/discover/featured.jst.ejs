@@ -1,0 +1,61 @@
+<div class='discover-panel tab-pane active clearfix' id='staff-picks'>
+  <h3>Staff Picks</h3>
+
+  <div class='index-card'>
+    <% var company = companies.findWhere({ name: 'App Academy' })
+    || new Hackstarter.Models.Company() %>
+    <%= JST['companies/company_card']({ company: company }) %>
+  </div>
+
+  <div class='index-card'>
+    <% company = companies.findWhere({ name: "Hackstarter" })
+    || new Hackstarter.Models.Company() %>
+    <%= JST['companies/company_card']({ company: company }) %>
+  </div>
+
+  <div class='index-card'>
+    <% company = companies.findWhere({ name: 'Cycletree' })
+    || new Hackstarter.Models.Company() %>
+    <%= JST['companies/company_card']({ company: company }) %>
+  </div>
+</div>
+
+<div class='discover-panel tab-pane clearfix' id='popular'>
+  <h3>Popular</h3>
+
+  <% _(companies.popular(3)).each(function(company) { %>
+    <div class='index-card'>
+      <%= JST['companies/company_card']({ company: company }) %>
+    </div>
+  <% }); %>
+</div>
+
+<div class='discover-panel tab-pane clearfix' id='recent'>
+  <h3>Recently Launched</h3>
+
+  <% _(companies.recent(3)).each(function(company) { %>
+    <div class='index-card'>
+      <%= JST['companies/company_card']({ company: company }) %>
+    </div>
+  <% }); %>
+</div>
+
+<div class='discover-panel tab-pane clearfix' id='ending'>
+  <h3>Ending</h3>
+
+  <% _(companies.ending(3)).each(function(company) { %>
+    <div class='index-card'>
+      <%= JST['companies/company_card']({ company: company }) %>
+    </div>
+  <% }); %>
+</div>
+
+<div class='discover-panel tab-pane clearfix' id='most-funded'>
+  <h3>Most Funded</h3>
+
+  <% _(companies.mostFunded(3)).each(function(company) { %>
+    <div class='index-card'>
+      <%= JST['companies/company_card']({ company: company }) %>
+    </div>
+  <% }); %>
+</div>

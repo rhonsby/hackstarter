@@ -1048,8 +1048,8 @@ h3.story-details {
 }
 
 .discover-panel {
-  border-bottom: 1px solid #D9D9DE;
-  width: 92%;
+  /*border-bottom: 1px solid #D9D9DE;*/
+  /*width: 92%;*/
 }
 
 .discover-panel > h3 {
