@@ -1,5 +1,9 @@
 <div class='tab-pane fade in' id='updates'>
-  <h3>Latest Updates</h3>
+  <% if (company.updates().length) { %>
+    <h3>Latest Updates</h3>
+  <% } else { %>
+    <h5 class='lead'>This company has no updates.</h5>
+  <% } %>
 
   <% _(company.updates().last(3).reverse()).each(function (update, idx) { %>
     <div class='company-update'>

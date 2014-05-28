@@ -20,7 +20,7 @@
 </div>
 
 <ul class='investors-panel'>
-  <% company.comments().each(function (comment) { %>
+  <% _(company.comments().first(10)).each(function (comment) { %>
     <%= JST['companies/show/investor_comment']({ comment: comment }) %>
   <% }); %>
 </ul>

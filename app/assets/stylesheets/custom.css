@@ -380,7 +380,17 @@ textarea#update_body {
   font-size: 40px;
 }
 
+.tab-pane#updates {
+  padding-left: 20px;
+}
 
+.tab-pane#investors {
+  padding-left: 20px;
+}
+
+.tab-pane#comments {
+  padding-left: 20px;
+}
 
 .show-nav {
   width: 80%;
