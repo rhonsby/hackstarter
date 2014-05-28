@@ -3,10 +3,12 @@ Hackstarter.Views.CommentsShow = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.model.comments(), 'add', this.render);
+    this.listenTo(this.model.comments(), 'remove', this.render);
   },
 
   events: {
-    'submit #new-comment-form': 'handleSubmit'
+    'submit #new-comment-form': 'handleSubmit',
+    'click .comment-delete-btn': 'handleDelete'
   },
 
   handleSubmit: function (event) {
@@ -25,6 +27,13 @@ Hackstarter.Views.CommentsShow = Backbone.View.extend({
         view.showErrors(errors);
       }
     });
+  },
+
+  handleDelete: function (event) {
+    var commentID = $(event.currentTarget).data('id');
+    var comment = this.model.comments().get(commentID);
+
+    comment.destroy();
   },
 
   hideErrors: function () {

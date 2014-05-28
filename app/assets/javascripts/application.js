@@ -15,7 +15,6 @@
 //= require jquery.serializejson
 //= require jquery.timeago
 //= require bootstrap-growl
-//= require inflection
 //= require underscore
 //= require backbone
 //= require marked

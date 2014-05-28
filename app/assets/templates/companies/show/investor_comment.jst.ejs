@@ -18,6 +18,11 @@
       <p>
         <%= marked(comment.escape('body')) %>
       </p>
+
+      <% if (comment.escape('author_id') == Hackstarter.currentUser.id) { %>
+        <button class='btn btn-xs btn-danger pull-right comment-delete-btn'
+          data-id='<%= comment.id %>'>Delete</button>
+      <% } %>
     </div>
   </div>
 </li>

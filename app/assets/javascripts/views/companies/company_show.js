@@ -4,6 +4,7 @@ Hackstarter.Views.CompanyShow = Backbone.View.extend({
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model, 'sync', this.updateStats);
+    this.listenTo(this.model.comments(), 'add remove', this.updateStats);
     this.companyCommentsView = new Hackstarter.Views.CommentsShow({ model: this.model });
   },
 

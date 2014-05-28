@@ -7,7 +7,6 @@
     <li class='active'><a href='#basics' data-toggle='tab'>Basics</a></li>
     <li><a href='#story' data-toggle='tab'>Story</a></li>
     <li><a href='#updates' data-toggle='tab'>Company Updates</a></li>
-    <li><a href='#comments' data-toggle='tab'>Comments</a></li>
 
   </ul>
 </div>
@@ -16,6 +15,5 @@
   <%= JST['companies/edit/basics']({ company: company, sectors: sectors }) %>
   <%= JST['companies/edit/story']({ company: company }) %>
   <%= JST['companies/edit/updates']({ company: company }) %>
-  <%= JST['companies/edit/comments']({ company: company }) %>
   <%= JST['companies/company_card']({ company: company }) %>
 </div>
