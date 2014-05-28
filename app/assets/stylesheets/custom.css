@@ -1017,8 +1017,8 @@ h3.story-details {
 
 .discover-content {
   margin-top: 50px;
-  min-height: 500px;
-  margin-bottom: 70px;
+  min-height: 650px;
+  margin-bottom: 100px;
 }
 
 .discover-content .sidebar > h3 {
@@ -1054,4 +1054,27 @@ h3.story-details {
 
 .discover-panel > h3 {
   margin-left: 8px;
+}
+
+.discover-content .main-content {
+  padding-right: 0;
+  width: 76%;
+}
+
+.discover-content .main-sidebar {
+  padding-right: 0;
+}
+
+div.row.company-form {
+  width: 100%;
+  padding: 15px;
+}
+
+.main-sidebar {
+  width: 20%;
+}
+
+.discover-container {
+  width: 1300px;
+  margin: 0 auto;
 }

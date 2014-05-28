@@ -7,6 +7,7 @@ window.Hackstarter = {
     Hackstarter.companies = new Hackstarter.Collections.Companies();
     Hackstarter.sectors = new Hackstarter.Collections.Sectors();
     Hackstarter.sectors.fetch();
+    // Hackstarter.initializeSearchBar();
 
     new Hackstarter.Routers.Router({
       $rootEl: $('#main')
@@ -40,3 +41,8 @@ Hackstarter.growl = function (message) {
     stackup_spacing: 10
   });
 };
+
+// Hackstarter.initializeSearchBar = function () {
+//   var searchView = new Hackstarter.Views.Search();
+//   $('.nav-search').html(searchView.render().$el);
+// };
