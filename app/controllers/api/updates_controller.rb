@@ -19,6 +19,13 @@ class Api::UpdatesController < ApplicationController
     end
   end
 
+  def destroy
+    @update = Update.find(params[:id])
+    @update.destroy
+
+    render json: {}
+  end
+
   private
 
   def update_params

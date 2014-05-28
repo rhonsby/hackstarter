@@ -21,7 +21,22 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
     'submit #new-company-form': 'handleCompanyUpdate',
     'submit #update-modal-form': 'handleUpdateChanges',
     'click #new-update-btn': 'submitForm',
-    'submit #new-update-form': 'handleNewUpdate'
+    'submit #new-update-form': 'handleNewUpdate',
+    'click .update-delete-btn': 'handleDelete'
+  },
+
+  handleDelete: function (event) {
+    event.preventDefault();
+    var updateID = $(event.currentTarget).data('id');
+    var update = this.model.updates().get(updateID);
+    var view = this;
+
+    update.destroy({
+      success: function () {
+        $('.modal').modal('hide');
+        view.closeModal();
+      }
+    });
   },
 
   submitForm: function () {
