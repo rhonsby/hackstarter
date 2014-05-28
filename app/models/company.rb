@@ -26,7 +26,8 @@
 class Company < ActiveRecord::Base
   has_attached_file :photo, styles: { show: '600x440#',
                     card: '298x250#', card_large: '320x240#' },
-                    default_url: "missing_small.png"
+                    default_url: "missing_small.png",
+                    convert_options: { all: '-quality 75' }
 
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
   validates :owner, :name, :sector,
