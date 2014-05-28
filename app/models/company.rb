@@ -45,6 +45,7 @@ class Company < ActiveRecord::Base
   has_many :investments
   has_many :investors, through: :investments, source: :investor
   has_many :updates
+  has_many :comments, as: :commentable
 
   def amount_raised
     self.investments.pluck(:amount).inject(&:+)

@@ -33,5 +33,9 @@ Hackstarter.Collections.Companies = Backbone.Collection.extend({
 
   findBySector: function (sector) {
     return this.where({ sector: sector });
+  },
+
+  findByLocation: function (location) {
+    return this.where({ location: location });
   }
 });

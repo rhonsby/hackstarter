@@ -117,3 +117,13 @@
     </div>
   <% }); %>
 </div>
+
+<div class='discover-panel tab-pane clearfix' id='san-francisco'>
+  <h3>San Francisco</h3>
+
+  <% _(companies.findByLocation('San Francisco, CA')).each(function(company) { %>
+    <div class='index-card'>
+      <%= JST['companies/company_card']({ company: company }) %>
+    </div>
+  <% }); %>
+</div>

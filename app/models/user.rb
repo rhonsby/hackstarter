@@ -39,6 +39,7 @@ class User < ActiveRecord::Base
   has_many :companies, foreign_key: :owner_id
   has_many :investments, foreign_key: :investor_id
   has_many :backed_companies, through: :investments, source: :company
+  has_many :comments
 
   def self.find_by_credentials(params)
     user = User.find_by_username(params[:username])
