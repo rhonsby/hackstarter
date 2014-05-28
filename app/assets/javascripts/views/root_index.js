@@ -7,6 +7,7 @@ Hackstarter.Views.RootIndex = Backbone.View.extend({
 
   initialize: function (options) {
     this.listenTo(Hackstarter.companies, 'sync', this.render);
+    this.footer = new Hackstarter.Views.Footer();
     // this.listenTo(Hackstarter.currentUser, 'new-user', this.welcomeUser);
   },
 
@@ -42,7 +43,7 @@ Hackstarter.Views.RootIndex = Backbone.View.extend({
       staffPicks: this.staffPicks
     });
     this.$el.html(renderedContent);
-    this.$el.append(JST['root/footer']());
+    this.$el.append(this.footer.render().$el);
 
     this.showMainImage();
     return this;
@@ -50,6 +51,7 @@ Hackstarter.Views.RootIndex = Backbone.View.extend({
 
   remove: function () {
     Backbone.View.prototype.remove.call(this);
+    this.footer.remove();
     this.hideMainImage();
   }
 });
