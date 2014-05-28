@@ -4,7 +4,7 @@ Hackstarter.Views.CompanyShow = Backbone.View.extend({
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model, 'sync', this.updateStats);
-    this.commentsView = new Hackstarter.Views.CommentsShow({ model: this.model });
+    this.companyCommentsView = new Hackstarter.Views.CommentsShow({ model: this.model });
   },
 
   events: {
@@ -78,13 +78,13 @@ Hackstarter.Views.CompanyShow = Backbone.View.extend({
   render: function () {
     var renderedContent = this.template({ company: this.model });
     this.$el.html(renderedContent);
-    this.$('#comments').append(this.commentsView.render().$el);
+    this.$('#comments').append(this.companyCommentsView.render().$el);
 
     return this;
   },
 
   remove: function () {
     Backbone.View.prototype.remove.call(this);
-    this.commentsView.remove();
+    this.companyCommentsView.remove();
   }
 });

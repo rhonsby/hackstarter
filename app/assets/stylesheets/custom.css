@@ -426,6 +426,10 @@ textarea#update_body {
   margin-top: -3px;
 }
 
+.company-show-info > .row.company-form.company-show {
+  width: 90%;
+}
+
 .left-show {
   padding: 0;
 }
@@ -595,15 +599,11 @@ h3.story-details {
   margin-left: 15px;
   padding-bottom: 30px;
   width: 95%;
-  border-bottom: 1px solid #d9d9de;
+  border-bottom: 1px dotted #D9D9DE;
 }
 
 #updates > .company-update {
   margin-top: 60px;
-}
-
-#updates > .company-update:last-child {
-  border-bottom: none;
 }
 
 .company-update > .update-title {
@@ -687,7 +687,7 @@ h3.story-details {
 
 .investor-card-details {
   margin-top: 7px;
-  padding-left: 5px;
+  padding-left: 25px;
 }
 
 .investor-name {

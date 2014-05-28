@@ -5,11 +5,12 @@
     <h5 class='lead'>This company has no updates.</h5>
   <% } %>
 
-  <% _(company.updates().last(3).reverse()).each(function (update, idx) { %>
+  <% if (company.updates().length) { %>
+    <% var update = company.updates().last() %>
     <div class='company-update'>
       <h5 class='gray pull-right company-date'><%= update.escape('date') %></h5>
       <h4 class='blue'>
-          Update #<%= company.updates().length - idx %>
+          Update #<%= company.updates().length %>
       </h4>
       <h3 class='update-title'><%= update.escape('title') %></h3>
       <div class='stat-line'>
@@ -24,5 +25,9 @@
         <%= marked(update.escape('body')) %>
       </p>
     </div>
-  <% }); %>
+
+    <div class='company-update-comments'>
+      <h4>Comments</h4>
+    </div>
+  <% }; %>
 </div>
