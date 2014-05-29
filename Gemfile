@@ -15,6 +15,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'paperclip', '~> 4.1'
 gem 'figaro'
 gem 'aws-sdk'
+gem 'oj'
 
 group :doc do
   gem 'sdoc', require: false
