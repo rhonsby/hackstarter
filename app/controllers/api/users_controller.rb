@@ -2,13 +2,18 @@ class Api::UsersController < ApplicationController
   wrap_parameters :user, include: [:username, :password, :avatar,
                                    :name, :biography, :location, :website]
 
+  def index
+    @users = User.all
+    render 'users/users', locals: { users: @users }
+  end
+
   def new
     @user = User.new
   end
 
   def show
     @user = User.find(params[:id])
-    render 'users/show'
+    render partial: 'users/show', locals: { user: @user }
   end
 
   def create
@@ -16,7 +21,7 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       login!(@user)
-      render 'users/show'
+      render partial: 'users/show', locals: { user: @user }
     else
       render json: { errors: @user.errors.messages.keys }, status: 422
     end
@@ -26,7 +31,7 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update_attributes(user_params)
-      render 'users/show'
+      render partial: 'users/show', locals: { user: @user }
     else
       render json: { errors: @user.errors.messages.keys }, status: 422
     end

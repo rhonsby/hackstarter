@@ -2,6 +2,7 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
     this.$altEl = $('#index-main');
+
     router = this;
   },
 
@@ -21,12 +22,15 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
   index: function () {
     Hackstarter.companies.fetch();
 
-    var indexView = new Hackstarter.Views.RootIndex();
+    var indexView = new Hackstarter.Views.RootIndex({
+      collection: Hackstarter.companies
+    });
     router._swapView(indexView, router.$altEl);
   },
 
   discover: function () {
     Hackstarter.companies.fetch();
+    Hackstarter.sectors.fetch();
 
     var discoverView = new Hackstarter.Views.Discover({
       collection: Hackstarter.companies
@@ -64,8 +68,7 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
   },
 
   profilePage: function (id) {
-    var user = new Hackstarter.Models.User({ id: id });
-    user.fetch();
+    var user = Hackstarter.users.getOrFetch(id);
 
     var profileView = new Hackstarter.Views.ProfilePage({ model: user });
     router._swapView(profileView, router.$altEl);
@@ -83,7 +86,6 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
   companyEdit: function (id) {
     router.requireLogin(function () {
       router.requireAuth(id, function (company) {
-        company.fetch();
 
         var editView = new Hackstarter.Views.CompanyEdit({
           model: company,
@@ -95,8 +97,9 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
   },
 
   companyShow: function (id) {
-    var company = new Hackstarter.Models.Company({ id: id });
-    company.fetch();
+    // var company = new Hackstarter.Models.Company({ id: id });
+    // company.fetch();
+    var company = Hackstarter.companies.getOrFetch(id);
 
     var showView = new Hackstarter.Views.CompanyShow({
       model: company,
@@ -126,6 +129,7 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
   requireAuth: function (id, callback) {
     var company = Hackstarter.currentUser.companies().get(id);
     if (company) {
+      company.fetch();
       callback(company);
     } else {
       Backbone.history.navigate('', { trigger: true });

@@ -3,6 +3,8 @@ json.extract! company, :name, :location, :blurb, :investment_goal,
 
 json.photo_url company.photo(:card)
 json.large_photo_url company.photo(:card_large)
+json.main_photo_url company.photo(:show)
+json.large_photo_url company.photo(:card_large)
 json.amount_raised company.amount_raised
 json.percentage_raised company.percentage_raised
 json.days_left company.days_left

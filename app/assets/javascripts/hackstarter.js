@@ -6,8 +6,11 @@ window.Hackstarter = {
   initialize: function() {
     Hackstarter.companies = new Hackstarter.Collections.Companies();
     Hackstarter.sectors = new Hackstarter.Collections.Sectors();
-    Hackstarter.sectors.fetch();
-    // Hackstarter.initializeSearchBar();
+    Hackstarter.users = new Hackstarter.Collections.Users();
+
+    // Hackstarter.companies.fetch();
+
+    // Hackstarter.users.fetch();
 
     new Hackstarter.Routers.Router({
       $rootEl: $('#main')
@@ -41,8 +44,3 @@ Hackstarter.growl = function (message) {
     stackup_spacing: 10
   });
 };
-
-// Hackstarter.initializeSearchBar = function () {
-//   var searchView = new Hackstarter.Views.Search();
-//   $('.nav-search').html(searchView.render().$el);
-// };

@@ -8,14 +8,7 @@ Hackstarter.Views.RootIndex = Backbone.View.extend({
   initialize: function (options) {
     this.listenTo(Hackstarter.companies, 'sync', this.render);
     this.footer = new Hackstarter.Views.Footer();
-    // this.listenTo(Hackstarter.currentUser, 'new-user', this.welcomeUser);
   },
-
-  // welcomeUser: function () {
-  //   $('#welcome-modal').modal({
-  //     keyboard: true
-  //   });
-  // },
 
   handleTabSwitch: function (event) {
     event.preventDefault();
@@ -24,23 +17,15 @@ Hackstarter.Views.RootIndex = Backbone.View.extend({
 
   showMainImage: function () {
     this.$('.main-image').removeClass('hidden');
-    // this.$('.main-image').css('max-height', $(window).height() / 1.4);
   },
 
   hideMainImage: function () {
     this.$('main-image').addClass('hidden');
   },
 
-  staffPicks: function () {
-    return {
-      sport: Hackstarter.companies.get(1)
-    };
-  },
-
   render: function () {
     var renderedContent = this.template({
-      companies: Hackstarter.companies,
-      staffPicks: this.staffPicks
+      companies: this.collection
     });
     this.$el.html(renderedContent);
     this.$el.append(this.footer.render().$el);

@@ -2,6 +2,24 @@ Hackstarter.Collections.Companies = Backbone.Collection.extend({
   url: 'api/companies',
   model: Hackstarter.Models.Company,
 
+  getOrFetch: function(id) {
+    var companies = this;
+    var company = this.get(id);
+
+    if (!company) {
+      company = new Hackstarter.Models.Company({ id: id });
+      company.fetch({
+        success: function () {
+          companies.add(company);
+        }
+      });
+    } else {
+      company.fetch();
+    }
+
+    return company;
+  },
+
   popular: function (n) {
     var companies = _.select(this.models, function (company) {
       return company.escape('investor_count') > 5 || company.escape('percentage_raised') > 70;
