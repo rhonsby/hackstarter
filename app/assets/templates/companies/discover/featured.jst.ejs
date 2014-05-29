@@ -1,8 +1,10 @@
+<% var company; %>
+
 <div class='discover-panel tab-pane active clearfix' id='staff-picks'>
   <h3>Staff Picks</h3>
 
   <div class='index-card'>
-    <% var company = companies.findWhere({ name: 'App Academy' })
+    <% company = companies.findWhere({ name: 'App Academy' })
     || new Hackstarter.Models.Company() %>
     <%= JST['companies/company_card']({ company: company }) %>
   </div>

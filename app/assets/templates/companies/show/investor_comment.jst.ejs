@@ -1,13 +1,13 @@
 <li class='investor-card commentor-card'>
   <div class='row'>
     <div class='col-md-2'>
-      <a href='#/profile/<%= comment.author_id %>'>
+      <a href='#/profile/<%= comment.escape('author_id') %>'>
         <img class='profile-photo' src='<%= comment.escape('photo_url') %>'>
       </a>
     </div>
     <div class='col-md-10 investor-card-details'>
       <p class='investor-name'>
-        <a href='#/profile/<%= comment.author_id %>'>
+        <a href='#/profile/<%= comment.escape('author_id') %>'>
         <%= comment.escape('author_name') || comment.escape('author_username') %>
         </a>
         <abbr class='timeago gray' title='<%= comment.escape('created_at') %>'>

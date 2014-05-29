@@ -21,7 +21,7 @@ Hackstarter.Collections.Companies = Backbone.Collection.extend({
   },
 
   popular: function (n) {
-    var companies = _.select(this.models, function (company) {
+    var companies = this.select(function (company) {
       return company.escape('investor_count') > 5 || company.escape('percentage_raised') > 70;
     });
 
@@ -34,7 +34,7 @@ Hackstarter.Collections.Companies = Backbone.Collection.extend({
   },
 
   ending: function (n) {
-    var companies = _.select(this.models, function (company) {
+    var companies = this.select(function (company) {
       return company.escape('days_left') < 10 && company.escape('days_left') > 0;
     });
 
@@ -42,7 +42,7 @@ Hackstarter.Collections.Companies = Backbone.Collection.extend({
   },
 
   mostFunded: function (n) {
-    var companies = _.select(this.models, function (company) {
+    var companies = this.select(function (company) {
       return company.escape('percentage_raised') > 80;
     });
 

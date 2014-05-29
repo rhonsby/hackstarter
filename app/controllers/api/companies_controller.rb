@@ -11,14 +11,14 @@ class Api::CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
-    render 'companies/show'
+    render partial: 'companies/company', locals: { company: @company }
   end
 
   def create
     @company = current_user.companies.build(company_params)
 
     if @company.save
-      render 'companies/show'
+      render partial: 'companies/company', locals: { company: @company }
     else
       render json: { errors: @company.errors.messages.keys }, status: 422
     end
@@ -28,7 +28,7 @@ class Api::CompaniesController < ApplicationController
     @company = Company.find(params[:id])
 
     if @company.update_attributes(company_params)
-      render 'companies/show'
+      render partial: 'companies/company', locals: { company: @company }
     else
       render json: { errors: @company.errors.messages.keys }, status: 422
     end

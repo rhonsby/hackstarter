@@ -1,12 +1,21 @@
 <div id='company-preview' class='col-md-6 edit-card'>
   <div class='company-card pull-right'>
     <div id='preview-picture'>
-      <a href='<%= company.bbUrl() %>'><img src="<%= company.escape('photo_url') %>" id='preview-company-photo'></a>
+      <a href='<%= company.bbUrl() %>'>
+        <img src="<%= company.escape('small_photo') %>"
+          id='preview-company-photo'>
+      </a>
     </div>
     <div class='card-description'>
       <div class='card-info'>
-        <p id='preview-title'><a href='<%= company.bbUrl() %>'><%= company.escape('name') %></a></p>
-        <p id='preview-blurb'><%= company.escape('blurb') %></p>
+        <p id='preview-title'>
+          <a href='<%= company.bbUrl() %>'>
+            <%= company.escape('name') %>
+          </a>
+        </p>
+        <p id='preview-blurb'>
+          <%= company.escape('blurb') %>
+        </p>
       </div>
       <div class='card-footer'>
         <p>
@@ -14,11 +23,11 @@
           <span id='preview-location'><%= company.escape('location') %></span>
         </p>
         <div class='card-divider'>
-          <div class='card-progress-bar' style='width: <%= company.escape('percentage_raised') %>%'>
+          <div class='card-progress-bar'
+            style='width: <%= company.escape('percentage_raised') %>%'>
           </div>
         </div>
         <div class='row card-details'>
-          <!-- replace these numbers with current data -->
           <div class='col-md-4'>
             <%= company.escape('percentage_raised') %>%
             <p class='gray'>funded</p>

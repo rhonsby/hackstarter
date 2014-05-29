@@ -4,7 +4,7 @@ class Api::CommentsController < ApplicationController
     @comment.user_id = current_user.id
 
     if @comment.save
-      render partial: 'companies/comment', locals: { comment: @comment }
+      render partial: 'comments/comment', locals: { comment: @comment }
     else
       render json: { errors: @comment.errors.messages.keys }, status: 422
     end

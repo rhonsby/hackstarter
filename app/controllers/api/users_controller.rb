@@ -4,7 +4,7 @@ class Api::UsersController < ApplicationController
 
   def index
     @users = User.all
-    render 'users/users', locals: { users: @users }
+    render 'users/index', locals: { users: @users }
   end
 
   def new
@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    render partial: 'users/show', locals: { user: @user }
+    render partial: 'users/user', locals: { user: @user }
   end
 
   def create
@@ -21,7 +21,7 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       login!(@user)
-      render partial: 'users/show', locals: { user: @user }
+      render partial: 'users/user', locals: { user: @user }
     else
       render json: { errors: @user.errors.messages.keys }, status: 422
     end
@@ -31,7 +31,7 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update_attributes(user_params)
-      render partial: 'users/show', locals: { user: @user }
+      render partial: 'users/user', locals: { user: @user }
     else
       render json: { errors: @user.errors.messages.keys }, status: 422
     end

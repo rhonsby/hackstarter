@@ -4,9 +4,9 @@ Hackstarter.Views.CompanyNew = Backbone.View.extend({
   className: 'company-form',
 
   events: {
-    'submit #new-company-form': 'submit',
     'keyup input': 'updatePreview',
-    'keyup textarea': 'updatePreview'
+    'keyup textarea': 'updatePreview',
+    'submit #new-company-form': 'submit'
   },
 
   initialize: function (options) {
@@ -38,6 +38,8 @@ Hackstarter.Views.CompanyNew = Backbone.View.extend({
     company.save({}, {
       success: function () {
         view.hideErrors();
+
+        Hackstarter.companies.add(company);
         Hackstarter.currentUser.companies().add(company);
         Backbone.history.navigate(company.bbUrl(), { trigger: true });
       },

@@ -20,8 +20,6 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
   },
 
   index: function () {
-    Hackstarter.companies.fetch();
-
     var indexView = new Hackstarter.Views.RootIndex({
       collection: Hackstarter.companies
     });
@@ -29,7 +27,6 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
   },
 
   discover: function () {
-    Hackstarter.companies.fetch();
     Hackstarter.sectors.fetch();
 
     var discoverView = new Hackstarter.Views.Discover({
@@ -97,8 +94,6 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
   },
 
   companyShow: function (id) {
-    // var company = new Hackstarter.Models.Company({ id: id });
-    // company.fetch();
     var company = Hackstarter.companies.getOrFetch(id);
 
     var showView = new Hackstarter.Views.CompanyShow({

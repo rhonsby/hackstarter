@@ -24,9 +24,9 @@
 #
 
 class Company < ActiveRecord::Base
-  has_attached_file :photo, styles: { show: '600x440#',
-                    card: '298x250#', card_large: '320x240#' },
-                    default_url: "missing_small.png"
+  has_attached_file :photo, styles: { large: '600x440#',
+                    small: '298x250#', medium: '320x240#' },
+                    default_url: "/images/companies/:style/missing.png"
 
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
   validates_attachment_file_name :photo, :matches => [/png\Z/, /jpe?g\Z/]
@@ -36,7 +36,7 @@ class Company < ActiveRecord::Base
            :investment_goal, :equity, :growth_stage, presence: true
   validates :blurb, length: { maximum: 140 }
   validates :duration, :investment_goal, :equity,
-            numericality: { only_integer: true }
+            numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :growth_stage, inclusion: ['Start-Up', 'Early Stage', 'Growth']
 
   belongs_to :owner, class_name: 'User'

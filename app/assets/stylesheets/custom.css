@@ -215,6 +215,10 @@ html {
 
 /* New Company Form */
 
+#new-company {
+  margin-top: 35px;
+}
+
 .company-form > h1 {
   text-align: center;
   margin-bottom: 50px;
@@ -234,6 +238,14 @@ html {
 
 .new-company-container #company_blurb {
   width: 410px;
+}
+
+.new-company-container .card-footer .col-md-3 {
+  width: 23%
+}
+
+.new-company-container .card-footer .col-md-3:last-child {
+  width: 30%;
 }
 
 textarea#company_blurb {
@@ -742,7 +754,7 @@ textarea#comment_body {
 .main-image {
   margin-top: -20px;
   min-height: 600px;
-  background-image: url('hackstarter_large.jpg');
+  background-image: url('hackstarter.jpg');
   background-repeat: no-repeat;
 }
 

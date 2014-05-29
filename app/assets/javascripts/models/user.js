@@ -1,6 +1,10 @@
 Hackstarter.Models.User = Backbone.Model.extend({
   urlRoot: 'api/users',
 
+  bbUrl: function () {
+    return '#/profile/' + this.escape('id');
+  },
+
   parse: function (resp) {
     if (resp.companies) {
       this.companies().set(resp.companies);
@@ -33,9 +37,5 @@ Hackstarter.Models.User = Backbone.Model.extend({
     }
 
     return this._backedCompanies;
-  },
-
-  bbUrl: function () {
-    return '#/profile/' + this.escape('id');
   }
 });

@@ -1,11 +1,11 @@
 class Api::SectorsController < ApplicationController
   def index
     @sectors = Sector.all
-    render json: @sectors
+    render 'sectors/index'
   end
 
   def show
     @sector = Sector.find(params[:id])
-    render json: @sector
+    render 'sectors/sector', locals: { sector: @sector }
   end
 end

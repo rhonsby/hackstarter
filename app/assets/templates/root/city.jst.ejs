@@ -1,3 +1,5 @@
+<% var company; %>
+
 <div class='index-panel index-panel-alt'>
   <div class='container'>
     <h3>
@@ -6,21 +8,21 @@
     </h3>
 
     <div class='index-card'>
-      <% var cycletree = companies.findWhere({ name: 'Cycletree' })
+      <% company = companies.findWhere({ name: 'Cycletree' })
       || new Hackstarter.Models.Company() %>
-      <%= JST['companies/company_card']({ company: cycletree }) %>
+      <%= JST['companies/company_card']({ company: company }) %>
     </div>
 
     <div class='index-card'>
-      <% var hackstarter = companies.findWhere({ name: 'Hackstarter' })
+      <% company = companies.findWhere({ name: 'Hackstarter' })
       || new Hackstarter.Models.Company() %>
-      <%= JST['companies/company_card']({ company: hackstarter }) %>
+      <%= JST['companies/company_card']({ company: company }) %>
     </div>
 
     <div class='index-card'>
-      <% var airdnd = companies.findWhere({ name: 'AirDnD' })
+      <% company = companies.findWhere({ name: 'Hotdelio' })
       || new Hackstarter.Models.Company() %>
-      <%= JST['companies/company_card']({ company: airdnd }) %>
+      <%= JST['companies/company_card']({ company: company }) %>
     </div>
   </div>
 </div>

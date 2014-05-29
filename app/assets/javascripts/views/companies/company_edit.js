@@ -8,21 +8,20 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
     this.reader = new FileReader();
     this.updateView = new Hackstarter.Views.Updates({ model: this.model });
 
-
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.sectors, 'sync', this.render);
   },
 
   events: {
     "click a[data-toggle='tab']": 'handleTabSwitch',
+    'click #new-update-btn': 'submitForm',
+    'click .update-delete-btn': 'handleDelete',
     'keyup input': 'updatePreview',
     'keyup textarea': 'updatePreview',
     'change #company-photo': 'processPhoto',
     'submit #new-company-form': 'handleCompanyUpdate',
     'submit #update-modal-form': 'handleUpdateChanges',
-    'click #new-update-btn': 'submitForm',
-    'submit #new-update-form': 'handleNewUpdate',
-    'click .update-delete-btn': 'handleDelete'
+    'submit #new-update-form': 'handleNewUpdate'
   },
 
   handleDelete: function (event) {
@@ -138,11 +137,9 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
 
   processPhoto: function (event) {
     var file = $(event.currentTarget)[0].files[0];
-
     var that = this;
+
     this.toggleProgress();
-
-
     this.$('.progress-bar').css('width', '100%');
     this.reader.onload = function (e) {
       that.model.set({ photo: e.target.result });

@@ -1,1 +1,1 @@
-json.array! @companies, partial: 'companies/index_company', as: :company
+json.partial! 'companies/company', collection: @companies, as: :company

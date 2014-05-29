@@ -1,21 +1,25 @@
 <div class='company-stats'>
   <h1 class='stats-title investor'>
-    <span class='investor-count'></span>
+    <span class='investor-count'>
+      <%= numberWithCommas(company.investors().length) || 0 %>
+    </span>
   </h1>
   <span class='stats-span investor'>
     <%= company.investors().length === 1 ? 'investor' : 'investors' %>
   </span>
 
-  <h1 class='stats-title amount-raised'></h1>
+  <h1 class='stats-title amount-raised'>
+    $<%= numberWithCommas(company.escape('amount_raised')) || 0 %>
+  </h1>
   <span class='stats-span'>pledged of
-    $<span class='investment-goal'>0
-    </span> goal
+    $<%= numberWithCommas(company.escape('investment_goal')) || 0 %> goal
   </span>
 
-  <h1 class='stats-title days-left'>0</h1>
+  <h1 class='stats-title days-left'>
+    <%= company.escape('days_left') || 0 %>
+  </h1>
   <span class='stats-span days'>
-    <%= company.escape('days_left') === '1' ? 'day' : 'days' %>
-    to go
+    <%= company.escape('days_left') === '1' ? 'day' : 'days' %> to go
   </span>
 </div>
 
@@ -26,7 +30,7 @@
 </button>
 
 <p class='pledge-msg'>This company is only funded if at least
-  $<span class='investment-goal'>0</span>
+  $<%= numberWithCommas(company.escape('investment_goal')) || 0 %>
   is pledged by <%= company.escape('end_date') %>.</p>
 
   <div class='show-sidebar-details'>

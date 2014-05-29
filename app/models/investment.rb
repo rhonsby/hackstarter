@@ -12,7 +12,8 @@
 
 class Investment < ActiveRecord::Base
   validates :investor, :company, :amount, presence: true
-  validates :amount, numericality: { only_integer: true }
+  validates :amount, numericality: { only_integer: true,
+                                     greater_than_or_equal_to: 0 }
 
   belongs_to :company
   belongs_to :investor, class_name: 'User'

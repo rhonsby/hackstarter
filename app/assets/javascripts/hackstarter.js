@@ -7,10 +7,8 @@ window.Hackstarter = {
     Hackstarter.companies = new Hackstarter.Collections.Companies();
     Hackstarter.sectors = new Hackstarter.Collections.Sectors();
     Hackstarter.users = new Hackstarter.Collections.Users();
-
-    // Hackstarter.companies.fetch();
-
-    // Hackstarter.users.fetch();
+    Hackstarter.companies.fetch();
+    Hackstarter.sectors.fetch();
 
     new Hackstarter.Routers.Router({
       $rootEl: $('#main')
@@ -18,6 +16,7 @@ window.Hackstarter = {
     Backbone.history.start();
   }
 };
+
 
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

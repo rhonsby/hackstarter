@@ -1,5 +1,6 @@
 class Api::SessionsController < ApplicationController
   wrap_parameters :user, include: [:username, :password]
+
   def new
   end
 
@@ -8,7 +9,7 @@ class Api::SessionsController < ApplicationController
 
     if @user
       login!(@user)
-      render 'users/show'
+      render partial: 'users/user', locals: { user: @user }
     else
       render json: { errors: ["Invalid username/password"] }, status: 422
     end

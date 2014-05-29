@@ -1,12 +1,15 @@
 <div class='tab-pane active fade in' id='home'>
-  <img src='missing.png' id='company-show-photo'>
+  <img src='<%= company.escape('large_photo') || 'missing.png' %>' id='company-show-photo'>
 
   <div class='company-story'>
     <h3 class='story-details company-pitch'>The Pitch</h3>
     <div class='company-pitch'>
+      <%= marked(company.escape('pitch')) %>
     </div>
 
     <h3 class='story-details company-market'>The Market</h3>
-    <div class='company-market'></div>
+    <div class='company-market'>
+      <%= marked(company.escape('market')) %>
+    </div>
   </div>
 </div>

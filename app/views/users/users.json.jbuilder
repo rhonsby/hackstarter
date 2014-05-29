@@ -1,1 +1,0 @@
-json.partial! 'users/show', collection: @users, as: :user

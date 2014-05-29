@@ -7,7 +7,7 @@
         <div class='row'>
           <div class='col-md-2'>
             <a href='<%= investor.bbUrl() %>'>
-              <img class='profile-photo' src='<%= investor.escape('photo_url') %>'>
+              <img class='profile-photo' src='<%= investor.escape('small_photo') %>'>
             </a>
           </div>
           <div class='col-md-10 investor-card-details'>
@@ -22,7 +22,7 @@
             <% }; %>
             <p class='investor-backed-count gray'>
               <span class='glyphicon glyphicon-check'></span>
-              Backed <%= investor.escape('backedCount') - 1 || 0 %>
+              Backed <%= investor.escape('backed_count') - 1 || 0 %>
               other companies
             </p>
           </div>
