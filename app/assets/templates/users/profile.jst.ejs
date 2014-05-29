@@ -6,7 +6,7 @@
       </div>
       <div class='col-md-8 profile-page-details'>
         <h1><%= user.escape('name') || user.escape('username') %></h1>
-        <p>Backed <%= user.escape('backed_companies_count') || 0 %> companies
+        <p>Backed <%= user.backedCompanies().length || 0 %> companies
           <% if (user.escape('website')) { %>
             · <a href='<%= user.escape('website') %>'>Website</a>
           <% }; %>

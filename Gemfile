@@ -16,6 +16,9 @@ gem 'paperclip', '~> 4.1'
 gem 'figaro'
 gem 'aws-sdk'
 gem 'oj'
+gem 'memcachier'
+gem 'dalli'
+gem 'newrelic_rpm'
 
 group :doc do
   gem 'sdoc', require: false
