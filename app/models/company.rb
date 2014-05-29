@@ -43,7 +43,7 @@ class Company < ActiveRecord::Base
   belongs_to :sector
   has_many :investments
   has_many :investors, through: :investments, source: :investor
-  has_many :updates
+  has_many :updates, dependent: :destroy
   has_many :comments, as: :commentable
   has_many :commentors, through: :comments, source: :user
 

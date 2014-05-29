@@ -1,1 +1,1 @@
-json.(sector, :name)
+json.(sector, :id, :name)
