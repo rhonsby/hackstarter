@@ -33,7 +33,9 @@
           </div>
           <div class='col-md-4'>
             <%= numberWithCommas(company.escape('days_left')) || 0 %>
-            <p class='gray'>days to go</p>
+            <p class='gray'>
+            <%= company.escape('days_left') == 1 ? 'day' : 'days' %>
+            to go</p>
           </div>
         </div>
       </div>
