@@ -1,11 +1,10 @@
 <div class='new-comment-container'>
   <% if (Hackstarter.currentUser && company.isBacker(Hackstarter.currentUser)) { %>
     <form id='new-comment-form'>
-      <input type='hidden' name='comment[commentable_id]' value='<%= company.id %>'>
-      <input type='hidden' name='comment[commentable_type]' value='Company'>
+      <input type='hidden' name='comment[commentable_id]' value='<%= model.id %>'>
+      <input type='hidden' name='comment[commentable_type]' value='<%= commentableType %>'>
 
       <div class='form-group'>
-        <label for='comment_body'>New Comment</label>
         <textarea name='comment[body]' id='comment_body'
           class='form-control'></textarea>
       </div>
@@ -20,7 +19,7 @@
 </div>
 
 <ul class='investors-panel'>
-  <% _(company.comments().first(10)).each(function (comment) { %>
+  <% _(model.comments().first(10)).each(function (comment) { %>
     <%= JST['companies/show/investor_comment']({ comment: comment }) %>
   <% }); %>
 </ul>

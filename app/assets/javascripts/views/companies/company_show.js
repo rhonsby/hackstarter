@@ -2,9 +2,15 @@ Hackstarter.Views.CompanyShow = Backbone.View.extend({
   template: JST['companies/show'],
 
   initialize: function () {
+    this.listenTo(this.model, 'sync', this.addUpdateComments);
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.comments(), 'add remove', this.updateStats);
-    this.companyCommentsView = new Hackstarter.Views.CommentsShow({ model: this.model });
+
+    this.companyCommentsView = new Hackstarter.Views.CommentsShow({
+      model: this.model,
+      company: this.model,
+      commentableType: 'Company'
+    });
   },
 
   events: {
@@ -33,6 +39,14 @@ Hackstarter.Views.CompanyShow = Backbone.View.extend({
     });
   },
 
+  addUpdateComments: function () {
+    this.updateCommentsView = new Hackstarter.Views.CommentsShow({
+      model: this.model.updates().last(),
+      company: this.model,
+      commentableType: 'Update'
+    });
+  },
+
   updateStats: function () {
     $('.comment-count').html(this.model.comments().length);
   },
@@ -49,11 +63,16 @@ Hackstarter.Views.CompanyShow = Backbone.View.extend({
     this.$el.html(renderedContent);
     this.$('#comments').append(this.companyCommentsView.render().$el);
 
+    if (this.updateCommentsView) {
+      this.$('.company-update-comments').append(this.updateCommentsView.render().$el);
+    }
+
     return this;
   },
 
   remove: function () {
     Backbone.View.prototype.remove.call(this);
     this.companyCommentsView.remove();
+    this.updateCommentsView.remove();
   }
 });

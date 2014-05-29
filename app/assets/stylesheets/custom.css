@@ -684,12 +684,12 @@ h3.story-details {
 }
 
 .investor-card {
-  border-top: 1px solid #D9D9DE;
+  border-top: 1px dotted #D9D9DE;
   padding: 15px 0;
 }
 
 .investors-panel > .investor-card:last-child {
-  border-bottom: 1px solid #D9D9DE;
+  border-bottom: 1px dotted #D9D9DE;
 }
 
 .investor-card-details {

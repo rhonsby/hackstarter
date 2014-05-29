@@ -1,12 +1,13 @@
 <div class='tab-pane fade in' id='updates'>
   <% if (company.updates().length) { %>
-    <h3>Latest Updates</h3>
+    <h3>Latest Update</h3>
   <% } else { %>
     <h5 class='lead'>This company has no updates.</h5>
   <% } %>
 
   <% if (company.updates().length) { %>
     <% var update = company.updates().last() %>
+    <% debugger %>
     <div class='company-update'>
       <h5 class='gray pull-right company-date'><%= update.escape('date') %></h5>
       <h4 class='blue'>
@@ -14,7 +15,6 @@
       </h4>
       <h3 class='update-title'><%= update.escape('title') %></h3>
       <div class='stat-line'>
-        <div class='comment'><a class='gray comment'>Comment</a></div>
         <div><a class='like gray'>
           <span class='glyphicon glyphicon-heart'></span>
           Like
@@ -27,7 +27,7 @@
     </div>
 
     <div class='company-update-comments'>
-      <h4>Comments</h4>
+      <h4 class='gray' id='company-comments'>Comments</h4>
     </div>
   <% }; %>
 </div>

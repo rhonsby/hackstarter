@@ -12,7 +12,7 @@ Hackstarter.Models.Company = Backbone.Model.extend({
     }
 
     if (resp.updates) {
-      this.updates().set(resp.updates);
+      this.updates().set(resp.updates, { parse: true });
       delete resp.updates;
     }
 

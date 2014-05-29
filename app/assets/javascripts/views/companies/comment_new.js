@@ -1,7 +1,9 @@
 Hackstarter.Views.CommentsShow = Backbone.View.extend({
   template: JST['companies/show/company_comments'],
 
-  initialize: function () {
+  initialize: function (options) {
+    this.company = options.company;
+    this.commentableType = options.commentableType;
     this.listenTo(this.model.comments(), 'add', this.render);
     this.listenTo(this.model.comments(), 'remove', this.render);
   },
@@ -51,7 +53,11 @@ Hackstarter.Views.CommentsShow = Backbone.View.extend({
   },
 
   render: function () {
-    var renderedContent = this.template({ company: this.model });
+    var renderedContent = this.template({
+      model: this.model,
+      company: this.company,
+      commentableType: this.commentableType
+    });
     this.$el.html(renderedContent);
     this.$('abbr.timeago').timeago();
     this.delegateEvents();
