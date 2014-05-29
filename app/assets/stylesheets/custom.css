@@ -1,3 +1,58 @@
+/* Misc */
+
+.container-fluid {
+  padding-right: 0;
+}
+
+body {
+  background-color: rgba(222, 234, 248, 0.14);
+}
+
+html {
+  overflow-y: scroll;
+}
+
+.gray {
+  color: #8D9092;
+}
+
+.blue {
+  color: #428BCA;
+}
+
+.center {
+  text-align: center;
+}
+
+.index-panel {
+  min-height: 200px;
+}
+
+.modal-huge {
+  width: 1200px;
+}
+
+.label-error {
+  color: #EE1B1B;
+}
+
+.bootstrap-growl {
+  font-size: 16px;
+  padding: 15px;
+}
+
+.auth-form h4 {
+  margin-top: -15px;
+  margin-bottom: 15px;
+}
+
+.timeago {
+  margin-left: 3px;
+  font-weight: normal;
+  font-size: 12px;
+}
+
+
 /* Navigation */
 
 #brand-hack {
@@ -84,60 +139,6 @@
   padding: 3px 25px;
   color: #3499D3;
   font-size: 15px;
-}
-
-/* Misc */
-
-.container-fluid {
-  padding-right: 0;
-}
-
-body {
-  background-color: rgba(222, 234, 248, 0.14);
-}
-
-html {
-  overflow-y: scroll;
-}
-
-.gray {
-  color: #8D9092;
-}
-
-.blue {
-  color: #428BCA;
-}
-
-.center {
-  text-align: center;
-}
-
-.index-panel {
-  min-height: 200px;
-}
-
-.modal-huge {
-  width: 1200px;
-}
-
-.label-error {
-  color: #EE1B1B;
-}
-
-.bootstrap-growl {
-  font-size: 16px;
-  padding: 15px;
-}
-
-.auth-form h4 {
-  margin-top: -15px;
-  margin-bottom: 15px;
-}
-
-.timeago {
-  margin-left: 3px;
-  font-weight: normal;
-  font-size: 12px;
 }
 
 /* Company Card */
@@ -792,7 +793,7 @@ textarea#comment_body {
 }
 
 .index-panel-alt {
-  background: rgba(222, 234, 248, 0.14);
+  background: rgba(0, 0, 0, 0);
 }
 
 .staff-picks-nav {

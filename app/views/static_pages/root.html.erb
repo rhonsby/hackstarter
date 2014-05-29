@@ -13,6 +13,7 @@
       });
     <% else %>
       $('#user-main-nav').html(JST['users/signed_out_nav']());
+      Hackstarter.isLoggedIn = false;
       Hackstarter.initialize();
     <% end %>
   });

@@ -19,6 +19,7 @@ Hackstarter.Views.UserNav = Backbone.View.extend({
       method: 'DELETE',
       success: function () {
         Hackstarter.currentUser = false;
+        Hackstarter.isLoggedIn = false;
         $('#user-main-nav').html(JST['users/signed_out_nav']());
         Backbone.history.navigate('', { trigger: true });
       }

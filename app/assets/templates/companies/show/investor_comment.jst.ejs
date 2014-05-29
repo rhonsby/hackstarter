@@ -19,7 +19,7 @@
         <%= marked(comment.escape('body')) %>
       </p>
 
-      <% if (comment.escape('author_id') == Hackstarter.currentUser.id) { %>
+      <% if (Hackstarter.isLoggedIn && comment.escape('author_id') == Hackstarter.currentUser.escape('id')) { %>
         <button class='btn btn-xs btn-danger pull-right comment-delete-btn'
           data-id='<%= comment.id %>'>Delete</button>
       <% } %>

@@ -24,11 +24,16 @@ Hackstarter.Views.CompanyShow = Backbone.View.extend({
 
   handlePledge: function (event) {
     event.preventDefault();
+    view = this;
+
+    if (!Hackstarter.isLoggedIn) {
+      view.closeModal();
+      Backbone.history.navigate('#/login', { trigger: true });
+    }
 
     $form = $(event.currentTarget);
     var formData = $form.serializeJSON().investment;
     var investment = new Hackstarter.Models.Investment(formData);
-    view = this;
 
     investment.save({}, {
       success: function () {

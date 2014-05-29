@@ -24,6 +24,7 @@ function numberWithCommas(x) {
 
 Hackstarter.loginUser = function (user) {
   Hackstarter.currentUser = user;
+  Hackstarter.isLoggedIn = true;
 
   var navView = new Hackstarter.Views.UserNav({
     model: user

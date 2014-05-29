@@ -63,5 +63,10 @@ Hackstarter.Models.Company = Backbone.Model.extend({
 
   isBacker: function (user) {
     return !!this.investors().findWhere({ id: user.id });
+  },
+
+  isOwner: function (user) {
+    var id = parseInt(this.id);
+    return user.companies().findWhere({ id: id });
   }
 });

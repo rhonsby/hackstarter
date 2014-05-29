@@ -1,5 +1,5 @@
 <div class='new-comment-container'>
-  <% if (Hackstarter.currentUser && company.isBacker(Hackstarter.currentUser)) { %>
+  <% if (Hackstarter.isLoggedIn && (company.isBacker(Hackstarter.currentUser) || company.isOwner(Hackstarter.currentUser))) { %>
     <form id='new-comment-form'>
       <input type='hidden' name='comment[commentable_id]' value='<%= model.id %>'>
       <input type='hidden' name='comment[commentable_type]' value='<%= commentableType %>'>

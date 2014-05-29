@@ -114,7 +114,7 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
   },
 
   requireLogin: function (callback) {
-    if (Hackstarter.currentUser) {
+    if (Hackstarter.isLoggedIn) {
       callback();
     } else {
       Backbone.history.navigate('#/login', { trigger: true });
@@ -132,7 +132,7 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
   },
 
   requireSignout: function (callback) {
-    if (Hackstarter.currentUser) {
+    if (Hackstarter.isLoggedIn) {
       Backbone.history.navigate('', { trigger: true });
     } else {
       callback();
