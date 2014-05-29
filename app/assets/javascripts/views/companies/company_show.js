@@ -40,11 +40,13 @@ Hackstarter.Views.CompanyShow = Backbone.View.extend({
   },
 
   addUpdateComments: function () {
-    this.updateCommentsView = new Hackstarter.Views.CommentsShow({
-      model: this.model.updates().last(),
-      company: this.model,
-      commentableType: 'Update'
-    });
+    if (this.model.updates().length) {
+      this.updateCommentsView = new Hackstarter.Views.CommentsShow({
+        model: this.model.updates().last(),
+        company: this.model,
+        commentableType: 'Update'
+      });
+    }
   },
 
   updateStats: function () {
@@ -73,6 +75,6 @@ Hackstarter.Views.CompanyShow = Backbone.View.extend({
   remove: function () {
     Backbone.View.prototype.remove.call(this);
     this.companyCommentsView.remove();
-    this.updateCommentsView.remove();
+    if (this.updateCommentsView) this.updateCommentsView.remove();
   }
 });

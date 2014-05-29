@@ -1,6 +1,8 @@
 <div class='row'>
   <div class='col-md-6 photo'>
-    <img src='<%= company.escape('medium_photo') %>'></img>
+    <a href='#/companies/<%= company.id %>'>
+      <img src='<%= company.escape('medium_photo') %>'></img>
+    </a>
   </div>
   <div class='col-md-6 body'>
     <h4><a href='<%= company.bbUrl() %>'><%= company.escape('name') %></a></h4>
