@@ -53,7 +53,7 @@
         <td>Website:</td>
         <td>
           <a href='<%= company.escape('website') %>'>
-            <%= company.escape('website') %>
+            <%= company.escape('website').truncate() %>
           </a>
         </td>
       </tr>

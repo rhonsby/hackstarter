@@ -45,3 +45,6 @@ Hackstarter.growl = function (message) {
   });
 };
 
+String.prototype.truncate = function () {
+  return this.length > 25 ? this.substring(0, 25) + '...' : this.substring(0);
+};

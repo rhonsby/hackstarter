@@ -51,8 +51,9 @@ Hackstarter.Collections.Companies = Backbone.Collection.extend({
     return _(companies).sample(n);
   },
 
-  findBySector: function (sector) {
-    return this.where({ sector: sector });
+  findBySector: function (sector, n) {
+    var companies = this.where({ sector: sector });
+    return n ? _(companies).sample(n) : companies;
   },
 
   findByLocation: function (location, n) {

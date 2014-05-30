@@ -27,8 +27,6 @@ Hackstarter.Routers.Router = Backbone.Router.extend({
   },
 
   discover: function () {
-    Hackstarter.sectors.fetch();
-
     var discoverView = new Hackstarter.Views.Discover({
       collection: Hackstarter.companies
     });
