@@ -4,7 +4,7 @@
   <h3>Staff Picks</h3>
 
   <div class='index-card'>
-    <% company = companies.findWhere({ name: 'Hot Dealio' })
+    <% company = companies.findWhere({ name: 'Hotdealio' })
     || new Hackstarter.Models.Company() %>
     <%= JST['companies/company_card']({ company: company }) %>
   </div>
