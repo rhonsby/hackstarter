@@ -5,22 +5,10 @@
     <h3><span class="glyphicon glyphicon-fire index-marker city">
     </span>Popular</h3>
 
-    <div class='index-card'>
-      <% company = companies.findWhere({ name: 'Preddit' })
-      || new Hackstarter.Models.Company() %>
-      <%= JST['companies/company_card']({ company: company }) %>
-    </div>
-
-    <div class='index-card'>
-      <% company = companies.findWhere({ name: "ForgeTeam" })
-      || new Hackstarter.Models.Company() %>
-      <%= JST['companies/company_card']({ company: company }) %>
-    </div>
-
-    <div class='index-card'>
-      <% company = companies.findWhere({ name: 'SketchMate' })
-      || new Hackstarter.Models.Company() %>
-      <%= JST['companies/company_card']({ company: company }) %>
-    </div>
+    <% _(companies.popular(3)).each(function(company) { %>
+      <div class='index-card'>
+        <%= JST['companies/company_card']({ company: company }) %>
+      </div>
+    <% }); %>
   </div>
 </div>

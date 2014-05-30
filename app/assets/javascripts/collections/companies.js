@@ -22,7 +22,9 @@ Hackstarter.Collections.Companies = Backbone.Collection.extend({
 
   popular: function (n) {
     var companies = this.select(function (company) {
-      return company.escape('investor_count') > 5 || company.escape('percentage_raised') > 70;
+      return company.escape('investor_count') > 5 ||
+        company.escape('percentage_raised') > 70 ||
+        company.escape('amount_raised') > 0;
     });
 
     return _(companies).sample(n);
