@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   has_attached_file :avatar, styles: { large: '240x240#', medium: '200x200#', small: '80x80#' },
-                             default_url: "/images/profile/:style/missing.jpg"
+                             default_url: "/images/profile/:style/missing.png"
 
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/]
