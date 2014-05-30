@@ -1,4 +1,4 @@
-json.cache! ['user', user.updated_at] do
+json.cache! ['user', user.updated_at, user.backed_companies.uniq.length, user.companies.length] do
   json.extract! user, :id, :username, :name, :biography, :location, :website
 
   json.companies user.companies.sort_by(&:name), partial: 'companies/company', as: :company

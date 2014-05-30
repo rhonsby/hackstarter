@@ -1,4 +1,4 @@
-json.cache! ['comment', comment.updated_at] do
+json.cache! ['comment', comment.updated_at, comment.user.name] do
   json.(comment, :id, :body)
   json.photo_url comment.user.avatar(:small)
   json.author_username comment.user.username
