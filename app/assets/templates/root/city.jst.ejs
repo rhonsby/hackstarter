@@ -7,7 +7,7 @@
       San Francisco, CA
     </h3>
 
-    <% _(companies.findByLocation('San Francisco, CA', 3)).each(function (company) { %>
+    <% _(companies.findByLocation('San Francisco, CA', 4)).each(function (company) { %>
       <div class='index-card'>
         <%= JST['companies/company_card']({ company: company }) %>
       </div>

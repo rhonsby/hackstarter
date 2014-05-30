@@ -5,7 +5,7 @@
     <h3><span class="glyphicon glyphicon-fire index-marker city">
     </span>Popular</h3>
 
-    <% _(companies.popular(3)).each(function(company) { %>
+    <% _(companies.popular(4)).each(function(company) { %>
       <div class='index-card'>
         <%= JST['companies/company_card']({ company: company }) %>
       </div>
