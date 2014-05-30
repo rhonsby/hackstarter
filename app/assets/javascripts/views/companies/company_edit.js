@@ -137,6 +137,7 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
   },
 
   processPhoto: function (event) {
+    event.preventDefault();
     var file = $(event.currentTarget)[0].files[0];
     var that = this;
 
@@ -144,7 +145,7 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
     this.$('.progress-bar').css('width', '100%');
     this.reader.onload = function (e) {
       that.model.set({ photo: e.target.result });
-      that.model.save({
+      that.model.save({}, {
         success: function () {
           that.model.unset('photo');
         },
@@ -182,6 +183,8 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
   },
 
   render: function () {
+    debugger
+
     var renderedContent = this.template({
       company: this.model,
       sectors: this.sectors

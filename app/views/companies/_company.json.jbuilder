@@ -1,4 +1,4 @@
-json.cache! ['company', company.updated_at] do
+json.cache! ['company', company.updated_at, company.amount_raised] do
   json.extract! company, :name, :location, :blurb, :duration, :investment_goal,
                           :equity, :growth_stage, :id, :pitch, :market, :website
 
