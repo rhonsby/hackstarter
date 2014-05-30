@@ -15,7 +15,11 @@ Hackstarter.Views.Settings = Backbone.View.extend({
     event.preventDefault();
     var formData = $(event.currentTarget).serializeJSON().user;
     this.model.set(formData);
-    this.model.save();
+    this.model.save({}, {
+      success: function () {
+        Hackstarter.growl('Settings updated!');
+      }
+    });
   },
 
   processAvatar: function (event) {
@@ -27,7 +31,11 @@ Hackstarter.Views.Settings = Backbone.View.extend({
     this.$('.progress-bar').css('width', '100%');
     this.reader.onload = function (e) {
       that.model.set({ avatar: e.target.result });
-      that.model.save();
+      that.model.save({}, {
+        success: function () {
+          that.model.unset('avatar');
+        }
+      });
     };
 
     this.reader.readAsDataURL(file);

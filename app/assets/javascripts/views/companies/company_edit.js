@@ -76,11 +76,12 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
     var formData = $(event.currentTarget).serializeJSON().company;
     var view = this;
 
+    this.model.unset('photo');
     this.model.set(formData);
     this.model.save({}, {
       success: function () {
         view.hideErrors();
-        Hackstarter.growl('Settings updated!');
+          Hackstarter.growl('Settings updated!');
       },
       error: function (model, resp) {
         var errors = resp.responseJSON.errors;
@@ -144,6 +145,9 @@ Hackstarter.Views.CompanyEdit = Backbone.View.extend({
     this.reader.onload = function (e) {
       that.model.set({ photo: e.target.result });
       that.model.save({
+        success: function () {
+          that.model.unset('photo');
+        },
         error: function () {
           that.toggleProgress();
         }

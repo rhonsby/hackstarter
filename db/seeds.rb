@@ -20,13 +20,17 @@ ActiveRecord::Base.transaction do
   sport = Sector.create!(name: 'Sport & Leisure')
   tech = Sector.create!(name: 'Technology')
 
-  robert = User.create!(username: 'robert', password: 'foobar')
-  andrew = User.create!(username: 'andrew', password: 'foobar')
+  robert = User.create!(username: 'rhonsby', password: 'foobar')
+  awong = User.create!(username: 'arwong09', password: 'password')
+  david = User.create!(username: 'dawu', password: 'password')
+  zhyliana = User.create!(username: 'zhyliana', password: 'password')
+  ken = User.create!(username: 'senseiurata', password: 'password')
+  achen = User.create!(username: 'hanji', password: 'password')
 
-  cycletree = andrew.companies.create!(
+  cycletree = awong.companies.create!(
     name: 'Cycletree', location: 'San Francisco, CA',
     blurb: 'Classifieds for bikes', duration: 30, investment_goal: 20_000,
-    equity: 5, growth_stage: 'Start-Up', sector_id: sport.id
+    equity: 5, growth_stage: 'Start-Up', sector_id: health.id
   )
 
   hackstarter = robert.companies.create!(
@@ -35,33 +39,27 @@ ActiveRecord::Base.transaction do
     equity: 4, growth_stage: 'Growth', sector_id: pro.id
   )
 
-  airdnd = robert.companies.create!(
-    name: 'AirDnD', location: 'San Francisco, CA',
-    blurb: 'Make some friends... yay', duration: 23, investment_goal: 2_000_00,
-    equity: 100, growth_stage: 'Start-Up', sector_id: games.id
-  )
-
-  appacademy = robert.companies.create!(
-    name: 'App Academy', location: 'San Francisco, CA',
-    blurb: 'A 12-week intensive boot camp where you learn a lot', duration: 90, investment_goal: 300,
-    equity: 10, growth_stage: 'Early Stage', sector_id: tech.id
-  )
-
-  hotdelio = robert.companies.create!(
+  hotdelio = ken.companies.create!(
     name: 'Hotdelio', location: 'San Francisco, CA',
     blurb: 'Hella hot deals, yo', duration: 40, investment_goal: 20,
-    equity: 40, growth_stage: 'Start-Up', sector_id: pro.id
+    equity: 40, growth_stage: 'Start-Up', sector_id: retail.id
   )
 
-  Investment.create!(
-    investor_id: robert.id, company_id: cycletree.id, amount: 300
+  preddit = david.companies.create!(
+    name: 'Preddit', location: 'San Francisco, CA',
+    blurb: 'Scroll Reddit all day', duration: 24, investment_goal: 30_000,
+    equity: 8, growth_stage: 'Early Stage', sector_id: media.id
   )
 
-  Investment.create!(
-    investor_id: robert.id, company_id: cycletree.id, amount: 250
+  sketchmate = zhyliana.companies.create!(
+    name: 'SketchMate', location: 'San Francisco, CA',
+    blurb: '', duration: 30, investment_goal: 2_000,
+    equity: 4, growth_stage: 'Start-Up', sector_id: games.id
   )
 
-  Investment.create!(
-    investor_id: andrew.id, company_id: hackstarter.id, amount: 400
+  forgeteam = achen.companies.create!(
+    name: 'ForgeTeam', location: 'San Francisco, CA',
+    blurb: 'DRAGOOOOOOON-UH BOATTTTTT-UH', duration: 60, investment_goal: 12_000,
+    equity: 12, growth_stage: 'Start-Up', sector_id: sport.id
   )
 end
