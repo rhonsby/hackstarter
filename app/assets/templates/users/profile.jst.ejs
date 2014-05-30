@@ -19,16 +19,43 @@
   </div>
 </div>
 
-<div class='index-panel profile-panel index-panel recently-backed-panel'>
+
+<div class='index-panel profile-panel recently-backed-panel'>
   <div class='container'>
-    <h3>Recently Backed Companies</h3>
-    <% debugger %>
-    <% if (user.backedCompanies().length) { %>
-      <% _(user.backedCompanies().last(3)).each(function (company) { %>
-        <div class='index-card'>
-          <%= JST['companies/company_card']({ company: company }) %>
-        </div>
-      <% }); %>
-    <% }; %>
+    <ul class='profile-nav clearfix'>
+      <li class='active'>
+        <a href='#profile-backed-companies' data-toggle='tab'>
+          Backed Companies
+        </a>
+      </li>
+      <li>·</li>
+      <li>
+        <a href='#profile-companies-founded' data-toggle='tab'>
+          Companies Founded
+        </a>
+      </li>
+    </ul>
+
+    <div class='tab-content'>
+      <div class='tab-pane active' id='profile-backed-companies'>
+        <% if (user.backedCompanies().length) { %>
+          <% _(user.backedCompanies().last(3)).each(function (company) { %>
+            <div class='index-card'>
+              <%= JST['companies/company_card']({ company: company }) %>
+            </div>
+          <% }); %>
+        <% }; %>
+      </div>
+
+      <div class='tab-pane' id='profile-companies-founded'>
+        <% if (user.companies().length) { %>
+          <% user.companies().each(function (company) { %>
+            <div class='index-card'>
+              <%= JST['companies/company_card']({ company: company }) %>
+            </div>
+          <% }); %>
+        <% }; %>
+      </div>
+    </div>
   </div>
 </div>
