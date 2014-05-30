@@ -7,22 +7,10 @@
       San Francisco, CA
     </h3>
 
-    <div class='index-card'>
-      <% company = companies.findWhere({ name: 'Cycletree' })
-      || new Hackstarter.Models.Company() %>
-      <%= JST['companies/company_card']({ company: company }) %>
-    </div>
-
-    <div class='index-card'>
-      <% company = companies.findWhere({ name: 'Hackstarter' })
-      || new Hackstarter.Models.Company() %>
-      <%= JST['companies/company_card']({ company: company }) %>
-    </div>
-
-    <div class='index-card'>
-      <% company = companies.findWhere({ name: 'Hotdealio' })
-      || new Hackstarter.Models.Company() %>
-      <%= JST['companies/company_card']({ company: company }) %>
-    </div>
+    <% _(companies.findByLocation('San Francisco, CA', 3)).each(function (company) { %>
+      <div class='index-card'>
+        <%= JST['companies/company_card']({ company: company }) %>
+      </div>
+    <% }); %>
   </div>
 </div>
