@@ -22,6 +22,7 @@
 <div class='index-panel profile-panel index-panel recently-backed-panel'>
   <div class='container'>
     <h3>Recently Backed Companies</h3>
+    <% debugger %>
     <% if (user.backedCompanies().length) { %>
       <% _(user.backedCompanies().last(3)).each(function (company) { %>
         <div class='index-card'>

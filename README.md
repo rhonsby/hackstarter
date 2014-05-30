@@ -23,4 +23,5 @@ Hackstarter was built with Rails, Backbone, Postgresql, jQuery, Javascript, Boot
 * Activity Feed
 * Starred Companies
 * Search bar
-* Hook up Amazon Payments
+* Amazon Payments
+* Unicorn server

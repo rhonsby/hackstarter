@@ -11,8 +11,8 @@ Hackstarter.Models.User = Backbone.Model.extend({
       delete resp.companies;
     }
 
-    if (resp.backedCompanies) {
-      this.backedCompanies().set(resp.backedCompanies);
+    if (resp.backed_companies) {
+      this.backedCompanies().set(resp.backed_companies);
       delete resp.backedCompanies;
     }
 
