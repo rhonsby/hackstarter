@@ -6,19 +6,19 @@
     </span>Popular</h3>
 
     <div class='index-card'>
-      <% company = companies.findWhere({ name: 'App Academy' })
+      <% company = companies.findWhere({ name: 'Preddit' })
       || new Hackstarter.Models.Company() %>
       <%= JST['companies/company_card']({ company: company }) %>
     </div>
 
     <div class='index-card'>
-      <% company = companies.findWhere({ name: "Wreddit" })
+      <% company = companies.findWhere({ name: "ForgeTeam" })
       || new Hackstarter.Models.Company() %>
       <%= JST['companies/company_card']({ company: company }) %>
     </div>
 
     <div class='index-card'>
-      <% company = companies.findWhere({ name: 'Hotdelio' })
+      <% company = companies.findWhere({ name: 'SketchMate' })
       || new Hackstarter.Models.Company() %>
       <%= JST['companies/company_card']({ company: company }) %>
     </div>
