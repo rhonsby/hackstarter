@@ -35,7 +35,7 @@
 
     <div class="form-group">
       <label for='company_website'>Website</label>
-        <input type='text' name='company[website]' class='form-control'
+        <input type='url' name='company[website]' class='form-control'
         id='company_website' value='<%= company.escape('website') %>'
         placeholder='http://example.com'>
     </div>
@@ -71,7 +71,7 @@
 
     <div class="form-group">
       <label for='company_duration'>Duration</label>
-        <input type='text' name='company[duration]' class='form-control'
+        <input type='number' name='company[duration]' class='form-control'
           id='company_duration' placeholder="days"
           value='<%= company.escape('duration') %>'>
     </div>
@@ -80,7 +80,7 @@
       <label for="company_investment_goal">Investment Goal</label>
       <div class="input-group addon-input-group">
           <span class="input-group-addon">$</span>
-          <input type='text' name='company[investment_goal]'
+          <input type='number' name='company[investment_goal]'
                  class='form-control' id='company_investment_goal'
                  value='<%= company.escape('investment_goal') %>'>
       </div>
@@ -89,7 +89,7 @@
     <div class='form-group'>
       <label for="company_equity">Equity</label>
       <div class="input-group addon-input-group">
-          <input type='text' name='company[equity]'
+          <input type='number' name='company[equity]'
                  class='form-control' id='company_equity'
                  value='<%= company.escape('equity') %>'>
           <span class="input-group-addon">%</span>
