@@ -8,7 +8,7 @@
           <div class='tab-pane fade in active' id='art-design'>
             <h3>Staff Picks: Art &amp; Design</h3>
             <div class='large-card'>
-              <% company = companies.findWhere({ name: 'Hackstarter' })
+              <% company = companies.findWhere({ name: 'SketchMate' })
               || new Hackstarter.Models.Company() %>
               <%= JST['root/company_card']({ company: company }) %>
             </div>
@@ -53,7 +53,7 @@
           <div class='tab-pane fade in' id='games'>
             <h3>Staff Picks: Games</h3>
             <div class='large-card'>
-              <% company = companies.findWhere({ name: 'SketchMate' })
+              <% company = companies.findWhere({ name: 'AirDnD' })
               || new Hackstarter.Models.Company() %>
               <%= JST['root/company_card']({ company: company }) %>
             </div>
@@ -80,7 +80,7 @@
           <div class='tab-pane fade in' id='professional'>
             <h3>Staff Picks: Professional &amp; Business Services</h3>
             <div class='large-card'>
-              <% company = companies.findWhere({ name: 'Hackstarter' })
+              <% company = companies.findWhere({ name: 'Squello' })
               || new Hackstarter.Models.Company() %>
               <%= JST['root/company_card']({ company: company }) %>
             </div>
@@ -89,7 +89,7 @@
           <div class='tab-pane fade in' id='retail'>
             <h3>Staff Picks: Retail</h3>
             <div class='large-card'>
-              <% company = companies.findWhere({ name: 'Hackstarter' })
+              <% company = companies.findWhere({ name: 'Hotdealio' })
               || new Hackstarter.Models.Company() %>
               <%= JST['root/company_card']({ company: company }) %>
             </div>
