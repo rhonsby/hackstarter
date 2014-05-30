@@ -107,7 +107,7 @@
           <div class='tab-pane fade in' id='technology'>
             <h3>Staff Picks: Technology</h3>
             <div class='large-card'>
-              <% company = companies.findWhere({ name: 'Hackstarter' })
+              <% company = companies.findWhere({ name: 'Duetto' })
               || new Hackstarter.Models.Company() %>
               <%= JST['root/company_card']({ company: company }) %>
             </div>
