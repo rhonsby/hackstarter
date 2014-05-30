@@ -31,8 +31,8 @@ ActiveRecord::Base.transaction do
     equity: 4, growth_stage: 'Growth', sector_id: pro.id
   )
 
-  hotdelio = ken.companies.create!(
-    name: 'Hotdelio', location: 'San Francisco, CA',
+  hotdealio = ken.companies.create!(
+    name: 'Hotdealio', location: 'San Francisco, CA',
     blurb: 'Hella hot deals, yo', duration: 40, investment_goal: 20,
     equity: 40, growth_stage: 'Start-Up', sector_id: retail.id
   )
