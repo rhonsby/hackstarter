@@ -40,7 +40,6 @@ Hackstarter.Views.CompanyShow = Backbone.View.extend({
         $form[0].reset();
         view.model.fetch();
         view.closeModal();
-        // view.render();
       }
     });
   },
