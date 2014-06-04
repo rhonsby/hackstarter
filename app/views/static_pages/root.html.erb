@@ -15,6 +15,13 @@
       $('#user-main-nav').html(JST['users/signed_out_nav']());
       Hackstarter.isLoggedIn = false;
       Hackstarter.initialize();
+
+      $('#guest-login').on('click', function (event) {
+        event.preventDefault();
+        Backbone.history.navigate('#/login', { trigger: true });
+        $('#user_username').val('guest');
+        $('#user_password').val('foobar');
+      });
     <% end %>
   });
 </script>
